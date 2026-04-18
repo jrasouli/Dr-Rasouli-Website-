@@ -1,8 +1,19 @@
 import React from 'react';
+import SEO from '../components/SEO';
 
 const Statement: React.FC = () => {
   return (
     <div className="bg-white min-h-[calc(100vh-80px)] flex items-center justify-center p-4 sm:p-6 lg:p-8">
+      <SEO 
+        title="About Dr. Jonathan Rasouli | Philosophy & Approach | Spine Neurosurgeon NJ"
+        description="Learn about Dr. Jonathan Rasouli's patient-first philosophy and commitment to treating every patient with precision and compassion. Board-certified neurosurgeon in New Jersey."
+        canonicalPath="/statement"
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "About Dr. Rasouli", item: "/about" },
+          { name: "Statement", item: "/statement" }
+        ]}
+      />
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
         <div className="md:w-1/2 space-y-8 text-center md:text-left">
           <h1 className="text-4xl md:text-5xl font-heading font-bold text-[#0A192F]">

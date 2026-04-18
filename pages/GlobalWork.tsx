@@ -1,9 +1,20 @@
 import React from 'react';
 import { Globe, Laptop, MapPin, BookOpen, Shield, ArrowRight } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const GlobalWork: React.FC = () => {
   return (
     <div className="bg-white min-h-screen">
+      <SEO 
+        title="Global Humanitarian Work | Virtual Global Spine Conference | Dr. Rasouli"
+        description="Dr. Jonathan Rasouli co-founded the Virtual Global Spine Conference, providing free spine surgery education to physicians worldwide. Learn about his global healthcare advocacy."
+        canonicalPath="/global-work"
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "About", item: "/about" },
+          { name: "Global Humanitarian Work", item: "/global-work" }
+        ]}
+      />
       {/* Hero */}
       <div className="bg-[#0A192F] text-white py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

@@ -2,12 +2,22 @@ import React, { useState } from 'react';
 import { Play, Newspaper, ExternalLink, Award, Video, Mic, FileText, ChevronRight, BookOpen } from 'lucide-react';
 import Button from '../components/Button';
 import MediaCarousel from '../components/MediaCarousel';
+import SEO from '../components/SEO';
 
 const Media: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'journals' | 'presentations'>('journals');
 
   return (
     <div className="bg-white min-h-screen">
+      <SEO 
+        title="Dr. Jonathan Rasouli Media & Publications | Spine Neurosurgery"
+        description="View Dr. Rasouli's recent media appearances, peer-reviewed journal articles, and speaking engagements on complex spine surgery."
+        canonicalPath="/media"
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "Media", item: "/media" }
+        ]}
+      />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-primary to-blue-900 text-white py-16 md:py-24">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80')] opacity-10 bg-cover bg-center mix-blend-overlay"></div>

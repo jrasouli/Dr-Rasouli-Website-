@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { SERVICES } from '../constants';
 import { ChevronDown, ChevronUp, AlertCircle } from 'lucide-react';
 import Button from '../components/Button';
+import SEO from '../components/SEO';
 
 const Services: React.FC = () => {
   const [openId, setOpenId] = useState<string | null>('deformity');
@@ -10,8 +11,65 @@ const Services: React.FC = () => {
     setOpenId(openId === id ? null : id);
   };
 
+  const faqSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What conditions does Dr. Rasouli treat?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dr. Rasouli specializes in complex spinal deformity, adult scoliosis, herniated discs, spinal stenosis, spinal tumors, spinal trauma, and degenerative spine conditions. He offers both minimally invasive and robotic-assisted surgical options."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where does Dr. Rasouli see patients?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dr. Rasouli sees patients at Hudson Regional Hospital in Secaucus, NJ and Bayonne Medical Center in Bayonne, NJ. He serves patients throughout New Jersey and the greater New York metropolitan area."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Dr. Rasouli board certified?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Dr. Rasouli is board certified by the American Board of Neurological Surgery. He completed his fellowship in Complex & Adult Reconstructive Spinal Surgery at the Cleveland Clinic, one of the world's leading medical institutions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Dr. Rasouli perform minimally invasive spine surgery?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Dr. Rasouli is specially trained in minimally invasive spine surgery techniques, including robotic-assisted procedures. These approaches typically result in smaller incisions, less pain, shorter hospital stays, and faster recovery times."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I schedule a consultation with Dr. Rasouli?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can schedule a consultation by calling (201) 399-3388 or by visiting the NeuroSpine Plus website at neurospineplus.com/contact-us to book an appointment online."
+        }
+      }
+    ]
+  });
+
   return (
     <div className="bg-gray-50 min-h-screen pb-20">
+      <SEO 
+        title="Spine Surgery Services | Minimally Invasive & Robotic Surgery | Dr. Rasouli NJ"
+        description="Dr. Rasouli offers complex spinal deformity correction, minimally invasive spine surgery, robotic-assisted procedures, adult scoliosis treatment, and more in New Jersey."
+        canonicalPath="/services"
+        schema={faqSchema}
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "Services", item: "/services" }
+        ]}
+      />
       <div className="bg-primary text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl font-heading font-bold mb-4">Surgical & Non-Surgical Treatments</h1>

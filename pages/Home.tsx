@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Star, ChevronRight, CheckCircle2, Newspaper, Play } from 'lucide-react';
 import Button from '../components/Button';
+import SEO from '../components/SEO';
 import { SERVICES, TESTIMONIALS } from '../constants';
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
 import MediaCarousel from '../components/MediaCarousel';
@@ -15,8 +16,195 @@ const RESEARCH_DATA = [
 ];
 
 const Home: React.FC = () => {
+  const physicianSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Physician",
+    "@id": "https://www.drrasouli.com/#physician",
+    "name": "Dr. Jonathan J. Rasouli, MD",
+    "image": "https://www.drrasouli.com/images/dr-rasouli-headshot.jpg",
+    "description": "Board-certified, fellowship-trained spine neurosurgeon specializing in complex spinal deformity, minimally invasive surgery, and robotic-assisted spine procedures.",
+    "url": "https://www.drrasouli.com",
+    "telephone": "+1-201-399-3388",
+    "email": "contact@drrasouli.com",
+    "medicalSpecialty": [
+      "https://schema.org/Neurology",
+      {
+        "@type": "MedicalSpecialty",
+        "name": "Spinal Neurosurgery"
+      },
+      {
+        "@type": "MedicalSpecialty", 
+        "name": "Complex Spinal Deformity Surgery"
+      }
+    ],
+    "knowsAbout": [
+      "Complex Spinal Deformity",
+      "Adult Scoliosis",
+      "Minimally Invasive Spine Surgery",
+      "Robotic-Assisted Spine Surgery",
+      "Spinal Tumors",
+      "Spinal Trauma",
+      "Cervical Spine Surgery",
+      "Lumbar Fusion",
+      "Artificial Disc Replacement",
+      "Neurocritical Care"
+    ],
+    "alumniOf": [
+      {
+        "@type": "EducationalOrganization",
+        "name": "Cleveland Clinic Foundation",
+        "description": "Complex & Adult Reconstructive Spinal Surgery Fellowship"
+      },
+      {
+        "@type": "EducationalOrganization",
+        "name": "The Mount Sinai Hospital",
+        "description": "Neurological Surgery Residency"
+      },
+      {
+        "@type": "EducationalOrganization",
+        "name": "Albert Einstein College of Medicine",
+        "description": "Doctor of Medicine (M.D.)"
+      }
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Board Certification",
+        "name": "American Board of Neurological Surgery",
+        "dateCreated": "2023-05"
+      }
+    ],
+    "award": [
+      "Castle Connolly Top Doctor 2024",
+      "Castle Connolly Top Doctor 2025",
+      "Castle Connolly Top Doctor 2026",
+      "Castle Connolly Rising Star Award 2023",
+      "Top Doctor - New York Magazine 2024"
+    ],
+    "workLocation": [
+      {
+        "@type": "Hospital",
+        "name": "Hudson Regional Hospital",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Secaucus",
+          "addressRegion": "NJ",
+          "addressCountry": "US"
+        }
+      },
+      {
+        "@type": "Hospital",
+        "name": "Bayonne Medical Center",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bayonne",
+          "addressRegion": "NJ",
+          "addressCountry": "US"
+        }
+      }
+    ],
+    "affiliation": {
+      "@type": "MedicalOrganization",
+      "name": "NeuroSpine Plus",
+      "url": "https://neurospineplus.com"
+    },
+    "sameAs": [
+      "https://www.youtube.com/c/virtualglobalspineconference",
+      "https://www.healthgrades.com/physicians/dr-jonathan-rasouli",
+      "https://www.doximity.com/pub/jonathan-rasouli-md"
+    ]
+  });
+
+  const businessSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "@id": "https://www.drrasouli.com/#practice",
+    "name": "Dr. Jonathan J. Rasouli, MD - Spine Neurosurgery",
+    "description": "Board-certified spine neurosurgery practice specializing in complex spinal deformity, minimally invasive surgery, and robotic-assisted procedures.",
+    "url": "https://www.drrasouli.com",
+    "telephone": "+1-201-399-3388",
+    "priceRange": "$$$$",
+    "medicalSpecialty": "Neurosurgery",
+    "availableService": [
+      {
+        "@type": "MedicalProcedure",
+        "name": "Complex Spinal Deformity Surgery"
+      },
+      {
+        "@type": "MedicalProcedure",
+        "name": "Minimally Invasive Spine Surgery"
+      },
+      {
+        "@type": "MedicalProcedure",
+        "name": "Robotic-Assisted Spine Surgery"
+      },
+      {
+        "@type": "MedicalProcedure",
+        "name": "Adult Scoliosis Correction"
+      },
+      {
+        "@type": "MedicalProcedure",
+        "name": "Lumbar Fusion"
+      },
+      {
+        "@type": "MedicalProcedure",
+        "name": "Cervical Spine Surgery"
+      },
+      {
+        "@type": "MedicalProcedure",
+        "name": "Artificial Disc Replacement"
+      },
+      {
+        "@type": "MedicalProcedure",
+        "name": "Spinal Tumor Surgery"
+      }
+    ],
+    "areaServed": [
+      {
+        "@type": "State",
+        "name": "New Jersey"
+      },
+      {
+        "@type": "State",
+        "name": "New York"
+      }
+    ],
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "40.7920",
+      "longitude": "-74.0650"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "17:00"
+    },
+    "potentialAction": {
+      "@type": "ReserveAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://neurospineplus.com/contact-us/",
+        "actionPlatform": [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/MobileWebPlatform"
+        ]
+      },
+      "result": {
+        "@type": "Reservation",
+        "name": "Book Appointment"
+      }
+    }
+  });
+
   return (
     <div className="flex flex-col">
+      <SEO 
+        title="Dr. Jonathan J. Rasouli, MD | Board-Certified Spine Neurosurgeon | NJ & NY"
+        description="Dr. Jonathan Rasouli is a fellowship-trained spine neurosurgeon specializing in complex spinal deformity, minimally invasive surgery, and robotic-assisted procedures. Serving patients in New Jersey and New York. Call (201) 399-3388."
+        canonicalPath="/"
+        schema={[physicianSchema, businessSchema]}
+      />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-primary to-blue-900 text-white pt-12 pb-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://picsum.photos/id/4/1920/1080')] opacity-10 bg-cover bg-center mix-blend-overlay"></div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Calendar, FolderOpen, ChevronRight } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const NEWS_ARTICLES = [
   {
@@ -50,8 +51,37 @@ const NEWS_ARTICLES = [
 ];
 
 const News: React.FC = () => {
+  const newsSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": NEWS_ARTICLES.map((article, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "NewsArticle",
+        "headline": article.title,
+        "datePublished": new Date(article.date).toISOString().split('T')[0],
+        "url": article.url,
+        "about": {
+          "@type": "Person",
+          "name": "Dr. Jonathan J. Rasouli"
+        }
+      }
+    }))
+  });
+
   return (
     <div className="bg-gray-50 min-h-screen pb-20">
+      <SEO 
+        title="Dr. Jonathan Rasouli in the News | Media Features | NY Post, CNN, CBC"
+        description="Dr. Jonathan Rasouli featured in NY Post, CNN, CBC Radio, and more. Read about his groundbreaking cases and expert insights on brain health and spine surgery."
+        canonicalPath="/news"
+        schema={newsSchema}
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "News", item: "/news" }
+        ]}
+      />
       {/* Header */}
       <div className="bg-neutral-light py-16 border-b border-gray-200 mb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

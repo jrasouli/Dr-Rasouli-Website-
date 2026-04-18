@@ -1,10 +1,21 @@
 import React from 'react';
 import { Award, GraduationCap, Building2, Download } from 'lucide-react';
 import Button from '../components/Button';
+import SEO from '../components/SEO';
 
 const Credentials: React.FC = () => {
   return (
     <div className="bg-white min-h-screen">
+       <SEO 
+        title="Dr. Jonathan Rasouli Credentials | Cleveland Clinic Fellowship | Castle Connolly Top Doctor"
+        description="Dr. Jonathan Rasouli's credentials: Cleveland Clinic fellowship-trained, board-certified neurosurgeon, Castle Connolly Top Doctor 2024-2026. Mount Sinai residency, Albert Einstein College of Medicine."
+        canonicalPath="/credentials"
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "About Dr. Rasouli", item: "/about" },
+          { name: "Credentials", item: "/credentials" }
+        ]}
+      />
        <div className="bg-neutral-light py-16 border-b border-gray-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">

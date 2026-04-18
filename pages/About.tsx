@@ -4,10 +4,20 @@ import { GraduationCap } from 'lucide-react';
 import Button from '../components/Button';
 import SocialButtons from '../components/SocialButtons';
 import MediaCarousel from '../components/MediaCarousel';
+import SEO from '../components/SEO';
 
 const About: React.FC = () => {
   return (
     <div className="bg-white">
+      <SEO 
+        title="About Dr. Jonathan Rasouli | Top NY & NJ Spine Surgeon"
+        description="Learn about Dr. Rasouli, a board-certified, dual fellowship-trained spine neurosurgeon. Read about his background and philosophy."
+        canonicalPath="/about"
+        breadcrumbs={[
+          { name: "Home", item: "/" },
+          { name: "About Dr. Rasouli", item: "/about" }
+        ]}
+      />
       {/* Header */}
       <div className="bg-neutral-light py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
