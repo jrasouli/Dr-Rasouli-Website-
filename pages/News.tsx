@@ -60,24 +60,29 @@ const NEWS_ARTICLES = [
 ];
 
 const News: React.FC = () => {
-  const newsSchema = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "itemListElement": NEWS_ARTICLES.map((article, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "item": {
-        "@type": "NewsArticle",
-        "headline": article.title,
-        "datePublished": new Date(article.date).toISOString().split('T')[0],
-        "url": article.url,
-        "about": {
-          "@type": "Person",
-          "name": "Dr. Jonathan J. Rasouli"
+  let newsSchema = '{}';
+  try {
+    newsSchema = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": NEWS_ARTICLES.map((article, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "NewsArticle",
+          "headline": article.title,
+          "datePublished": article.date,
+          "url": article.url,
+          "about": {
+            "@type": "Person",
+            "name": "Dr. Jonathan J. Rasouli"
+          }
         }
-      }
-    }))
-  });
+      }))
+    });
+  } catch (e) {
+    console.error('Schema generation error:', e);
+  }
 
   return (
     <div className="bg-gray-50 min-h-screen pb-20">
