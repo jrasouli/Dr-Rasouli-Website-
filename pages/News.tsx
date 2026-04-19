@@ -4,6 +4,15 @@ import SEO from '../components/SEO';
 
 const NEWS_ARTICLES = [
   {
+    id: 6,
+    title: "New York Teen’s First Word Months After Being Pulled From Fiery Crash Was ‘Mom’",
+    url: "https://cafemom.com/news/teens-first-word-months-after-being-pulled-from-fiery-crash-was-mom",
+    date: "2024",
+    category: "Press & Media",
+    summary: "After a fiery crash left him with severe injuries, a Staten Island teen's first word months later was 'Mom'.",
+    image: "/PNG image.png"
+  },
+  {
     id: 1,
     title: "Neurosurgeon's hearty recipe fights dementia and brain disease",
     url: "https://nypost.com/2025/01/20/health/neurosurgeons-hearty-recipe-fights-dementia-and-brain-disease/",

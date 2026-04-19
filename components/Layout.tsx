@@ -118,12 +118,10 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 </div>
               ))}
               
-              {/* CTA Button */}
+              {/* CTA Buttons */}
               <div className="flex items-center gap-3 ml-4">
-                 <a href="https://neurospineplus.com/contact-us/" target="_blank" rel="noopener noreferrer">
-                  <button className="bg-[#0066CC] hover:bg-[#0052A3] text-white px-5 py-2.5 rounded-md text-sm font-semibold transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 whitespace-nowrap">
-                    Schedule Consultation
-                  </button>
+                <a href="https://neurospineplus.com/contact-us/" target="_blank" rel="noopener noreferrer" className="bg-[#0066CC] hover:bg-[#0052A3] text-white border-2 border-[#0066CC] hover:border-[#0052A3] px-5 py-2.5 rounded-md text-sm font-semibold transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 whitespace-nowrap">
+                  Schedule Consultation
                 </a>
               </div>
             </nav>
@@ -202,10 +200,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               ))}
               
               <div className="pt-6 space-y-3">
-                 <a href="https://neurospineplus.com/contact-us/" target="_blank" rel="noopener noreferrer" className="block w-full" onClick={() => setIsMenuOpen(false)}>
-                    <Button variant="primary" fullWidth className="py-3">Schedule Consultation</Button>
+                 <a href="https://neurospineplus.com/contact-us/" target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-[#0066CC] hover:bg-[#0052A3] text-white border-2 border-[#0066CC] px-4 py-3 rounded-md font-semibold transition-all">
+                    Schedule Consultation
                  </a>
-
                  <a href={`tel:${CONTACT_INFO.phone.replace(/\D/g,'')}`} className="block w-full">
                     <Button variant="outline" fullWidth className="py-3 flex items-center gap-2 justify-center">
                       <Phone size={18} /> Call {CONTACT_INFO.phone}
@@ -256,15 +253,23 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <div>
               <h4 className="text-lg font-semibold mb-4 text-secondary">Quick Links</h4>
               <ul className="space-y-2 text-sm text-gray-300">
-                {NAV_LINKS.map(link => (
-                  <li key={link.path}>
-                    {link.isExternal ? (
-                      <a href={link.path} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">{link.label}</a>
-                    ) : (
-                      <Link to={link.path} className="hover:text-white transition-colors">{link.label}</Link>
-                    )}
-                  </li>
-                ))}
+                {NAV_LINKS.map(link => {
+                  let href = link.path;
+                  let text = link.label;
+                  if (text === 'About Dr. Rasouli') {
+                    text = 'Statement';
+                    href = '/statement';
+                  }
+                  return (
+                    <li key={href}>
+                      {link.isExternal ? (
+                        <a href={href} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">{text}</a>
+                      ) : (
+                        <Link to={href} className="hover:text-white transition-colors">{text}</Link>
+                      )}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
 
