@@ -15,7 +15,7 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({ title, description, canonicalPath, schema, breadcrumbs }) => {
-  const domain = 'https://www.drrasouli.com';
+  const domain = 'https://rasouli-md.com';
   const canonicalUrl = canonicalPath ? `${domain}${canonicalPath}` : domain;
   
   // If multiple schemas are provided as an array, map them to multiple scripts
@@ -53,6 +53,7 @@ const SEO: React.FC<SEOProps> = ({ title, description, canonicalPath, schema, br
       <meta property="twitter:url" content={canonicalUrl} />
       <meta property="twitter:title" content={title} />
       <meta property="twitter:description" content={description} />
+      <meta property="twitter:image" content={`${domain}/images/dr-rasouli-og-image.jpg`} />
       
       {/* Canonical URL */}
       <link rel="canonical" href={canonicalUrl} />

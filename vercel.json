@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    { "source": "/about", "destination": "/about/index.html" },
+    { "source": "/statement", "destination": "/statement/index.html" },
+    { "source": "/credentials", "destination": "/credentials/index.html" },
+    { "source": "/global-work", "destination": "/global-work/index.html" },
+    { "source": "/news", "destination": "/news/index.html" },
+    { "source": "/services", "destination": "/services/index.html" },
+    { "source": "/media", "destination": "/media/index.html" },
+    { "source": "/((?!.*\\.[a-zA-Z0-9]+$).*)", "destination": "/index.html" }
+  ]
+}
