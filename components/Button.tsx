@@ -5,27 +5,17 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({ 
-  children, 
-  variant = 'primary', 
-  fullWidth = false, 
-  className = '', 
-  ...props 
-}) => {
-  const baseStyles = "inline-flex items-center justify-center px-6 py-3 border text-base font-medium rounded-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
-  
+// Kept for any <button> use. Links should use ButtonLink from ./ui so markup stays valid.
+const Button: React.FC<ButtonProps> = ({ children, variant = 'primary', fullWidth = false, className = '', ...props }) => {
+  const base = 'inline-flex items-center justify-center gap-2 px-6 py-3 border text-base font-semibold rounded-md transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-600 focus-visible:ring-offset-2 disabled:opacity-50';
   const variants = {
-    primary: "border-transparent text-white bg-primary hover:bg-blue-800 focus:ring-primary shadow-sm hover:shadow-md",
-    secondary: "border-transparent text-white bg-secondary hover:bg-teal-600 focus:ring-secondary",
-    outline: "border-primary text-primary bg-transparent hover:bg-primary hover:text-white focus:ring-primary",
-    white: "border-white text-primary bg-white hover:bg-gray-100 focus:ring-white"
+    primary: 'border-teal-700 text-white bg-teal-700 hover:bg-teal-800',
+    secondary: 'border-teal-700 text-white bg-teal-700 hover:bg-teal-800',
+    outline: 'border-navy-800/25 text-navy-800 bg-white hover:border-navy-800 hover:bg-navy-50',
+    white: 'border-white text-navy-800 bg-white hover:bg-sand',
   };
-
   return (
-    <button
-      className={`${baseStyles} ${variants[variant]} ${fullWidth ? 'w-full' : ''} ${className}`}
-      {...props}
-    >
+    <button className={`${base} ${variants[variant]} ${fullWidth ? 'w-full' : ''} ${className}`} {...props}>
       {children}
     </button>
   );

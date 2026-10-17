@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { SERVICES } from '../constants';
-import { ChevronDown, ChevronUp, AlertCircle } from 'lucide-react';
-import Button from '../components/Button';
+import { ChevronDown, HeartHandshake, Phone } from 'lucide-react';
 import SEO from '../components/SEO';
+import { Container, PageHeader, ButtonLink } from '../components/ui';
+import { APPOINTMENT_URL } from '../constants';
 
 const Services: React.FC = () => {
   const [openId, setOpenId] = useState<string | null>('deformity');
@@ -59,10 +60,10 @@ const Services: React.FC = () => {
   });
 
   return (
-    <div className="bg-gray-50 min-h-screen pb-20">
+    <div className="bg-white">
       <SEO 
         title="Spine Surgery Services | Minimally Invasive & Robotic Surgery | Dr. Rasouli NJ"
-        description="Dr. Rasouli offers complex spinal deformity correction, minimally invasive spine surgery, robotic-assisted procedures, adult scoliosis treatment, and more in New Jersey."
+        description="Dr. Rasouli offers complex spinal deformity correction, minimally invasive spine surgery, robotic-assisted procedures, adult scoliosis treatment, and more in New Jersey and Staten Island."
         canonicalPath="/services"
         schema={faqSchema}
         breadcrumbs={[
@@ -70,69 +71,73 @@ const Services: React.FC = () => {
           { name: "Services", item: "/services" }
         ]}
       />
-      <div className="bg-primary text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl font-heading font-bold mb-4">Surgical & Non-Surgical Treatments</h1>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-            Dr. Rasouli provides expert treatment for a wide range of spine conditions, prioritizing conservative management whenever possible.
-          </p>
-        </div>
-      </div>
+      <PageHeader
+        eyebrow="Services"
+        title="Surgical & Non-Surgical Treatments"
+        lead="Dr. Rasouli provides expert treatment for a wide range of spine conditions, prioritizing conservative management whenever possible."
+      />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8">
-        <div className="bg-white rounded-xl shadow-xl overflow-hidden">
-          {SERVICES.map((service) => {
-            const isOpen = openId === service.id;
-            return (
-              <div key={service.id} className="border-b border-gray-100 last:border-0">
-                <button 
-                  onClick={() => toggle(service.id)}
-                  className={`w-full text-left px-6 py-6 flex items-center justify-between transition-colors ${isOpen ? 'bg-blue-50' : 'hover:bg-gray-50'}`}
-                >
-                  <div className="flex items-center gap-4">
-                    <div className={`p-2 rounded-lg ${isOpen ? 'bg-primary text-white' : 'bg-gray-100 text-gray-500'}`}>
-                      <service.icon size={24} />
-                    </div>
-                    <span className={`text-lg font-bold ${isOpen ? 'text-primary' : 'text-gray-900'}`}>{service.title}</span>
+      <Container className="py-14 md:py-20">
+        <div className="grid gap-10 lg:grid-cols-12">
+          <div className="lg:col-span-8">
+            <div className="rounded-xl border border-slate-200 divide-y divide-slate-200 overflow-hidden">
+              {SERVICES.map((service) => {
+                const isOpen = openId === service.id;
+                return (
+                  <div key={service.id}>
+                    <button
+                      onClick={() => toggle(service.id)}
+                      aria-expanded={isOpen}
+                      className={`w-full text-left px-5 md:px-6 py-5 flex items-center justify-between gap-4 transition-colors ${isOpen ? 'bg-sand' : 'hover:bg-slate-50'}`}
+                    >
+                      <span className="flex items-center gap-4">
+                        <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-lg ${isOpen ? 'bg-teal-700 text-white' : 'bg-teal-50 text-teal-700'}`}>
+                          <service.icon size={22} />
+                        </span>
+                        <span className="font-serif text-xl font-semibold text-navy-800">{service.title}</span>
+                      </span>
+                      <ChevronDown className={`shrink-0 text-slate-500 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    {isOpen && (
+                      <div className="px-5 md:px-6 pb-7 pt-1 md:pl-[84px] bg-sand animate-fadeIn">
+                        <p className="text-slate-700 text-lg leading-relaxed mb-5">{service.description}</p>
+                        <h3 className="text-xs font-sans font-semibold uppercase tracking-[0.14em] text-slate-500 mb-3">Procedures &amp; Conditions</h3>
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-6">
+                          {service.details?.map((detail) => (
+                            <li key={detail} className="flex items-center gap-2.5 bg-white border border-sand-200 rounded-md px-3.5 py-2.5 text-ink">
+                              <span className="w-1.5 h-1.5 rounded-full bg-teal-700" aria-hidden="true"></span>
+                              {detail}
+                            </li>
+                          ))}
+                        </ul>
+                        <ButtonLink href={APPOINTMENT_URL} variant="secondary">Request a Consultation</ButtonLink>
+                      </div>
+                    )}
                   </div>
-                  {isOpen ? <ChevronUp className="text-primary" /> : <ChevronDown className="text-gray-400" />}
-                </button>
-                
-                {isOpen && (
-                  <div className="px-6 pb-8 pt-2 pl-[88px] pr-8 animate-fadeIn">
-                    <p className="text-gray-600 mb-6 text-lg">{service.description}</p>
-                    
-                    <h4 className="font-semibold text-gray-900 mb-3">Procedures & Conditions:</h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-                      {service.details?.map((detail, idx) => (
-                        <div key={idx} className="flex items-center gap-2 text-gray-700 bg-white border border-gray-200 p-3 rounded shadow-sm">
-                          <div className="w-1.5 h-1.5 rounded-full bg-secondary"></div>
-                          {detail}
-                        </div>
-                      ))}
-                    </div>
-                    
-                    <a href="https://neurospineplus.com/contact-us/" target="_blank" rel="noopener noreferrer">
-                      <Button variant="outline" className="text-sm">Request Consultation for {service.title}</Button>
-                    </a>
-                  </div>
-                )}
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Conservative Approach Note */}
-        <div className="mt-12 bg-amber-50 border border-amber-200 rounded-xl p-6 flex gap-4">
-          <AlertCircle className="text-amber-600 shrink-0" size={24} />
-          <div>
-             <h3 className="font-bold text-amber-800 mb-2">Conservative First Approach</h3>
-             <p className="text-amber-700 text-sm leading-relaxed">
-               Dr. Rasouli believes spine surgery is not always the answer. We thoroughly explore non-surgical options including physical therapy, pain management, and lifestyle modifications before recommending surgical intervention.
-             </p>
+                );
+              })}
+            </div>
           </div>
+
+          <aside className="lg:col-span-4 space-y-6">
+            <div className="rounded-xl bg-teal-50 border border-teal-100 p-6">
+              <HeartHandshake className="text-teal-700 mb-3" size={28} />
+              <h2 className="text-xl font-semibold text-navy-800 mb-2">Conservative First Approach</h2>
+              <p className="text-slate-700 leading-relaxed">
+                Dr. Rasouli believes spine surgery is not always the answer. We thoroughly explore non-surgical options including physical therapy, pain management, and lifestyle modifications before recommending surgical intervention.
+              </p>
+            </div>
+            <div className="rounded-xl bg-navy-800 text-white p-6">
+              <h2 className="text-xl font-semibold mb-2">Schedule a consultation</h2>
+              <p className="text-navy-100/85 mb-5">Appointments are available at five NeuroSpine Plus offices across New Jersey and Staten Island.</p>
+              <ButtonLink href={APPOINTMENT_URL} className="w-full">Request an Appointment</ButtonLink>
+              <a href="tel:2013993388" className="mt-4 flex items-center justify-center gap-2 font-semibold text-white hover:text-teal-300">
+                <Phone size={18} className="text-teal-300" /> (201) 399-3388
+              </a>
+            </div>
+          </aside>
         </div>
-      </div>
+      </Container>
     </div>
   );
 };

@@ -1,94 +1,43 @@
 import React from 'react';
-import { Search } from 'lucide-react';
+import { Container } from './ui';
 
 const OUTLETS = [
-  "NY Post",
-  "CNN",
-  "The Washington Post",
+  'New York Post',
+  'CNN',
+  'The Washington Post',
   "Becker's Spine",
-  "U.S. News & World Report",
-  "WebMD",
-  "ResearchGate",
+  'U.S. News & World Report',
+  'WebMD',
 ];
 
-const MediaCarousel: React.FC<{ className?: string }> = ({ className = "" }) => {
-  return (
-    <section className={`bg-gradient-to-br from-blue-50 to-white py-12 overflow-hidden border-y border-gray-100 ${className}`}>
-      <style>
-        {`
-          @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-          .carousel-track {
-            display: flex;
-            gap: 4rem;
-            width: max-content;
-            animation: scroll 40s linear infinite;
-          }
-          .carousel-wrapper:hover .carousel-track {
-            animation-play-state: paused;
-          }
-          .media-outlet {
-             color: #6b7280;
-             transition: all 0.3s ease;
-          }
-          .media-outlet:hover {
-             color: #1E4D8B;
-             transform: scale(1.05);
-          }
-        `}
-      </style>
-      
-      <div className="max-w-7xl mx-auto px-4 mb-10 text-center">
-        <h3 className="font-heading font-bold text-2xl text-primary uppercase tracking-wide mb-2">As Featured In</h3>
-        <p className="text-gray-500 text-lg">Recognized Expert in National Media & Medical Publications</p>
-      </div>
+const RESEARCH_LINKS = [
+  { label: 'PubMed', href: 'https://pubmed.ncbi.nlm.nih.gov/?term=rasouli+jonathan' },
+  { label: 'ResearchGate', href: 'https://www.researchgate.net/profile/Jonathan-Rasouli' },
+  { label: 'Doximity', href: 'https://www.doximity.com/pub/jonathan-rasouli-md' },
+  { label: 'Google Search', href: 'https://www.google.com/search?q=Dr+Jonathan+Rasouli+neurosurgeon' },
+];
 
-      <div className="carousel-wrapper relative w-full">
-        {/* Gradient masks for smooth edges */}
-        <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-blue-50 to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
-
-        <div className="carousel-track items-center py-4 px-4">
-          {/* First set of outlet names */}
-          {OUTLETS.map((name, index) => (
-            <div key={`outlet-1-${index}`} className="flex items-center justify-center min-w-[160px] h-20 px-4">
-              <span className="media-outlet font-heading font-bold text-xl md:text-2xl whitespace-nowrap">{name}</span>
-            </div>
-          ))}
-          {/* Duplicate set for infinite loop */}
-          {OUTLETS.map((name, index) => (
-            <div key={`outlet-2-${index}`} className="flex items-center justify-center min-w-[160px] h-20 px-4" aria-hidden="true">
-              <span className="media-outlet font-heading font-bold text-xl md:text-2xl whitespace-nowrap">{name}</span>
-            </div>
-          ))}
-           {/* Triplicate set for infinite loop on wide screens */}
-           {OUTLETS.map((name, index) => (
-            <div key={`outlet-3-${index}`} className="flex items-center justify-center min-w-[160px] h-20 px-4" aria-hidden="true">
-              <span className="media-outlet font-heading font-bold text-xl md:text-2xl whitespace-nowrap">{name}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="text-center mt-10 border-t border-gray-200/60 pt-8 mx-auto max-w-4xl px-4">
-        <p className="text-gray-700 mb-4 text-sm md:text-base">
-          <Search size={16} className="inline-block text-primary mr-2 mb-0.5" />
-          <strong>Research Dr. Rasouli</strong> to discover more credible sources featuring his expertise in neurosurgery and spine care
-        </p>
-        <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-semibold">
-           <a href="https://pubmed.ncbi.nlm.nih.gov/?term=rasouli+jonathan" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-cta-orange hover:underline">PubMed</a>
-           <span className="text-gray-300">|</span>
-           <a href="https://www.researchgate.net/profile/Jonathan-Rasouli" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-cta-orange hover:underline">ResearchGate</a>
-           <span className="text-gray-300">|</span>
-           <a href="https://www.doximity.com/pub/jonathan-rasouli-md" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-cta-orange hover:underline">Doximity</a>
-           <span className="text-gray-300">|</span>
-           <a href="https://www.google.com/search?q=Dr+Jonathan+Rasouli+neurosurgeon" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-cta-orange hover:underline">Google Search</a>
-        </div>
-      </div>
-    </section>
-  );
-};
+/** "As Featured In" — a static, wrapping row of text wordmarks (no marquee, nothing cut off). */
+const MediaCarousel: React.FC<{ className?: string }> = ({ className = '' }) => (
+  <section className={`bg-sand border-y border-sand-200 ${className}`} aria-labelledby="featured-in">
+    <Container className="py-12 md:py-14 text-center">
+      <p id="featured-in" className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">As Featured In</p>
+      <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-8 lg:gap-x-10 gap-y-3">
+        {OUTLETS.map((name) => (
+          <li key={name} className="font-serif text-xl lg:text-[1.375rem] font-semibold text-navy-800/70 whitespace-nowrap">{name}</li>
+        ))}
+      </ul>
+      <p className="mt-8 text-sm text-slate-600">
+        Research Dr. Rasouli:{' '}
+        {RESEARCH_LINKS.map((l, i) => (
+          <React.Fragment key={l.label}>
+            {i > 0 && <span className="text-slate-300 mx-2" aria-hidden="true">·</span>}
+            <a href={l.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-700 hover:text-navy-800 underline underline-offset-2">{l.label}</a>
+          </React.Fragment>
+        ))}
+      </p>
+    </Container>
+  </section>
+);
 
 export default MediaCarousel;
