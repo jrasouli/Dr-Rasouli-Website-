@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#0F2A4A" />
     <title>Dr. Jonathan J. Rasouli, MD | Complex Spine Surgery</title>
     <meta name="description" content="Board-Certified Neurosurgeon specializing in complex and adult spinal deformity surgery. Dual fellowship-trained expertise." />
     <!-- Preconnect to external resources -->
@@ -13,34 +14,45 @@
     <link rel="dns-prefetch" href="//neurospineplus.com">
     
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
-              sans: ['Open Sans', 'sans-serif'],
-              heading: ['Poppins', 'sans-serif'],
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+              heading: ['"Source Serif 4"', 'Georgia', 'serif'],
+              serif: ['"Source Serif 4"', 'Georgia', 'serif'],
+            },
+            fontSize: {
+              xs: ['0.8125rem', { lineHeight: '1.25rem' }],
+              sm: ['0.9375rem', { lineHeight: '1.5rem' }],
+              base: ['1.0625rem', { lineHeight: '1.75rem' }],
             },
             colors: {
-              primary: '#1E4D8B', // Deep Blue
-              secondary: '#20B2AA', // Medical Teal
-              trust: '#003366', // Trust Navy
-              accent: '#DAA520', // Gold
-              'neutral-light': '#F5F5F5',
-              'cta-orange': '#FF6B35', // Vibrant Orange for MRI Review
+              // One palette: deep navy + a single refined teal accent + warm neutrals.
+              navy: { DEFAULT: '#0F2A4A', 950: '#081A30', 900: '#0B213D', 800: '#0F2A4A', 700: '#1B3B63', 600: '#2C4F7C', 100: '#E6ECF3', 50: '#F2F5F9' },
+              teal: { DEFAULT: '#0F766E', 800: '#0B5953', 700: '#0F766E', 600: '#138A80', 300: '#7FD1C7', 200: '#B5E6DF', 100: '#DDF3EF', 50: '#EEF8F6' },
+              sand: { DEFAULT: '#F6F3EE', 200: '#E9E3D8', 100: '#F6F3EE' },
+              ink: '#1C2733',
+              // Legacy names kept so any leftover class stays on-palette.
+              primary: '#0F2A4A',
+              secondary: '#0F766E',
+              trust: '#0B213D',
+              accent: '#0F766E',
+              'neutral-light': '#F6F3EE',
+              'cta-orange': '#0F766E',
             }
           }
         }
       }
     </script>
     <style>
-      body {
-        font-family: 'Open Sans', sans-serif;
-      }
-      h1, h2, h3, h4, h5, h6 {
-        font-family: 'Poppins', sans-serif;
-      }
+      html { -webkit-text-size-adjust: 100%; }
+      body { font-family: 'Inter', system-ui, sans-serif; color: #1C2733; font-size: 1.0625rem; -webkit-font-smoothing: antialiased; }
+      h1, h2, h3, h4 { font-family: 'Source Serif 4', Georgia, serif; letter-spacing: -0.01em; }
+      @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+      .animate-fadeIn { animation: fadeIn .25s ease-out; }
     </style>
   <script type="importmap">
 {

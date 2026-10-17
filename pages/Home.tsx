@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Star, ChevronRight, CheckCircle2, Newspaper, Play, MapPin } from 'lucide-react';
-import Button from '../components/Button';
+import { Star, ChevronRight, CheckCircle2, MapPin, Phone, ExternalLink } from 'lucide-react';
 import SEO from '../components/SEO';
-import { SERVICES, TESTIMONIALS, OFFICE_LOCATIONS, APPOINTMENT_URL } from '../constants';
+import { SERVICES, TESTIMONIALS, OFFICE_LOCATIONS, APPOINTMENT_URL, CASTLE_CONNOLLY_URL } from '../constants';
 import MediaCarousel from '../components/MediaCarousel';
-import SocialButtons from '../components/SocialButtons';
 import CredentialsBadges from '../components/CredentialsBadges';
+import { Container, ButtonLink, Eyebrow, SectionHeading, Picture } from '../components/ui';
 
 const SITE_URL = 'https://rasouli-md.com';
 
@@ -216,274 +215,236 @@ const Home: React.FC = () => {
         canonicalPath="/"
         schema={[physicianSchema, businessSchema]}
       />
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-primary to-blue-900 text-white pt-12 pb-24 md:py-32 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="md:w-3/5 space-y-6">
-              <a 
-                href="https://health.usnews.com/doctors/jonathan-rasouli-935230"
+
+      {/* Hero */}
+      <section className="relative bg-navy-800 text-white overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(127,209,199,0.14),transparent_55%)]" aria-hidden="true"></div>
+        <Container className="relative py-8 md:py-14 lg:py-16">
+          <div className="grid items-center gap-8 md:gap-12 md:grid-cols-12">
+            {/* Photo: first on mobile so it is visible near the top */}
+            <div className="md:col-span-5 md:order-2">
+              <div className="relative mx-auto max-w-[420px]">
+                <Picture
+                  name="dr-rasouli-hero"
+                  alt="Dr. Jonathan J. Rasouli, MD"
+                  eager
+                  width={1000}
+                  height={1500}
+                  className="block"
+                  imgClassName="w-full aspect-[3/2] md:aspect-[4/5] object-cover object-[center_18%] rounded-xl shadow-2xl ring-1 ring-white/10"
+                />
+              </div>
+            </div>
+
+            <div className="md:col-span-7 md:order-1">
+              <Eyebrow onDark>NeuroSpine Plus · New Jersey</Eyebrow>
+              <p className="hidden md:block mt-4 font-serif text-2xl md:text-[1.7rem] font-semibold text-white">Jonathan J. Rasouli, MD</p>
+              <p className="mt-2 md:mt-1 text-sm md:text-base text-navy-100/85 font-medium tracking-wide">Board-certified · ABNS · FAANS</p>
+              <h1 className="mt-4 md:mt-5 text-[2.25rem] sm:text-5xl lg:text-[3.4rem] font-semibold leading-[1.08] text-white">
+                Complex &amp; robotic spine surgery across New Jersey
+              </h1>
+              <p className="mt-5 text-lg md:text-xl text-navy-100/90 leading-relaxed max-w-2xl">
+                Dr. Rasouli is a board-certified, fellowship-trained neurosurgeon specializing in robotic-assisted, minimally invasive, and complex spinal deformity surgery.
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+                <ButtonLink href={APPOINTMENT_URL} className="text-lg px-7">Request an Appointment</ButtonLink>
+                <a href="tel:2013993388" className="inline-flex items-center gap-2 text-lg font-semibold text-white hover:text-teal-300">
+                  <Phone size={20} className="text-teal-300" /> Call (201) 399-3388
+                </a>
+              </div>
+
+              {/* One clear Castle Connolly treatment */}
+              <a
+                href={CASTLE_CONNOLLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-blue-800/50 px-4 py-1.5 rounded-full border border-blue-400/30 backdrop-blur-sm hover:bg-blue-800/70 transition-colors group cursor-pointer"
+                className="mt-9 inline-flex items-center gap-4 rounded-xl bg-white/[0.06] hover:bg-white/10 ring-1 ring-white/15 p-3 pr-5 transition-colors"
               >
-                <Star size={16} className="text-accent fill-accent group-hover:scale-110 transition-transform" />
-                <span className="text-sm font-medium tracking-wide underline decoration-blue-400/50 underline-offset-4 group-hover:decoration-blue-300">5.0 Patient Rating US News & World Report</span>
+                <Picture name="castle-connolly-2026" alt="Castle Connolly Top Doctors 2026" width={213} height={320} className="block shrink-0" imgClassName="h-20 w-auto rounded" />
+                <span>
+                  <span className="block font-serif text-lg font-semibold text-white">Castle Connolly Top Doctors</span>
+                  <span className="block text-sm text-navy-100/85">2024 · 2025 · 2026 &nbsp;|&nbsp; Rising Star 2023</span>
+                </span>
               </a>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading font-bold leading-tight">
-                World-Class Spine Care, <span className="text-secondary">Personalized for You</span>
-              </h1>
-              <p className="text-lg md:text-xl text-blue-100 max-w-3xl leading-relaxed">
-                Dr. Jonathan J. Rasouli is a board-certified, fellowship-trained neurosurgeon specializing in robotic-assisted, minimally invasive, and complex spinal deformity surgery.
-              </p>
-              <div className="pt-4 flex flex-col items-start">
-                <div className="inline-flex flex-col items-center">
-                  <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                    <a href="https://neurospineplus.com/contact-us/" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                      <Button variant="secondary" className="w-full sm:w-auto text-lg px-8">Schedule Consultation</Button>
-                    </a>
-                  </div>
-
-                  {/* Moved Badges here for better aesthetics */}
-                  <div className="flex flex-wrap items-center justify-center gap-6 pt-6 opacity-90">
-                   <img 
-                     src="https://lh3.googleusercontent.com/d/1sDQNlO0MVvxGKAGzEOvhmt99J6CDTSrE" 
-                     alt="Castle Connolly Top Doctor" 
-                     className="h-20 w-auto object-contain drop-shadow-md hover:scale-105 transition-transform"
-                   />
-                   <img 
-                     src="https://lh3.googleusercontent.com/d/19yFbjiJ6R2-r9HyyqabMCBEaeDr-qSaw" 
-                     alt="Award Badge" 
-                     className="h-20 w-auto object-contain drop-shadow-md hover:scale-105 transition-transform"
-                   />
-                   <img 
-                     src="https://lh3.googleusercontent.com/d/1WC5Ptj1B2yOvKNjgRCUWoX7OdJT-CZ-O" 
-                     alt="Recognition Badge" 
-                     className="h-20 w-auto object-contain drop-shadow-md hover:scale-105 transition-transform"
-                   />
-                   <img 
-                     src="https://lh3.googleusercontent.com/d/1c1uwIGfenEh-LxweuYKYD_pMNI6Khv_J" 
-                     alt="Board Certified" 
-                     className="h-20 w-auto object-contain drop-shadow-md hover:scale-105 transition-transform"
-                   />
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* Hero Image / Headshot Placeholder */}
-            <div className="md:w-2/5 relative w-full">
-              <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 relative">
-                {/* Simulated Professional Headshot */}
-                <img 
-                  src="/images/dr-rasouli-headshot.jpg" 
-                  alt="Dr. Jonathan J. Rasouli" 
-                  className="w-full h-full object-cover object-top"
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                  <p className="text-white font-heading font-bold text-xl">Jonathan J. Rasouli, MD, FAANS</p>
-                </div>
-              </div>
-              
-              {/* Social Media Buttons under headshot */}
-              <div className="mt-6">
-                <SocialButtons />
-              </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* Trust Bar / Credentials - Replaced with Component */}
       <CredentialsBadges />
 
-      {/* About / Differentiator Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
-            <div className="lg:w-1/2">
-               <img 
-                src="https://lh3.googleusercontent.com/d/1a6Scq7cQ5wC4TJD6hUUsnuuqaVJPg5pN" 
-                alt="Dr. Rasouli consulting with patient" 
-                className="rounded-2xl shadow-xl w-full"
+      {/* Why Choose */}
+      <section className="py-16 md:py-24 bg-white">
+        <Container>
+          <div className="grid items-center gap-10 lg:gap-16 lg:grid-cols-2">
+            <Picture
+              name="dr-rasouli-office"
+              alt="Dr. Rasouli reviewing spine imaging in his office"
+              width={1200}
+              height={800}
+              className="block"
+              imgClassName="w-full rounded-xl shadow-lg object-cover aspect-[3/2]"
+            />
+            <div>
+              <SectionHeading
+                eyebrow="Why patients choose Dr. Rasouli"
+                title="Academic training, focused on complex spine care"
+                lead={<>Dr. Rasouli stands apart through his rare <strong className="text-navy-800 font-semibold">fellowship training</strong> in both neurosurgery and orthopaedic spine surgery. This comprehensive background allows him to approach complex spinal deformities from multiple expert perspectives.</>}
               />
-            </div>
-            <div className="lg:w-1/2 space-y-6">
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary">Why Choose Dr. Rasouli?</h2>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                Dr. Rasouli stands apart through his rare <strong>fellowship training</strong> in both neurosurgery and orthopaedic spine surgery. This comprehensive background allows him to approach complex spinal deformities from multiple expert perspectives.
-              </p>
-              
-              <ul className="space-y-4 pt-2">
+              <ul className="mt-8 grid sm:grid-cols-2 gap-x-6 gap-y-4">
                 {[
-                  "Fellowship Trained (Cleveland Clinic)",
-                  "Alpha Omega Alpha Honors Society",
-                  "Specialist in Robotic-Assisted Surgery",
-                  "Featured in CNN & The Washington Post"
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3">
-                    <CheckCircle2 className="text-secondary shrink-0" size={20} />
-                    <span className="font-medium text-gray-800">{item}</span>
+                  'Fellowship Trained (Cleveland Clinic)',
+                  'Alpha Omega Alpha Honors Society',
+                  'Specialist in Robotic-Assisted Surgery',
+                  'Featured in CNN & The Washington Post',
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <CheckCircle2 className="text-teal-700 shrink-0 mt-1" size={20} />
+                    <span className="font-medium text-ink">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Services Preview */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">Specialized Spine Care</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Combining academic excellence with cutting-edge technology to provide personalized treatment plans for every patient.
-            </p>
+      <section className="py-16 md:py-24 bg-sand">
+        <Container>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+            <SectionHeading
+              eyebrow="Specialties"
+              title="Specialized spine care"
+              lead="Combining academic excellence with cutting-edge technology to provide personalized treatment plans for every patient."
+            />
+            <ButtonLink href="/services" variant="secondary" className="shrink-0">View All Treatments</ButtonLink>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {SERVICES.slice(0, 3).map((service) => (
-              <div key={service.id} className="bg-white rounded-xl shadow-lg p-8 hover:-translate-y-1 transition-transform duration-300 border-t-4 border-secondary flex flex-col">
-                <div className="bg-blue-50 w-14 h-14 rounded-lg flex items-center justify-center mb-6 text-primary">
-                  <service.icon size={28} />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed flex-grow">{service.description}</p>
-                <Link to="/services" className="inline-flex items-center text-secondary font-semibold hover:text-primary transition-colors mt-auto">
-                  Learn more <ChevronRight size={16} className="ml-1" />
-                </Link>
-              </div>
+              <Link key={service.id} to="/services" className="group bg-white rounded-xl border border-sand-200 p-7 flex flex-col hover:border-teal-700/40 hover:shadow-md transition">
+                <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-teal-50 text-teal-700 mb-5">
+                  <service.icon size={26} />
+                </span>
+                <h3 className="text-xl font-semibold text-navy-800 mb-2">{service.title}</h3>
+                <p className="text-slate-600 leading-relaxed flex-grow">{service.description}</p>
+                <span className="mt-5 inline-flex items-center text-teal-700 font-semibold group-hover:text-navy-800">
+                  Learn more <ChevronRight size={18} className="ml-1" />
+                </span>
+              </Link>
             ))}
           </div>
-          
-          <div className="mt-12 text-center">
-            <Link to="/services">
-              <Button variant="outline">View All Treatments</Button>
-            </Link>
-          </div>
-        </div>
+        </Container>
       </section>
 
-      {/* Featured Media Carousel */}
-      <MediaCarousel className="mb-8" />
+      <MediaCarousel />
 
-      {/* Featured Media Section - NEW */}
-      <section className="py-16 bg-gradient-to-br from-gray-900 to-primary text-white overflow-hidden relative">
-         <div className="absolute inset-0 bg-black/20"></div>
-         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-               <div className="md:w-1/2">
-                  <div className="flex items-center gap-2 text-cta-orange mb-3 font-bold uppercase tracking-wider text-sm">
-                    <Newspaper size={16} /> In the News
-                  </div>
-                  <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">"Miracle" Recovery Featured in NY Post</h2>
-                  <p className="text-blue-100 text-lg mb-8 leading-relaxed">
-                     Dr. Rasouli's expertise was instrumental in the recovery of a paralyzed teen who defied all odds. Read the inspiring story that captivated the nation.
-                  </p>
-                  <Link to="/media">
-                    <button className="bg-white text-primary hover:bg-gray-100 px-6 py-3 rounded-md font-bold transition-colors flex items-center gap-2">
-                       <Play size={18} fill="currentColor" /> Watch the Story
-                    </button>
-                  </Link>
-               </div>
-               <div className="md:w-1/2 flex justify-center md:justify-end">
-                   <div className="bg-white/10 p-6 rounded-xl backdrop-blur-sm border border-white/20 max-w-sm">
-                      <p className="italic text-lg mb-4">"The injuries were life-threatening... He ultimately did fantastic."</p>
-                      <div className="flex items-center gap-3">
-                         <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-primary font-bold">JR</div>
-                         <div>
-                            <p className="font-bold text-sm">Dr. Jonathan Rasouli</p>
-                            <p className="text-xs text-blue-200">As quoted in The New York Post</p>
-                         </div>
-                      </div>
-                   </div>
-               </div>
+      {/* Featured story */}
+      <section className="py-16 md:py-24 bg-white">
+        <Container>
+          <div className="grid items-center gap-10 lg:gap-16 lg:grid-cols-12">
+            <div className="lg:col-span-7">
+              <Eyebrow className="mb-3">In the news</Eyebrow>
+              <h2 className="text-3xl md:text-4xl font-semibold text-navy-800 leading-tight">&ldquo;Miracle&rdquo; recovery featured in the New York Post</h2>
+              <p className="mt-4 text-lg text-slate-600 leading-relaxed">
+                Dr. Rasouli&apos;s expertise was instrumental in the recovery of a paralyzed teen who defied all odds. Read the inspiring story that captivated the nation.
+              </p>
+              <blockquote className="mt-8 border-l-2 border-teal-700 pl-5">
+                <p className="font-serif text-xl md:text-2xl text-navy-800 leading-snug">&ldquo;The injuries were life-threatening&hellip; He ultimately did fantastic.&rdquo;</p>
+                <footer className="mt-3 text-sm text-slate-500">Dr. Jonathan Rasouli, as quoted in the New York Post</footer>
+              </blockquote>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <ButtonLink href="/media">Watch the Story</ButtonLink>
+                <ButtonLink href="https://nypost.com/2023/12/19/health/young-paralyzed-si-man-regains-ability-to-walk-and-speak/" variant="secondary">
+                  Read the Article <ExternalLink size={16} />
+                </ButtonLink>
+              </div>
             </div>
-         </div>
+            <div className="lg:col-span-5">
+              <figure>
+                <Picture
+                  name="dr-rasouli-patient-nypost"
+                  alt="Dr. Rasouli at the bedside with his patient and family"
+                  width={900}
+                  height={1125}
+                  className="block"
+                  imgClassName="w-full max-w-md mx-auto rounded-xl shadow-lg object-cover aspect-[4/5]"
+                />
+                <figcaption className="mt-3 text-sm text-slate-500 text-center">Dr. Rasouli with his patient, as featured in the New York Post.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </Container>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-20 bg-trust text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Patient Stories (content unchanged) */}
+      <section className="py-16 md:py-24 bg-navy-800 text-white">
+        <Container>
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-heading font-bold mb-4">Patient Stories</h2>
-            <div className="flex justify-center gap-1 text-accent mb-2">
-              {[1,2,3,4,5].map(i => <Star key={i} size={24} fill="currentColor" />)}
+            <Eyebrow onDark className="mb-3">In their words</Eyebrow>
+            <h2 className="text-3xl md:text-4xl font-semibold">Patient Stories</h2>
+            <div className="mt-4 flex justify-center gap-1 text-teal-300" aria-hidden="true">
+              {[1, 2, 3, 4, 5].map((i) => <Star key={i} size={20} fill="currentColor" />)}
             </div>
-            <p className="text-blue-200">Consistent 5-Star Ratings on Healthgrades & Google</p>
+            <p className="mt-2 text-navy-100/85">Consistent 5-Star Ratings on Healthgrades &amp; Google</p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {TESTIMONIALS.map((t) => (
-              <div key={t.id} className="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/20">
-                <div className="mb-4 text-accent flex gap-1">
+              <figure key={t.id} className="bg-white text-ink rounded-xl p-7 flex flex-col">
+                <div className="mb-4 text-teal-700 flex gap-1" aria-label={`${t.rating} out of 5 stars`}>
                   {[...Array(t.rating)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
                 </div>
-                <p className="text-gray-100 italic mb-6 leading-relaxed">"{t.quote}"</p>
-                <div>
-                  <p className="font-bold text-white">{t.author}</p>
-                  <p className="text-sm text-blue-300">{t.condition} | {t.date}</p>
-                </div>
-              </div>
+                <blockquote className="font-serif text-lg leading-relaxed text-navy-800 flex-grow">&ldquo;{t.quote}&rdquo;</blockquote>
+                <figcaption className="mt-6 pt-4 border-t border-slate-200">
+                  <p className="font-semibold text-navy-800">{t.author}</p>
+                  <p className="text-sm text-slate-500">{t.condition} | {t.date}</p>
+                </figcaption>
+              </figure>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Practice & Office Locations */}
-      <section className="py-20 bg-gray-50" id="locations">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">Office Locations</h2>
-            <p className="text-gray-600 max-w-3xl mx-auto text-lg">
-              Dr. Rasouli practices with <a href="https://neurospineplus.com" target="_blank" rel="noopener noreferrer" className="text-secondary font-semibold hover:text-primary">NeuroSpine Plus</a>, seeing patients at offices across New Jersey in Paramus, North Bergen, Jersey City, Edison, Hamilton, and Mount Laurel.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="py-16 md:py-24 bg-sand" id="locations">
+        <Container>
+          <SectionHeading
+            center
+            eyebrow="Locations"
+            title="Office Locations"
+            lead={<>Dr. Rasouli practices with <a href="https://neurospineplus.com" target="_blank" rel="noopener noreferrer" className="text-teal-700 font-semibold underline underline-offset-2 hover:text-navy-800">NeuroSpine Plus</a>, seeing patients at offices across New Jersey in Paramus, North Bergen, Jersey City, Edison, Hamilton, and Mount Laurel.</>}
+          />
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {OFFICE_LOCATIONS.map((loc) => (
-              <div key={loc.city} className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 flex gap-4">
-                <MapPin className="text-secondary shrink-0 mt-1" size={22} />
+              <a key={loc.city} href={loc.url} target="_blank" rel="noopener noreferrer" className="bg-white rounded-xl border border-sand-200 p-6 flex gap-4 hover:border-teal-700/40 hover:shadow-sm transition">
+                <MapPin className="text-teal-700 shrink-0 mt-1" size={22} />
                 <div>
-                  <h3 className="font-bold text-gray-900">{loc.city}, NJ</h3>
-                  <address className="not-italic text-gray-600 text-sm leading-relaxed mt-1">
+                  <h3 className="text-lg font-semibold text-navy-800">{loc.city}, NJ</h3>
+                  <address className="not-italic text-slate-600 leading-relaxed mt-1">
                     {loc.street}<br />
                     {loc.locality}, NJ {loc.postalCode}
                   </address>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
-
-          <div className="mt-10 text-center text-gray-700">
-            <p className="mb-4">
-              Appointments for all offices: <a href="tel:2013993388" className="font-bold text-primary hover:text-secondary">(201) 399-3388</a>
-            </p>
-            <a href={APPOINTMENT_URL} target="_blank" rel="noopener noreferrer">
-              <Button variant="secondary" className="px-8">Request an Appointment</Button>
-            </a>
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+            <ButtonLink href={APPOINTMENT_URL}>Request an Appointment</ButtonLink>
+            <p className="text-slate-700">All offices: <a href="tel:2013993388" className="font-semibold text-navy-800 hover:text-teal-700">(201) 399-3388</a></p>
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
-            Start Your Journey to a Pain-Free Life
-          </h2>
-          <p className="text-xl text-gray-600 mb-8">
-            Dr. Rasouli is currently accepting new patients for complex spine consultations.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-             <a href="https://neurospineplus.com/contact-us/" target="_blank" rel="noopener noreferrer">
-               <Button className="w-full sm:w-auto px-10 py-4 text-lg">Request Appointment</Button>
-             </a>
-             <Link to="/services">
-                <Button variant="outline" className="w-full sm:w-auto px-10 py-4 text-lg">Explore Services</Button>
-             </Link>
+      {/* CTA */}
+      <section className="py-16 md:py-20 bg-white">
+        <Container narrow className="text-center">
+          <h2 className="text-3xl md:text-4xl font-semibold text-navy-800">Start your journey to a pain-free life</h2>
+          <p className="mt-4 text-xl text-slate-600">Dr. Rasouli is currently accepting new patients for complex spine consultations.</p>
+          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+            <ButtonLink href={APPOINTMENT_URL} className="text-lg px-8">Request an Appointment</ButtonLink>
+            <ButtonLink href="/services" variant="secondary" className="text-lg px-8">Explore Services</ButtonLink>
           </div>
-        </div>
+        </Container>
       </section>
     </div>
   );

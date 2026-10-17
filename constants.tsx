@@ -3,20 +3,34 @@ import { NavItem, Testimonial, ServiceItem, Credential, FaqItem } from './types'
 
 export const NAV_LINKS: NavItem[] = [
   { label: 'Home', path: '/' },
-  { 
-    label: 'About Dr. Rasouli', 
+  {
+    label: 'About',
     path: '/about',
     children: [
-      { label: 'Statement', path: '/statement' },
-      { label: 'Credentials/CV', path: '/credentials' },
-      { label: 'Global Humanitarian Work', path: '/global-work' },
-      { label: 'News', path: '/news' }
+      { label: 'About Dr. Rasouli', path: '/about' },
+      { label: 'Personal Statement', path: '/statement' },
     ]
   },
   { label: 'Services', path: '/services' },
-  { label: 'Media', path: '/media' },
-  { label: 'Schedule Consultation', path: 'https://neurospineplus.com/contact-us/', isExternal: true },
+  {
+    label: 'Media & News',
+    path: '/media',
+    children: [
+      { label: 'Media & Publications', path: '/media' },
+      { label: 'News Coverage', path: '/news' },
+    ]
+  },
+  { label: 'Global Work', path: '/global-work' },
+  { label: 'Credentials', path: '/credentials' },
 ];
+
+export const SOCIAL_LINKS = {
+  instagram: 'https://www.instagram.com/jonathan_rasouli/',
+  x: 'https://twitter.com/jrasouli',
+  linkedin: 'https://www.linkedin.com/in/jonathan-rasouli/',
+};
+
+export const CASTLE_CONNOLLY_URL = 'https://www.castleconnolly.com/top-doctors/jonathan-j-rasouli-neurological-surgery';
 
 export const TESTIMONIALS: Testimonial[] = [
   {

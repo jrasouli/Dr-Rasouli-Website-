@@ -1,16 +1,29 @@
 import React from 'react';
-import { Calendar, FolderOpen, ChevronRight } from 'lucide-react';
+import { Calendar, ChevronRight } from 'lucide-react';
 import SEO from '../components/SEO';
+import { Container, PageHeader, Picture } from '../components/ui';
 
-const NEWS_ARTICLES = [
+interface NewsArticle {
+  id: number;
+  title: string;
+  url: string;
+  date: string;
+  category: string;
+  outlet: string;
+  summary: string;
+  image: string | null;
+}
+
+const NEWS_ARTICLES: NewsArticle[] = [
   {
     id: 6,
     title: "New York Teen’s First Word Months After Being Pulled From Fiery Crash Was ‘Mom’",
     url: "https://cafemom.com/news/teens-first-word-months-after-being-pulled-from-fiery-crash-was-mom",
     date: "2024",
     category: "Press & Media",
+    outlet: "CafeMom",
     summary: "After a fiery crash left him with severe injuries, a Staten Island teen's first word months later was 'Mom'.",
-    image: "/PNG image.png"
+    image: "tv-abc7-still"
   },
   {
     id: 1,
@@ -18,8 +31,9 @@ const NEWS_ARTICLES = [
     url: "https://nypost.com/2025/01/20/health/neurosurgeons-hearty-recipe-fights-dementia-and-brain-disease/",
     date: "January 20, 2025",
     category: "Press & Media",
+    outlet: "New York Post",
     summary: "Dr. Jonathan Rasouli shares a highly nutritious, brain-boosting recipe designed to support cognitive health and combat dementia.",
-    image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80"
+    image: null
   },
   {
     id: 2,
@@ -27,8 +41,9 @@ const NEWS_ARTICLES = [
     url: "https://nypost.com/2024/12/27/health/neurosurgeons-easy-cheap-recipe-boosts-memory-prevents-dementia/",
     date: "December 27, 2024",
     category: "Press & Media",
+    outlet: "New York Post",
     summary: "Discover Dr. Rasouli's simple and affordable dietary recommendations for preserving memory and optimizing long-term brain function.",
-    image: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&q=80"
+    image: null
   },
   {
     id: 3,
@@ -36,8 +51,9 @@ const NEWS_ARTICLES = [
     url: "https://nypost.com/2023/12/19/health/young-paralyzed-si-man-regains-ability-to-walk-and-speak/",
     date: "December 19, 2023",
     category: "Press & Media",
+    outlet: "New York Post",
     summary: "The incredible story of a Staten Island teenager's 'miracle' recovery after severe trauma, guided by Dr. Rasouli's expertise.",
-    image: "/si_man_recovery_2.png"
+    image: "tv-nypost-still"
   },
   {
     id: 4,
@@ -45,8 +61,9 @@ const NEWS_ARTICLES = [
     url: "https://www.silive.com/news/2024/01/nothing-short-of-a-miracle-how-a-staten-island-teen-survived-fiery-crash-and-recovered-from-traumatic-brain-injury.html",
     date: "January 2024",
     category: "Press & Media",
+    outlet: "SILive.com",
     summary: "An in-depth look at the complex, life-saving interventions and the remarkable resilience of a teen recovering from a traumatic brain injury.",
-    image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80"
+    image: null
   },
   {
     id: 5,
@@ -54,8 +71,9 @@ const NEWS_ARTICLES = [
     url: "https://www.cbc.ca/radio/asithappens/as-it-happens-friday-edition-1.5166570/brain-surgeons-went-looking-for-a-tumour-but-found-a-tapeworm-instead-1.5166571",
     date: "June 7, 2019",
     category: "Press & Media",
+    outlet: "CBC Radio · As It Happens",
     summary: "A rare and surprising discovery during surgery highlights the complexities and unpredictability of neurosurgical diagnosis and treatment.",
-    image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80"
+    image: null
   }
 ];
 
@@ -85,7 +103,7 @@ const News: React.FC = () => {
   }
 
   return (
-    <div className="bg-gray-50 min-h-screen pb-20">
+    <div className="bg-white">
       <SEO 
         title="Dr. Jonathan Rasouli in the News | Media Features | NY Post, CNN, CBC"
         description="Dr. Jonathan Rasouli featured in NY Post, CNN, CBC Radio, and more. Read about his groundbreaking cases and expert insights on brain health and spine surgery."
@@ -96,63 +114,43 @@ const News: React.FC = () => {
           { name: "News", item: "/news" }
         ]}
       />
-      {/* Header */}
-      <div className="bg-neutral-light py-16 border-b border-gray-200 mb-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-4">News & Updates</h1>
-          <p className="text-xl text-gray-600 max-w-3xl leading-relaxed">
-            Stay informed with the latest media coverage, published research, and professional updates from Dr. Jonathan J. Rasouli.
-          </p>
-        </div>
-      </div>
+      <PageHeader
+        eyebrow="Media & News"
+        title="News Coverage"
+        lead="Media coverage, published research, and professional updates featuring Dr. Jonathan J. Rasouli."
+      />
 
-      {/* News Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <Container className="py-14 md:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {NEWS_ARTICLES.map((article) => (
-            <div key={article.id} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-transform duration-300 hover:-translate-y-1 flex flex-col h-full border border-gray-100">
-               <a href={article.url} target="_blank" rel="noopener noreferrer" className="block relative h-64 overflow-hidden">
-                  <img 
-                    src={article.image} 
-                    alt={article.title}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105 object-center"
-                  />
-                  <div className="absolute inset-0 bg-black/10 hover:bg-black/0 transition-colors duration-300"></div>
-               </a>
-               
-               <div className="p-6 flex flex-col flex-grow">
-                  <div className="flex items-center gap-4 text-sm text-gray-500 mb-4 font-medium">
-                     <span className="flex items-center gap-1.5 text-secondary">
-                        <FolderOpen size={16} /> {article.category}
-                     </span>
-                     <span className="flex items-center gap-1.5">
-                        <Calendar size={16} /> {article.date}
-                     </span>
+            <article key={article.id} className="group flex flex-col rounded-xl border border-slate-200 overflow-hidden bg-white hover:shadow-md transition">
+              <a href={article.url} target="_blank" rel="noopener noreferrer" className="block aspect-[16/9] overflow-hidden bg-navy-800" tabIndex={-1} aria-hidden="true">
+                {article.image ? (
+                  <Picture name={article.image} alt="" className="block h-full" imgClassName="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-300" />
+                ) : (
+                  <div className="h-full flex flex-col items-center justify-center text-center px-6 bg-[radial-gradient(ellipse_at_top_right,rgba(127,209,199,0.18),transparent_60%)]">
+                    <span className="font-serif text-2xl md:text-[1.7rem] font-semibold text-white">{article.outlet}</span>
+                    <span className="mt-2 h-0.5 w-10 bg-teal-300" />
                   </div>
-                  
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight hover:text-secondary transition-colors">
-                     <a href={article.url} target="_blank" rel="noopener noreferrer">
-                        {article.title}
-                     </a>
-                  </h3>
-                  
-                  <p className="text-gray-600 mb-6 flex-grow">
-                     {article.summary}
-                  </p>
-                  
-                  <a 
-                    href={article.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-primary font-bold hover:text-secondary transition-colors group mt-auto"
-                  >
-                    Read More <ChevronRight size={18} className="ml-1 group-hover:translate-x-1 transition-transform" />
-                  </a>
-               </div>
-            </div>
+                )}
+              </a>
+              <div className="p-6 flex flex-col flex-grow">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-500 mb-3">
+                  <span className="font-semibold text-teal-700">{article.outlet}</span>
+                  <span className="flex items-center gap-1.5"><Calendar size={15} /> {article.date}</span>
+                </div>
+                <h2 className="text-xl font-semibold text-navy-800 leading-snug mb-3">
+                  <a href={article.url} target="_blank" rel="noopener noreferrer" className="hover:text-teal-700">{article.title}</a>
+                </h2>
+                <p className="text-slate-600 mb-5 flex-grow">{article.summary}</p>
+                <a href={article.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center font-semibold text-teal-700 hover:text-navy-800 mt-auto">
+                  Read article <ChevronRight size={18} className="ml-1" />
+                </a>
+              </div>
+            </article>
           ))}
         </div>
-      </div>
+      </Container>
     </div>
   );
 };

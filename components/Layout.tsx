@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X, Phone, Shield, Navigation, Clock, ChevronDown, ChevronUp } from 'lucide-react';
-import { NAV_LINKS, CONTACT_INFO } from '../constants';
-import Button from './Button';
+import { Menu, X, Phone, ChevronDown, CalendarCheck, MapPin } from 'lucide-react';
+import { NAV_LINKS, CONTACT_INFO, APPOINTMENT_URL, OFFICE_LOCATIONS } from '../constants';
+import { Container } from './ui';
+import SocialButtons from './SocialButtons';
+
+const TEL = `tel:${CONTACT_INFO.phone.replace(/\D/g, '')}`;
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState<string | null>(null);
   const location = useLocation();
 
   // Scroll to top on route change, unless hash link
@@ -14,286 +16,188 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     if (!location.hash) {
       window.scrollTo(0, 0);
     } else {
-      const id = location.hash.replace('#', '');
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      const element = document.getElementById(location.hash.replace('#', ''));
+      if (element) element.scrollIntoView({ behavior: 'smooth' });
     }
-    
-    // Use a timeout to avoid synchronous state updates during render phase
-    const timeoutId = setTimeout(() => {
-      setIsMenuOpen(false);
-      setMobileSubmenuOpen(null);
-    }, 0);
-    
+    const timeoutId = setTimeout(() => setIsMenuOpen(false), 0);
     return () => clearTimeout(timeoutId);
   }, [location]);
 
-  // Filter links for Desktop Navbar to avoid duplication with buttons
-  const desktopLinks = NAV_LINKS.filter(link => 
-    link.path !== 'https://neurospineplus.com/contact-us/'
-  );
-
-  const toggleMobileSubmenu = (label: string) => {
-    setMobileSubmenuOpen(mobileSubmenuOpen === label ? null : label);
+  const isActive = (path: string, children?: { path: string }[]) => {
+    if (path === '/') return location.pathname === '/';
+    const paths = children ? children.map((c) => c.path) : [path];
+    return paths.some((p) => location.pathname === p || location.pathname.startsWith(`${p}/`));
   };
 
-  return (
-    <div className="flex flex-col min-h-screen font-sans text-gray-800">
-      {/* Top Bar */}
-      <div className="bg-trust text-white py-2 px-4 text-sm hidden md:block">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex space-x-6">
-            <span className="flex items-center gap-2"><Phone size={14} /> {CONTACT_INFO.phone}</span>
-          </div>
-          <div>
-            <span className="flex items-center gap-2"><Clock size={14} /> Office Hours: Mon-Fri 9AM-5PM</span>
-          </div>
-        </div>
-      </div>
+  const linkBase = 'text-[0.9375rem] font-medium whitespace-nowrap transition-colors py-2 border-b-2';
+  const linkState = (active: boolean) => (active ? 'text-navy-800 border-teal-700' : 'text-slate-600 border-transparent hover:text-navy-800');
 
-      {/* Navigation */}
-      <header className="sticky top-0 z-50 bg-white shadow-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            {/* Logo */}
-            <Link to="/" className="flex flex-col shrink-0">
-              <span className="text-xl md:text-2xl font-heading font-bold text-primary leading-none">Jonathan J. Rasouli, MD</span>
-              <span className="text-[10px] md:text-xs text-secondary font-semibold tracking-wider uppercase">Board-Certified Spinal Neurosurgeon</span>
+  return (
+    <div className="flex flex-col min-h-screen font-sans text-ink bg-white">
+      <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:z-[60] focus:bg-white focus:px-4 focus:py-2">Skip to content</a>
+
+      {/* Header */}
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200">
+        <Container>
+          <div className="flex justify-between items-center h-16 lg:h-[72px] gap-6">
+            <Link to="/" className="flex flex-col shrink-0 leading-none">
+              <span className="font-serif text-xl md:text-[1.4rem] font-semibold text-navy-800">Jonathan J. Rasouli, MD</span>
+              <span className="mt-1 text-[0.72rem] md:text-xs text-slate-500 font-medium tracking-wide">Spine Neurosurgeon · NeuroSpine Plus</span>
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-6">
-              {desktopLinks.map((link) => (
+            <nav className="hidden xl:flex items-center gap-6" aria-label="Main">
+              {NAV_LINKS.map((link) => (
                 <div key={link.label} className="relative group">
                   {link.children ? (
                     <>
-                      <button 
-                        className={`flex items-center gap-1 text-sm font-medium transition-colors py-2 ${
-                          location.pathname.startsWith(link.path) 
-                          ? 'text-primary' 
-                          : 'text-gray-600 hover:text-primary'
-                        }`}
-                      >
-                        {link.label} <ChevronDown size={14} className="mt-0.5" />
-                      </button>
-                      
-                      {/* Dropdown Menu */}
-                      <div className="absolute top-full left-0 w-56 bg-white shadow-xl rounded-b-lg rounded-tr-lg border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
-                        <div className="py-2">
+                      <Link to={link.path} className={`${linkBase} ${linkState(isActive(link.path, link.children))} inline-flex items-center gap-1`}>
+                        {link.label} <ChevronDown size={14} className="opacity-60" />
+                      </Link>
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-opacity duration-150">
+                        <div className="w-56 bg-white shadow-lg rounded-lg border border-slate-200 py-2">
                           {link.children.map((child) => (
-                            <Link
-                              key={child.label}
-                              to={child.path}
-                              className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-primary transition-colors border-l-2 border-transparent hover:border-primary"
-                            >
+                            <Link key={child.path} to={child.path} className="block px-4 py-2.5 text-[0.9375rem] text-slate-700 hover:bg-sand hover:text-navy-800">
                               {child.label}
                             </Link>
                           ))}
                         </div>
                       </div>
                     </>
-                  ) : link.isExternal ? (
-                    <a
-                      href={link.path}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-medium transition-colors text-gray-600 hover:text-primary"
-                    >
-                      {link.label}
-                    </a>
                   ) : (
-                    <NavLink
-                      to={link.path}
-                      className={({ isActive }) =>
-                        `text-sm font-medium transition-colors ${
-                          isActive ? 'text-primary border-b-2 border-primary' : 'text-gray-600 hover:text-primary'
-                        }`
-                      }
-                    >
+                    <NavLink to={link.path} end className={({ isActive: a }) => `${linkBase} ${linkState(a)}`}>
                       {link.label}
                     </NavLink>
                   )}
                 </div>
               ))}
-              
-              {/* CTA Buttons */}
-              <div className="flex items-center gap-3 ml-4">
-                <a href="https://neurospineplus.com/contact-us/" target="_blank" rel="noopener noreferrer" className="bg-[#0066CC] hover:bg-[#0052A3] text-white border-2 border-[#0066CC] hover:border-[#0052A3] px-5 py-2.5 rounded-md text-sm font-semibold transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 whitespace-nowrap">
-                  Schedule Consultation
-                </a>
-              </div>
             </nav>
 
-            {/* Mobile Menu Button */}
-            <div className="lg:hidden">
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-gray-600 hover:text-primary focus:outline-none p-2"
-                aria-label="Toggle menu"
-              >
-                {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-              </button>
+            <div className="hidden xl:flex items-center gap-4">
+              <a href={APPOINTMENT_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-md bg-teal-700 hover:bg-teal-800 text-white px-4 py-2.5 text-[0.9375rem] font-semibold transition-colors whitespace-nowrap">
+                Request an Appointment
+              </a>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="xl:hidden text-navy-800 p-2 -mr-2"
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMenuOpen}
+            >
+              {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
+            </button>
           </div>
-        </div>
+        </Container>
 
         {/* Mobile Nav Drawer */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg z-50 h-[calc(100vh-80px)] overflow-y-auto">
-            <div className="px-4 pt-4 pb-12 space-y-2">
+          <div className="xl:hidden bg-white border-t border-slate-200 absolute w-full shadow-lg z-50 max-h-[calc(100vh-64px)] overflow-y-auto">
+            <nav className="px-5 pt-2 pb-8" aria-label="Mobile">
               {NAV_LINKS.map((link) => (
-                <div key={link.label}>
+                <div key={link.label} className="border-b border-slate-100">
                   {link.children ? (
-                    <div>
-                      <button
-                        onClick={() => toggleMobileSubmenu(link.label)}
-                        className={`w-full flex items-center justify-between px-3 py-4 rounded-md text-lg font-medium border-b border-gray-50 ${
-                          mobileSubmenuOpen === link.label ? 'text-primary' : 'text-gray-700'
-                        }`}
-                      >
-                        {link.label}
-                        {mobileSubmenuOpen === link.label ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-                      </button>
-                      
-                      {/* Mobile Submenu */}
-                      {mobileSubmenuOpen === link.label && (
-                        <div className="bg-gray-50 px-4 py-2 space-y-1">
-                          {link.children.map((child) => (
-                            <Link
-                              key={child.label}
-                              to={child.path}
-                              onClick={() => setIsMenuOpen(false)}
-                              className="block py-3 px-2 text-base text-gray-600 border-b border-gray-100 last:border-0 hover:text-primary"
-                            >
-                              {child.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
+                    <div className="py-3">
+                      <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 mb-1">{link.label}</p>
+                      {link.children.map((child) => (
+                        <NavLink key={child.path} to={child.path} end className={({ isActive: a }) => `block py-2 text-lg ${a ? 'text-teal-700 font-semibold' : 'text-navy-800'}`}>
+                          {child.label}
+                        </NavLink>
+                      ))}
                     </div>
-                  ) : link.isExternal ? (
-                    <a
-                      href={link.path}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => setIsMenuOpen(false)}
-                      className="block px-3 py-4 rounded-md text-lg font-medium border-b border-gray-50 text-gray-700 hover:bg-gray-50"
-                    >
-                      {link.label}
-                    </a>
                   ) : (
-                    <NavLink
-                      to={link.path}
-                      onClick={() => setIsMenuOpen(false)}
-                      className={({ isActive }) =>
-                        `block px-3 py-4 rounded-md text-lg font-medium border-b border-gray-50 ${
-                          isActive ? 'bg-blue-50 text-primary' : 'text-gray-700 hover:bg-gray-50'
-                        }`
-                      }
-                    >
+                    <NavLink to={link.path} end className={({ isActive: a }) => `block py-3.5 text-lg ${a ? 'text-teal-700 font-semibold' : 'text-navy-800'}`}>
                       {link.label}
                     </NavLink>
                   )}
                 </div>
               ))}
-              
               <div className="pt-6 space-y-3">
-                 <a href="https://neurospineplus.com/contact-us/" target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-[#0066CC] hover:bg-[#0052A3] text-white border-2 border-[#0066CC] px-4 py-3 rounded-md font-semibold transition-all">
-                    Schedule Consultation
-                 </a>
-                 <a href={`tel:${CONTACT_INFO.phone.replace(/\D/g,'')}`} className="block w-full">
-                    <Button variant="outline" fullWidth className="py-3 flex items-center gap-2 justify-center">
-                      <Phone size={18} /> Call {CONTACT_INFO.phone}
-                    </Button>
-                 </a>
+                <a href={APPOINTMENT_URL} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 w-full rounded-md bg-teal-700 text-white py-3 font-semibold">
+                  <CalendarCheck size={18} /> Request an Appointment
+                </a>
+                <a href={TEL} className="flex items-center justify-center gap-2 w-full rounded-md border border-navy-800/25 text-navy-800 py-3 font-semibold">
+                  <Phone size={18} /> Call {CONTACT_INFO.phone}
+                </a>
               </div>
-            </div>
+            </nav>
           </div>
         )}
       </header>
 
-      {/* Main Content */}
-      <main className="flex-grow pb-20 md:pb-0">
+      <main id="main" className="flex-grow">
         {children}
       </main>
 
-      {/* Sticky Mobile Navigation Bar */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 shadow-[0_-2px_10px_rgba(0,0,0,0.1)] z-40 px-4 py-3">
-        <div className="grid grid-cols-2 gap-3">
-          <a 
-            href={`tel:${CONTACT_INFO.phone.replace(/\D/g,'')}`} 
-            className="flex flex-col items-center justify-center text-primary active:scale-95 transition-transform"
-          >
-            <div className="bg-blue-50 p-2 rounded-full mb-1">
-              <Phone size={20} className="text-primary" />
-            </div>
-            <span className="text-[10px] font-bold uppercase tracking-wide">Call</span>
-          </a>
-
-          <a 
-            href="https://neurospineplus.com/contact-us/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col items-center justify-center text-secondary active:scale-95 transition-transform"
-          >
-             <div className="bg-teal-50 p-2 rounded-full mb-1">
-              <Navigation size={20} className="text-secondary" />
-            </div>
-            <span className="text-[10px] font-bold uppercase tracking-wide">Consult</span>
-          </a>
-        </div>
+      {/* Sticky mobile action bar */}
+      <div className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white border-t border-slate-200 px-4 py-2.5 grid grid-cols-2 gap-3 shadow-[0_-4px_16px_rgba(15,42,74,0.08)]">
+        <a href={TEL} className="flex items-center justify-center gap-2 rounded-md border border-navy-800/25 text-navy-800 py-2.5 text-[0.9375rem] font-semibold">
+          <Phone size={17} /> Call
+        </a>
+        <a href={APPOINTMENT_URL} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 rounded-md bg-teal-700 text-white py-2.5 text-[0.9375rem] font-semibold">
+          <CalendarCheck size={17} /> Appointment
+        </a>
       </div>
 
       {/* Footer */}
-      <footer className="bg-trust text-white pt-12 pb-24 md:pb-6">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div>
-              <h4 className="text-lg font-semibold mb-4 text-secondary">Quick Links</h4>
-              <ul className="space-y-2 text-sm text-gray-300">
-                {NAV_LINKS.map(link => {
-                  let href = link.path;
-                  let text = link.label;
-                  if (text === 'About Dr. Rasouli') {
-                    text = 'Statement';
-                    href = '/statement';
-                  }
-                  return (
-                    <li key={href}>
-                      {link.isExternal ? (
-                        <a href={href} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">{text}</a>
-                      ) : (
-                        <Link to={href} className="hover:text-white transition-colors">{text}</Link>
-                      )}
-                    </li>
-                  );
-                })}
+      <footer className="bg-navy-900 text-navy-100 pb-24 md:pb-0">
+        <Container className="pt-14 pb-10">
+          <div className="grid gap-10 lg:grid-cols-12">
+            <div className="lg:col-span-4">
+              <p className="font-serif text-2xl font-semibold text-white">Jonathan J. Rasouli, MD</p>
+              <p className="mt-2 text-sm text-navy-100/80">Board-certified spine neurosurgeon practicing with{' '}
+                <a href="https://neurospineplus.com" target="_blank" rel="noopener noreferrer" className="text-teal-300 hover:text-white underline underline-offset-2">NeuroSpine Plus</a> across New Jersey.
+              </p>
+              <div className="mt-6 space-y-3">
+                <a href={TEL} className="flex items-center gap-2 text-white font-semibold text-lg hover:text-teal-300">
+                  <Phone size={18} className="text-teal-300" /> {CONTACT_INFO.phone}
+                </a>
+                <a href={APPOINTMENT_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-md bg-teal-700 hover:bg-teal-600 text-white px-5 py-2.5 text-[0.9375rem] font-semibold transition-colors">
+                  <CalendarCheck size={17} /> Request an Appointment
+                </a>
+              </div>
+              <SocialButtons onDark className="mt-6" />
+            </div>
+
+            <div className="lg:col-span-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-teal-300 mb-4">NeuroSpine Plus Offices</p>
+              <ul className="grid gap-x-8 gap-y-4 sm:grid-cols-2">
+                {OFFICE_LOCATIONS.map((loc) => (
+                  <li key={loc.city} className="flex gap-2.5">
+                    <MapPin size={16} className="text-teal-300 shrink-0 mt-1" />
+                    <a href={loc.url} target="_blank" rel="noopener noreferrer" className="text-sm leading-6 hover:text-white">
+                      <span className="block font-semibold text-white">{loc.city}</span>
+                      {loc.street}, {loc.locality}, NJ {loc.postalCode}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
 
-            <div>
-              <h4 className="text-lg font-semibold mb-4 text-secondary">Contact</h4>
-              <ul className="space-y-3 text-sm text-gray-300">
-                <li className="flex items-center gap-3 mt-2">
-                  <Phone size={18} className="shrink-0 text-secondary" />
-                  <a href={`tel:${CONTACT_INFO.phone.replace(/\D/g,'')}`} className="hover:text-white font-bold">{CONTACT_INFO.phone}</a>
-                </li>
+            <div className="lg:col-span-2">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-teal-300 mb-4">Explore</p>
+              <ul className="space-y-2.5 text-sm">
+                {[
+                  { label: 'About', path: '/about' },
+                  { label: 'Personal Statement', path: '/statement' },
+                  { label: 'Services', path: '/services' },
+                  { label: 'Media & Publications', path: '/media' },
+                  { label: 'News Coverage', path: '/news' },
+                  { label: 'Global Work', path: '/global-work' },
+                  { label: 'Credentials & CV', path: '/credentials' },
+                ].map((l) => (
+                  <li key={l.path}><Link to={l.path} className="hover:text-white">{l.label}</Link></li>
+                ))}
               </ul>
-              <div className="mt-8">
-                <span className="inline-block bg-white/10 px-3 py-1 rounded text-xs text-accent border border-accent/30">
-                  5.0 ★★★★★ Patient Rating
-                </span>
-              </div>
             </div>
           </div>
-          
-          <div className="border-t border-blue-800 pt-6 text-center text-xs text-gray-400">
+
+          <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row md:justify-between gap-2 text-xs text-navy-100/70">
             <p>&copy; {new Date().getFullYear()} Jonathan J. Rasouli, MD. All rights reserved.</p>
-            <p className="mt-2">This website is for informational purposes only and does not constitute medical advice.</p>
+            <p>This website is for informational purposes only and does not constitute medical advice.</p>
           </div>
-        </div>
+        </Container>
       </footer>
     </div>
   );
