@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
 import App from './App';
+import './index.css';
 
 // Old links used hash routing (e.g. /#/about). Send them to the clean URL (/about).
 if (window.location.hash.startsWith('#/')) {

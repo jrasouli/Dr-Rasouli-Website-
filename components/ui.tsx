@@ -73,14 +73,15 @@ export const PageHeader: React.FC<{ eyebrow?: string; title: React.ReactNode; le
 );
 
 /** <picture> with WebP + JPG fallback for images in /public/images. Pass the base name without extension. */
-export const Picture: React.FC<{ name: string; alt: string; className?: string; imgClassName?: string; eager?: boolean; width?: number; height?: number }> = ({ name, alt, className, imgClassName, eager = false, width, height }) => (
+export const Picture: React.FC<{ name: string; alt: string; className?: string; imgClassName?: string; eager?: boolean; priority?: boolean; width?: number; height?: number }> = ({ name, alt, className, imgClassName, eager = false, priority = false, width, height }) => (
   <picture className={className}>
     <source srcSet={`/images/${name}.webp`} type="image/webp" />
     <img
       src={`/images/${name}.jpg`}
       alt={alt}
       className={imgClassName}
-      loading={eager ? 'eager' : 'lazy'}
+      loading={eager || priority ? 'eager' : 'lazy'}
+      fetchPriority={priority ? 'high' : undefined}
       decoding="async"
       width={width}
       height={height}

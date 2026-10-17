@@ -232,7 +232,7 @@ const Home: React.FC = () => {
                 <Picture
                   name="dr-rasouli-hero"
                   alt="Dr. Jonathan J. Rasouli, MD"
-                  eager
+                  priority
                   width={1000}
                   height={1500}
                   className="block"
