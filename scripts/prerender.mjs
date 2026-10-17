@@ -8,14 +8,14 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const distDir = path.join(root, 'dist');
 const ssrEntry = path.join(root, 'dist-ssr', 'entry-server.js');
 
-const { render, ROUTES } = await import(pathToFileURL(ssrEntry).href);
+const { render, ROUTES, NOT_FOUND_ROUTE } = await import(pathToFileURL(ssrEntry).href);
 const template = fs.readFileSync(path.join(distDir, 'index.html'), 'utf-8');
 
 // React 19 emits <title>/<meta>/<link> from components inline in the markup.
 // Lift them into <head> (tagged data-prerender so the client can drop them before re-rendering).
 const HEAD_TAG = /<(title)[^>]*>[\s\S]*?<\/title>|<(meta|link)\b[^>]*\/?>/g;
 
-for (const route of ROUTES) {
+for (const route of [...ROUTES, NOT_FOUND_ROUTE]) {
   const appHtml = render(route);
   const headTags = [];
   const body = appHtml.replace(HEAD_TAG, (tag) => {
@@ -33,9 +33,12 @@ for (const route of ROUTES) {
     .replace('</head>', `  ${headTags.join('\n    ')}\n  </head>`)
     .replace('<div id="root"></div>', `<div id="root">${body}</div>`);
 
+  // The catch-all route becomes dist/404.html (served by Vercel with a 404 status).
   const outFile = route === '/'
     ? path.join(distDir, 'index.html')
-    : path.join(distDir, route.slice(1), 'index.html');
+    : route === NOT_FOUND_ROUTE
+      ? path.join(distDir, '404.html')
+      : path.join(distDir, route.slice(1), 'index.html');
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
   fs.writeFileSync(outFile, html);
   console.log(`prerendered ${route} -> ${path.relative(root, outFile)}`);

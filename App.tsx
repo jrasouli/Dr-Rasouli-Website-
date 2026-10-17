@@ -9,9 +9,13 @@ import Statement from './pages/Statement';
 import Credentials from './pages/Credentials';
 import GlobalWork from './pages/GlobalWork';
 import News from './pages/News';
+import NotFound from './pages/NotFound';
 
 // Every route listed here is pre-rendered to static HTML at build time (see scripts/prerender.mjs).
 export const ROUTES = ['/', '/about', '/statement', '/credentials', '/global-work', '/news', '/services', '/media'];
+
+// Rendered to dist/404.html, which Vercel serves with HTTP 404 for any unmatched URL.
+export const NOT_FOUND_ROUTE = '/404';
 
 export const AppRoutes: React.FC = () => (
   <Layout>
@@ -24,6 +28,7 @@ export const AppRoutes: React.FC = () => (
       <Route path="/news" element={<News />} />
       <Route path="/services" element={<Services />} />
       <Route path="/media" element={<Media />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   </Layout>
 );

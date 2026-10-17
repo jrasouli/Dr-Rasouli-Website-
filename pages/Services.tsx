@@ -29,7 +29,7 @@ const Services: React.FC = () => {
         "name": "Where does Dr. Rasouli see patients?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Dr. Rasouli sees patients at Hudson Regional Hospital in Secaucus, NJ and Bayonne Medical Center in Bayonne, NJ. He serves patients throughout New Jersey and the greater New York metropolitan area."
+          "text": "Dr. Rasouli practices with NeuroSpine Plus and sees patients at offices in Paramus, North Bergen, Jersey City, and Edison, New Jersey, and on Staten Island, New York. His hospital affiliations are Hudson Regional Hospital in Secaucus, NJ and Bayonne Medical Center in Bayonne, NJ."
         }
       },
       {
@@ -37,7 +37,7 @@ const Services: React.FC = () => {
         "name": "Is Dr. Rasouli board certified?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, Dr. Rasouli is board certified by the American Board of Neurological Surgery. He completed his fellowship in Complex & Adult Reconstructive Spinal Surgery at the Cleveland Clinic, one of the world's leading medical institutions."
+          "text": "Yes, Dr. Rasouli is board certified by the American Board of Neurological Surgery. He completed a Spine Surgery Fellowship at the Cleveland Clinic, one of the world's leading medical institutions."
         }
       },
       {
@@ -62,8 +62,8 @@ const Services: React.FC = () => {
   return (
     <div className="bg-white">
       <SEO 
-        title="Spine Surgery Services | Minimally Invasive & Robotic Surgery | Dr. Rasouli NJ"
-        description="Dr. Rasouli offers complex spinal deformity correction, minimally invasive spine surgery, robotic-assisted procedures, adult scoliosis treatment, and more in New Jersey and Staten Island."
+        title="Spine Surgery Services | Minimally Invasive, Endoscopic & Robotic | Dr. Rasouli, NJ & Staten Island"
+        description="Dr. Rasouli offers complex spinal deformity correction, minimally invasive and endoscopic spine surgery, robotic-assisted procedures, adult scoliosis treatment, and more in New Jersey and Staten Island."
         canonicalPath="/services"
         schema={faqSchema}
         breadcrumbs={[
@@ -85,6 +85,7 @@ const Services: React.FC = () => {
                 const isOpen = openId === service.id;
                 return (
                   <div key={service.id}>
+                    <h2 className="tracking-normal">
                     <button
                       onClick={() => toggle(service.id)}
                       aria-expanded={isOpen}
@@ -98,6 +99,7 @@ const Services: React.FC = () => {
                       </span>
                       <ChevronDown className={`shrink-0 text-slate-500 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
                     </button>
+                    </h2>
                     {isOpen && (
                       <div className="px-5 md:px-6 pb-7 pt-1 md:pl-[84px] bg-sand animate-fadeIn">
                         <p className="text-slate-700 text-lg leading-relaxed mb-5">{service.description}</p>

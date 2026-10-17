@@ -30,7 +30,7 @@ const GlobalWork: React.FC = () => {
   return (
     <div className="bg-white">
       <SEO 
-        title="Global Humanitarian Work | Virtual Global Spine Conference | Dr. Rasouli"
+        title="Global Work & the Virtual Global Spine Conference | Dr. Jonathan J. Rasouli"
         description="Dr. Jonathan Rasouli co-founded the Virtual Global Spine Conference, providing free spine surgery education to physicians worldwide. Learn about his global healthcare advocacy."
         canonicalPath="/global-work"
         breadcrumbs={[

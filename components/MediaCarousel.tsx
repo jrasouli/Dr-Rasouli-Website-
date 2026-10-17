@@ -2,12 +2,12 @@ import React from 'react';
 import { Container } from './ui';
 
 const OUTLETS = [
+  // Only outlets backed by the CV's press list or linked coverage on the News page.
   'New York Post',
   'CNN',
   'The Washington Post',
-  "Becker's Spine",
-  'U.S. News & World Report',
-  'WebMD',
+  "Becker's Spine Review",
+  'CBC Radio',
 ];
 
 const RESEARCH_LINKS = [
@@ -21,7 +21,7 @@ const RESEARCH_LINKS = [
 const MediaCarousel: React.FC<{ className?: string }> = ({ className = '' }) => (
   <section className={`bg-sand border-y border-sand-200 ${className}`} aria-labelledby="featured-in">
     <Container className="py-12 md:py-14 text-center">
-      <p id="featured-in" className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">As Featured In</p>
+      <p id="featured-in" className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-600">As Featured In</p>
       <ul className="mt-6 flex flex-wrap items-center justify-center gap-x-8 lg:gap-x-10 gap-y-3">
         {OUTLETS.map((name) => (
           <li key={name} className="font-serif text-xl lg:text-[1.375rem] font-semibold text-navy-800/70 whitespace-nowrap">{name}</li>
@@ -32,7 +32,7 @@ const MediaCarousel: React.FC<{ className?: string }> = ({ className = '' }) => 
         {RESEARCH_LINKS.map((l, i) => (
           <React.Fragment key={l.label}>
             {i > 0 && <span className="text-slate-300 mx-2" aria-hidden="true">·</span>}
-            <a href={l.href} target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-700 hover:text-navy-800 underline underline-offset-2">{l.label}</a>
+            <a href={l.href} target="_blank" rel="noopener noreferrer" className="inline-block py-1.5 font-semibold text-teal-700 hover:text-navy-800 underline underline-offset-2">{l.label}</a>
           </React.Fragment>
         ))}
       </p>

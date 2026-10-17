@@ -146,7 +146,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           <div className="grid gap-10 lg:grid-cols-12">
             <div className="lg:col-span-4">
               <p className="font-serif text-2xl font-semibold text-white">Jonathan J. Rasouli, MD</p>
-              <p className="mt-2 text-sm text-navy-100/80">Board-certified spine neurosurgeon practicing with{' '}
+              <p className="mt-2 text-sm text-navy-100/80">Board-certified spinal neurosurgeon practicing with{' '}
                 <a href="https://neurospineplus.com" target="_blank" rel="noopener noreferrer" className="text-teal-300 hover:text-white underline underline-offset-2">NeuroSpine Plus</a> across New Jersey and Staten Island.
               </p>
               <div className="mt-6 space-y-3">
@@ -177,7 +177,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
             <div className="lg:col-span-2">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-teal-300 mb-4">Explore</p>
-              <ul className="space-y-2.5 text-sm">
+              <ul className="space-y-0.5 text-sm">
                 {[
                   { label: 'About', path: '/about' },
                   { label: 'Personal Statement', path: '/statement' },
@@ -187,7 +187,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                   { label: 'Global Work', path: '/global-work' },
                   { label: 'Credentials & CV', path: '/credentials' },
                 ].map((l) => (
-                  <li key={l.path}><Link to={l.path} className="hover:text-white">{l.label}</Link></li>
+                  <li key={l.path}><Link to={l.path} className="inline-block py-1 hover:text-white">{l.label}</Link></li>
                 ))}
               </ul>
             </div>

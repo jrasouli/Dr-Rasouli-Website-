@@ -8,10 +8,11 @@ import { APPOINTMENT_URL } from '../constants';
 
 const NYPOST_URL = 'https://nypost.com/2023/12/19/health/young-paralyzed-si-man-regains-ability-to-walk-and-speak/';
 
+// Every item links to the original article (verified Oct 2026).
 const COVERAGE = [
-  { outlet: 'The Washington Post', title: 'Innovations in Robotic Spine Surgery', text: 'Featured expert discussion on how robotic navigation is improving safety and outcomes in complex spinal deformity cases.' },
-  { outlet: "Becker's Spine", title: 'Future of Minimally Invasive Care', text: 'Dr. Rasouli weighs in on the shifting landscape of outpatient spine surgery and what it means for patient recovery times.' },
-  { outlet: 'Northwell Health', title: '"Softening the Memory" Research', text: 'Providing critical insight into how current therapies aim to soften, not erase, painful memories in chronic pain patients.' },
+  { outlet: "Becker's Spine Review", date: 'Apr 22, 2026', title: 'Dr. Jonathan Rasouli joins NeuroSpine Plus', text: 'Becker\'s reports on Dr. Rasouli joining NeuroSpine Plus in Paramus, N.J., to focus on complex and minimally invasive spine procedures.', url: 'https://www.beckersspine.com/spine/dr-jonathan-rasouli-joins-neurospine-plus/' },
+  { outlet: 'Northwell Health', date: 'Apr 24, 2025', title: 'Softening the memory', text: 'Dr. Rasouli weighs in on the real-world potential of memory modulation and how current therapies aim to soften, not erase, painful memories.', url: 'https://www.northwell.edu/news/the-latest/softening-the-memory' },
+  { outlet: 'CNN', date: 'Jun 7, 2019', title: 'Unusual symptoms pointing to brain cancer turned out to be a tapeworm', text: 'Dr. Rasouli discusses a case in which suspected brain cancer turned out to be a parasitic infection.', url: 'https://www.cnn.com/2019/06/07/health/tapeworm-brain-trnd/index.html' },
 ];
 
 const JOURNALS = [
@@ -21,9 +22,12 @@ const JOURNALS = [
   { title: 'Emerging Blockchain Technology Solutions for Modern Healthcare Infrastructure', journal: 'Journal of Scientific Innovation in Medicine', date: 'Jan 2019', authors: 'Yaeger KA, Martini M, Rasouli JJ, Costa AB' },
 ];
 
+// From the CV, "Abstracts/Presentations".
 const TALKS = [
-  { year: '2023', venue: 'Virtual Global Spine Conference', text: 'Invited Lecturer: "Robotic Navigation in Complex Deformity"' },
-  { year: '2022', venue: 'North American Spine Society (NASS)', text: 'Podium Presentation: Minimally Invasive Techniques' },
+  { year: '2020', venue: 'AO Spine Fellows Forum · Banff, Canada', text: 'Best Oral Abstract: "Obesity is Correlated with Functional Disability and Depression Following Adult Spinal Deformity Surgery in the Early Postoperative Period"' },
+  { year: '2020', venue: 'AANS/CNS Spine Summit · Las Vegas, NV', text: '"BMI Is Correlated with Functional Disability and Depression Following Adult Spinal Deformity Surgery"' },
+  { year: '2019', venue: 'AANS Annual Scientific Meeting · San Diego, CA', text: '"Disparities in Discharge Destination by Insurance Payer Group After Posterior Cervical Decompression and Instrumented Fusion"' },
+  { year: '2018', venue: 'International Spinal Deformity Symposium · New York, NY', text: '"The Case for T2 Pedicle Subtraction Osteotomy in the Surgical Treatment of Rigid Cervicothoracic Deformity"' },
 ];
 
 const Media: React.FC = () => {
@@ -33,8 +37,8 @@ const Media: React.FC = () => {
   return (
     <div className="bg-white">
       <SEO 
-        title="Dr. Jonathan Rasouli Media & Publications | Spine Neurosurgery"
-        description="View Dr. Rasouli's recent media appearances, peer-reviewed journal articles, and speaking engagements on complex spine surgery."
+        title="Media & Publications | Dr. Jonathan J. Rasouli, Board-Certified Spinal Neurosurgeon"
+        description="Media coverage, peer-reviewed journal articles, and presentations from Dr. Jonathan J. Rasouli, a board-certified spinal neurosurgeon serving New Jersey and Staten Island."
         canonicalPath="/media"
         breadcrumbs={[
           { name: "Home", item: "/" },
@@ -93,10 +97,15 @@ const Media: React.FC = () => {
           <h2 className="text-2xl md:text-3xl font-semibold text-navy-800 mb-6 flex items-center gap-2"><Newspaper className="text-teal-700" /> Recent Media Coverage</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {COVERAGE.map((c) => (
-              <article key={c.title} className="rounded-xl border border-slate-200 p-6">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-teal-700 mb-3">{c.outlet}</p>
-                <h3 className="text-xl font-semibold text-navy-800 mb-2">{c.title}</h3>
-                <p className="text-slate-600">{c.text}</p>
+              <article key={c.title} className="rounded-xl border border-slate-200 p-6 flex flex-col">
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-teal-700 mb-3">{c.outlet} <span className="text-slate-500 normal-case tracking-normal font-medium">· {c.date}</span></p>
+                <h3 className="text-xl font-semibold text-navy-800 mb-2">
+                  <a href={c.url} target="_blank" rel="noopener noreferrer" className="hover:text-teal-700">{c.title}</a>
+                </h3>
+                <p className="text-slate-600 mb-4 flex-grow">{c.text}</p>
+                <a href={c.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 font-semibold text-teal-700 hover:text-navy-800 mt-auto" aria-label={`Read "${c.title}" on ${c.outlet} (opens in a new tab)`}>
+                  Read article <ExternalLink size={16} />
+                </a>
               </article>
             ))}
           </div>
@@ -132,7 +141,7 @@ const Media: React.FC = () => {
           {activeTab === 'presentations' && (
             <ul className="divide-y divide-slate-200 animate-fadeIn">
               {TALKS.map((t) => (
-                <li key={t.venue} className="py-5 flex gap-5">
+                <li key={t.venue + t.year} className="py-5 flex gap-5">
                   <span className="font-serif text-xl font-semibold text-teal-700 w-14 shrink-0">{t.year}</span>
                   <div>
                     <h3 className="text-lg font-semibold text-navy-800">{t.venue}</h3>

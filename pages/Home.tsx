@@ -31,8 +31,8 @@ const Home: React.FC = () => {
     "@type": "Physician",
     "@id": `${SITE_URL}/#physician`,
     "name": "Dr. Jonathan J. Rasouli, MD",
-    "image": `${SITE_URL}/images/dr-rasouli-headshot.jpg`,
-    "description": "Board-certified, fellowship-trained spine neurosurgeon specializing in complex spinal deformity, minimally invasive surgery, and robotic-assisted spine procedures.",
+    "image": `${SITE_URL}/images/dr-rasouli-headshot-2026.jpg`,
+    "description": "Board-certified, fellowship-trained spinal neurosurgeon specializing in complex spinal deformity, minimally invasive surgery, and robotic-assisted spine procedures.",
     "url": SITE_URL,
     "telephone": "+1-201-399-3388",
     "medicalSpecialty": [
@@ -62,7 +62,7 @@ const Home: React.FC = () => {
       {
         "@type": "EducationalOrganization",
         "name": "Cleveland Clinic Foundation",
-        "description": "Complex & Adult Reconstructive Spinal Surgery Fellowship"
+        "description": "Spine Surgery Fellowship"
       },
       {
         "@type": "EducationalOrganization",
@@ -84,11 +84,12 @@ const Home: React.FC = () => {
       }
     ],
     "award": [
+      "Castle Connolly Top Doctor 2023",
       "Castle Connolly Top Doctor 2024",
       "Castle Connolly Top Doctor 2025",
       "Castle Connolly Top Doctor 2026",
-      "Castle Connolly Rising Star Award 2023",
-      "Top Doctor - New York Magazine 2024"
+      "Castle Connolly Rising Star 2023",
+      "Alpha Omega Alpha Honor Medical Society 2011"
     ],
     "workLocation": [
       {
@@ -215,8 +216,8 @@ const Home: React.FC = () => {
   return (
     <div className="flex flex-col">
       <SEO 
-        title="Dr. Jonathan J. Rasouli, MD | Board-Certified Spine Neurosurgeon | NJ & NY"
-        description="Dr. Jonathan Rasouli is a fellowship-trained spine neurosurgeon specializing in complex spinal deformity, minimally invasive surgery, and robotic-assisted procedures. Serving patients in New Jersey and New York. Call (201) 399-3388."
+        title="Dr. Jonathan J. Rasouli, MD | Board-Certified Spinal Neurosurgeon | NJ & Staten Island"
+        description="Dr. Jonathan J. Rasouli is a board-certified, fellowship-trained spinal neurosurgeon specializing in complex spinal deformity, minimally invasive surgery, and robotic-assisted procedures. Serving patients in New Jersey and Staten Island, NY. Call (201) 399-3388."
         canonicalPath="/"
         schema={[physicianSchema, businessSchema]}
       />
@@ -232,7 +233,7 @@ const Home: React.FC = () => {
                 <Picture
                   name="dr-rasouli-hero"
                   alt="Dr. Jonathan J. Rasouli, MD"
-                  eager
+                  priority
                   width={1000}
                   height={1500}
                   className="block"
@@ -266,7 +267,7 @@ const Home: React.FC = () => {
                 <Picture name="castle-connolly-2026" alt="Castle Connolly Top Doctors 2026" width={213} height={320} className="block shrink-0" imgClassName="h-20 w-auto rounded" />
                 <span>
                   <span className="block font-serif text-lg font-semibold text-white">Castle Connolly Top Doctors</span>
-                  <span className="block text-sm text-navy-100/85">2024 · 2025 · 2026 &nbsp;|&nbsp; Rising Star 2023</span>
+                  <span className="block text-sm text-navy-100/85">2023 – 2026 &nbsp;|&nbsp; Rising Star 2023</span>
                 </span>
               </a>
             </div>
@@ -292,12 +293,12 @@ const Home: React.FC = () => {
               <SectionHeading
                 eyebrow="Why patients choose Dr. Rasouli"
                 title="Academic training, focused on complex spine care"
-                lead={<>Dr. Rasouli stands apart through his rare <strong className="text-navy-800 font-semibold">fellowship training</strong> in both neurosurgery and orthopaedic spine surgery. This comprehensive background allows him to approach complex spinal deformities from multiple expert perspectives.</>}
+                lead={<>Dr. Rasouli trained in neurological surgery at The Mount Sinai Hospital, including a stereotactic and functional neurosurgery fellowship, then completed a <strong className="text-navy-800 font-semibold">Spine Surgery Fellowship</strong> at the Cleveland Clinic. This background allows him to approach complex spinal deformities from multiple expert perspectives.</>}
               />
               <ul className="mt-8 grid sm:grid-cols-2 gap-x-6 gap-y-4">
                 {[
                   'Fellowship Trained (Cleveland Clinic)',
-                  'Alpha Omega Alpha Honors Society',
+                  'Alpha Omega Alpha Honor Society',
                   'Specialist in Robotic-Assisted Surgery',
                   'Featured in CNN & The Washington Post',
                 ].map((item) => (
@@ -389,12 +390,12 @@ const Home: React.FC = () => {
             <div className="mt-4 flex justify-center gap-1 text-teal-300" aria-hidden="true">
               {[1, 2, 3, 4, 5].map((i) => <Star key={i} size={20} fill="currentColor" />)}
             </div>
-            <p className="mt-2 text-navy-100/85">Consistent 5-Star Ratings on Healthgrades &amp; Google</p>
+            <p className="mt-2 text-navy-100/85">Consistent 5-Star Patient Ratings</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {TESTIMONIALS.map((t) => (
               <figure key={t.id} className="bg-white text-ink rounded-xl p-7 flex flex-col">
-                <div className="mb-4 text-teal-700 flex gap-1" aria-label={`${t.rating} out of 5 stars`}>
+                <div className="mb-4 text-teal-700 flex gap-1" role="img" aria-label={`${t.rating} out of 5 stars`}>
                   {[...Array(t.rating)].map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
                 </div>
                 <blockquote className="font-serif text-lg leading-relaxed text-navy-800 flex-grow">&ldquo;{t.quote}&rdquo;</blockquote>

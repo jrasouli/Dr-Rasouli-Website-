@@ -7,7 +7,6 @@
     { "source": "/global-work", "destination": "/global-work/index.html" },
     { "source": "/news", "destination": "/news/index.html" },
     { "source": "/services", "destination": "/services/index.html" },
-    { "source": "/media", "destination": "/media/index.html" },
-    { "source": "/((?!.*\\.[a-zA-Z0-9]+$).*)", "destination": "/index.html" }
+    { "source": "/media", "destination": "/media/index.html" }
   ]
 }
