@@ -2,9 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Star, ChevronRight, CheckCircle2, MapPin, Phone, ExternalLink } from 'lucide-react';
 import SEO from '../components/SEO';
-import { SERVICES, TESTIMONIALS, OFFICE_LOCATIONS, APPOINTMENT_URL, CASTLE_CONNOLLY_URL } from '../constants';
+import { SERVICES, TESTIMONIALS, OFFICE_LOCATIONS, APPOINTMENT_URL, CASTLE_CONNOLLY_URL, SOCIAL_LINKS } from '../constants';
 import MediaCarousel from '../components/MediaCarousel';
 import CredentialsBadges from '../components/CredentialsBadges';
+import SocialButtons from '../components/SocialButtons';
 import { Container, ButtonLink, Eyebrow, SectionHeading, Picture } from '../components/ui';
 
 const SITE_URL = 'https://rasouli-md.com';
@@ -120,7 +121,10 @@ const Home: React.FC = () => {
     "sameAs": [
       "https://www.youtube.com/c/virtualglobalspineconference",
       "https://www.healthgrades.com/physicians/dr-jonathan-rasouli",
-      "https://www.doximity.com/pub/jonathan-rasouli-md"
+      "https://www.doximity.com/pub/jonathan-rasouli-md",
+      SOCIAL_LINKS.instagram,
+      SOCIAL_LINKS.x,
+      SOCIAL_LINKS.linkedin
     ]
   });
 
@@ -237,8 +241,8 @@ const Home: React.FC = () => {
             </div>
 
             <div className="md:col-span-7 md:order-1">
-              <Eyebrow onDark>NeuroSpine Plus · New Jersey</Eyebrow>
-              <h1 className="mt-4 md:mt-5 text-[2.25rem] sm:text-5xl lg:text-[3.4rem] font-semibold leading-[1.08] text-white">
+              <Eyebrow onDark><span className="block sm:inline">NeuroSpine Plus<span className="hidden sm:inline"> · </span></span><span className="block sm:inline mt-1 sm:mt-0">New Jersey &amp; Staten Island</span></Eyebrow>
+              <h1 className="mt-4 md:mt-5 text-[2.25rem] sm:text-5xl lg:text-[3.4rem] font-semibold leading-[1.08] text-white [text-wrap:balance]">
                 World-Class Spine Care, Personalized for You
               </h1>
               <p className="mt-5 text-lg md:text-xl text-navy-100/90 leading-relaxed max-w-2xl">
@@ -441,6 +445,10 @@ const Home: React.FC = () => {
           <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
             <ButtonLink href={APPOINTMENT_URL} className="text-lg px-8">Request an Appointment</ButtonLink>
             <ButtonLink href="/services" variant="secondary" className="text-lg px-8">Explore Services</ButtonLink>
+          </div>
+          <div className="mt-12 pt-8 border-t border-slate-200 flex flex-col items-center gap-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-teal-700">Follow Dr. Rasouli</p>
+            <SocialButtons />
           </div>
         </Container>
       </section>
