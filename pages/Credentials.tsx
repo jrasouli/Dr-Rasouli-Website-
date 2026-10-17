@@ -92,8 +92,8 @@ const Credentials: React.FC = () => {
                 <div className="rounded-xl border border-slate-200 p-6">
                   <h3 className="text-lg font-semibold text-navy-800 mb-3">Former Positions</h3>
                   <ul className="space-y-3 text-slate-700">
-                    <li><strong className="font-semibold text-ink">Assistant Professor of Neurosurgery</strong> (former)<br /><span className="text-[0.9375rem] text-slate-600">Donald and Barbara Zucker School of Medicine at Hofstra/Northwell</span></li>
-                    <li><strong className="font-semibold text-ink">Neurosurgeon</strong> (former)<br /><span className="text-[0.9375rem] text-slate-600">Northwell Health</span></li>
+                    <li><strong className="font-semibold text-ink">Assistant Professor of Neurosurgery</strong><br /><span className="text-[0.9375rem] text-slate-600">Donald and Barbara Zucker School of Medicine at Hofstra/Northwell</span></li>
+                    <li><strong className="font-semibold text-ink">Assistant Professor of Neurosurgery</strong><br /><span className="text-[0.9375rem] text-slate-600">Cleveland Clinic Lerner College of Medicine</span></li>
                   </ul>
                 </div>
                 <div className="rounded-xl border border-slate-200 p-6">
