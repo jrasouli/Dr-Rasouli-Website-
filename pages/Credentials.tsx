@@ -99,8 +99,9 @@ const Credentials: React.FC = () => {
                 <div className="rounded-xl border border-slate-200 p-6">
                   <h3 className="text-lg font-semibold text-navy-800 mb-3">Former Hospital Affiliations</h3>
                   <ul className="space-y-2 text-slate-700">
-                    <li>Northwell Health</li>
-                    <li>Mather Hospital</li>
+                    <li>Mount Sinai Hospital, New York, NY</li>
+                    <li>Lenox Hill Hospital, New York, NY</li>
+                    <li>Staten Island University Hospital, Staten Island, NY</li>
                   </ul>
                 </div>
               </div>
