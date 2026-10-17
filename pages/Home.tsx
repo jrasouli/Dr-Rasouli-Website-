@@ -124,7 +124,8 @@ const Home: React.FC = () => {
       "https://www.doximity.com/pub/jonathan-rasouli-md",
       SOCIAL_LINKS.instagram,
       SOCIAL_LINKS.x,
-      SOCIAL_LINKS.linkedin
+      SOCIAL_LINKS.linkedin,
+      "https://health.usnews.com/doctors/jonathan-rasouli-935230"
     ]
   });
 
