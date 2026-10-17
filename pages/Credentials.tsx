@@ -89,19 +89,19 @@ const Credentials: React.FC = () => {
             <section>
               <SectionTitle icon={Building2}>Former Appointments &amp; Affiliations</SectionTitle>
               <div className="grid md:grid-cols-2 gap-5">
-                <div className="rounded-xl border border-slate-200 p-6">
+                <div className="rounded-xl border border-slate-200 p-6 md:p-5">
                   <h3 className="text-lg font-semibold text-navy-800 mb-3">Former Positions</h3>
                   <ul className="space-y-3 text-slate-700">
-                    <li><strong className="font-semibold text-ink">Assistant Professor of Neurosurgery</strong><br /><span className="text-[0.9375rem] text-slate-600">Donald and Barbara Zucker School of Medicine at Hofstra/Northwell</span></li>
-                    <li><strong className="font-semibold text-ink">Assistant Professor of Neurosurgery</strong><br /><span className="text-[0.9375rem] text-slate-600">Cleveland Clinic Lerner College of Medicine</span></li>
+                    <li><strong className="font-semibold text-ink md:whitespace-nowrap lg:whitespace-normal xl:whitespace-nowrap">Assistant Professor of Neurosurgery</strong><br /><span className="text-[0.9375rem] text-slate-600">Donald and Barbara Zucker School of Medicine at Hofstra/Northwell</span></li>
+                    <li><strong className="font-semibold text-ink md:whitespace-nowrap lg:whitespace-normal xl:whitespace-nowrap">Assistant Professor of Neurosurgery</strong><br /><span className="text-[0.9375rem] text-slate-600">Cleveland Clinic Lerner College of Medicine</span></li>
                   </ul>
                 </div>
-                <div className="rounded-xl border border-slate-200 p-6">
+                <div className="rounded-xl border border-slate-200 p-6 md:p-5">
                   <h3 className="text-lg font-semibold text-navy-800 mb-3">Former Hospital Affiliations</h3>
-                  <ul className="space-y-2 text-slate-700">
-                    <li>Mount Sinai Hospital, New York, NY</li>
-                    <li>Lenox Hill Hospital, New York, NY</li>
-                    <li>Staten Island University Hospital, Staten Island, NY</li>
+                  <ul className="space-y-3 text-slate-700">
+                    <li>Mount Sinai Hospital<br />New York, NY</li>
+                    <li>Lenox Hill Hospital<br />New York, NY</li>
+                    <li>Staten Island University Hospital<br />Staten Island, NY</li>
                   </ul>
                 </div>
               </div>
