@@ -13,13 +13,13 @@ const SITE_URL = 'https://rasouli-md.com';
 const clinicLocations = OFFICE_LOCATIONS.map((loc) => ({
   "@type": "MedicalClinic",
   "name": `NeuroSpine Plus - ${loc.city}`,
-  "url": loc.url,
+  ...(loc.url.includes('neurospineplus.com') ? { "url": loc.url } : {}),
   "telephone": "+1-201-399-3388",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": loc.street,
     "addressLocality": loc.locality,
-    "addressRegion": "NJ",
+    "addressRegion": loc.state,
     "postalCode": loc.postalCode,
     "addressCountry": "US"
   }
@@ -414,17 +414,17 @@ const Home: React.FC = () => {
             center
             eyebrow="Locations"
             title="Office Locations"
-            lead={<>Dr. Rasouli practices with <a href="https://neurospineplus.com" target="_blank" rel="noopener noreferrer" className="text-teal-700 font-semibold underline underline-offset-2 hover:text-navy-800">NeuroSpine Plus</a>, seeing patients at offices across New Jersey in Paramus, North Bergen, Jersey City, Edison, Hamilton, and Mount Laurel.</>}
+            lead={<>Dr. Rasouli practices with <a href="https://neurospineplus.com" target="_blank" rel="noopener noreferrer" className="text-teal-700 font-semibold underline underline-offset-2 hover:text-navy-800">NeuroSpine Plus</a>, seeing patients at offices in Paramus, North Bergen, Jersey City, Edison, Hamilton, and Mount Laurel, New Jersey, and on Staten Island, New York.</>}
           />
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {OFFICE_LOCATIONS.map((loc) => (
               <a key={loc.city} href={loc.url} target="_blank" rel="noopener noreferrer" className="bg-white rounded-xl border border-sand-200 p-6 flex gap-4 hover:border-teal-700/40 hover:shadow-sm transition">
                 <MapPin className="text-teal-700 shrink-0 mt-1" size={22} />
                 <div>
-                  <h3 className="text-lg font-semibold text-navy-800">{loc.city}, NJ</h3>
+                  <h3 className="text-lg font-semibold text-navy-800">{loc.city}, {loc.state}</h3>
                   <address className="not-italic text-slate-600 leading-relaxed mt-1">
                     {loc.street}<br />
-                    {loc.locality}, NJ {loc.postalCode}
+                    {loc.locality}, {loc.state} {loc.postalCode}
                   </address>
                 </div>
               </a>

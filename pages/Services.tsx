@@ -63,7 +63,7 @@ const Services: React.FC = () => {
     <div className="bg-white">
       <SEO 
         title="Spine Surgery Services | Minimally Invasive & Robotic Surgery | Dr. Rasouli NJ"
-        description="Dr. Rasouli offers complex spinal deformity correction, minimally invasive spine surgery, robotic-assisted procedures, adult scoliosis treatment, and more in New Jersey."
+        description="Dr. Rasouli offers complex spinal deformity correction, minimally invasive spine surgery, robotic-assisted procedures, adult scoliosis treatment, and more in New Jersey and Staten Island."
         canonicalPath="/services"
         schema={faqSchema}
         breadcrumbs={[
@@ -129,7 +129,7 @@ const Services: React.FC = () => {
             </div>
             <div className="rounded-xl bg-navy-800 text-white p-6">
               <h2 className="text-xl font-semibold mb-2">Schedule a consultation</h2>
-              <p className="text-navy-100/85 mb-5">Appointments are available at six NeuroSpine Plus offices across New Jersey.</p>
+              <p className="text-navy-100/85 mb-5">Appointments are available at seven NeuroSpine Plus offices across New Jersey and Staten Island.</p>
               <ButtonLink href={APPOINTMENT_URL} className="w-full">Request an Appointment</ButtonLink>
               <a href="tel:2013993388" className="mt-4 flex items-center justify-center gap-2 font-semibold text-white hover:text-teal-300">
                 <Phone size={18} className="text-teal-300" /> (201) 399-3388

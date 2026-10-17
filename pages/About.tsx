@@ -57,7 +57,7 @@ const About: React.FC = () => {
               />
               <div className="mt-6 max-w-[360px] mx-auto lg:mx-0">
                 <p className="font-serif text-xl font-semibold text-navy-800">Jonathan J. Rasouli, MD, FAANS</p>
-                <p className="text-slate-600">Spine Neurosurgeon, NeuroSpine Plus</p>
+                <p className="text-slate-600">Board-Certified Spinal Neurosurgeon</p>
                 <SocialButtons className="mt-4" />
               </div>
             </div>
@@ -68,7 +68,7 @@ const About: React.FC = () => {
               <h2 className="text-3xl font-semibold text-navy-800 mb-5">Professional Biography</h2>
               <div className="space-y-4 text-lg text-slate-700 leading-relaxed">
                 <p>
-                  Dr. Rasouli is a board-certified, fellowship-trained neurosurgeon specializing in complex spinal conditions. He practices with NeuroSpine Plus, seeing patients at offices across New Jersey, and his work centers on helping patients regain their quality of life through advanced surgical techniques.
+                  Dr. Rasouli is a board-certified, fellowship-trained neurosurgeon specializing in complex spinal conditions. He practices with NeuroSpine Plus, seeing patients at offices across New Jersey and Staten Island, and his work centers on helping patients regain their quality of life through advanced surgical techniques.
                 </p>
                 <p>
                   After completing his residency at The Mount Sinai Hospital, he pursued advanced fellowship training in both Neurosurgery and Orthopaedic Spine Surgery at the world-renowned Cleveland Clinic. This background allows him to treat spinal deformities with a comprehensive understanding of biomechanics and neurological function.

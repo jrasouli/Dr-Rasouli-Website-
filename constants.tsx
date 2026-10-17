@@ -147,10 +147,11 @@ export const CONTACT_INFO = {
 export const APPOINTMENT_URL = "https://neurospineplus.com/contact-us/";
 
 export const OFFICE_LOCATIONS = [
-  { city: "Paramus", street: "37 West Century Road, Suite 104", locality: "Paramus", postalCode: "07652", url: "https://neurospineplus.com/locations/paramus/" },
-  { city: "North Bergen", street: "6307 John F. Kennedy Blvd", locality: "North Bergen", postalCode: "07047", url: "https://neurospineplus.com/locations/north-bergen/" },
-  { city: "Jersey City", street: "550 Newark Avenue, Suite 408", locality: "Jersey City", postalCode: "07306", url: "https://neurospineplus.com/locations/jersey-city/" },
-  { city: "Edison", street: "1656 Oak Tree Road, 3rd Floor", locality: "Edison", postalCode: "08820", url: "https://neurospineplus.com/locations/edison/" },
-  { city: "Hamilton", street: "3836 Quakerbridge Road, Suite 203", locality: "Hamilton", postalCode: "08619", url: "https://neurospineplus.com/locations/hamilton/" },
-  { city: "Mount Laurel", street: "16000 Commerce Pkwy, Suite B1", locality: "Mt Laurel Township", postalCode: "08054", url: "https://neurospineplus.com/locations/mount-laurel/" },
+  { city: "Paramus", street: "37 West Century Road, Suite 104", locality: "Paramus", state: "NJ", postalCode: "07652", url: "https://neurospineplus.com/locations/paramus/" },
+  { city: "North Bergen", street: "6307 John F. Kennedy Blvd", locality: "North Bergen", state: "NJ", postalCode: "07047", url: "https://neurospineplus.com/locations/north-bergen/" },
+  { city: "Jersey City", street: "550 Newark Avenue, Suite 408", locality: "Jersey City", state: "NJ", postalCode: "07306", url: "https://neurospineplus.com/locations/jersey-city/" },
+  { city: "Edison", street: "1656 Oak Tree Road, 3rd Floor", locality: "Edison", state: "NJ", postalCode: "08820", url: "https://neurospineplus.com/locations/edison/" },
+  { city: "Hamilton", street: "3836 Quakerbridge Road, Suite 203", locality: "Hamilton", state: "NJ", postalCode: "08619", url: "https://neurospineplus.com/locations/hamilton/" },
+  { city: "Mount Laurel", street: "16000 Commerce Pkwy, Suite B1", locality: "Mt Laurel Township", state: "NJ", postalCode: "08054", url: "https://neurospineplus.com/locations/mount-laurel/" },
+  { city: "Staten Island", street: "2777 Hylan Blvd", locality: "Staten Island", state: "NY", postalCode: "10306", url: "https://www.google.com/maps/search/?api=1&query=2777+Hylan+Blvd%2C+Staten+Island%2C+NY+10306" },
 ];

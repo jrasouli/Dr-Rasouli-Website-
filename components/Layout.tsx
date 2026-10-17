@@ -147,7 +147,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <div className="lg:col-span-4">
               <p className="font-serif text-2xl font-semibold text-white">Jonathan J. Rasouli, MD</p>
               <p className="mt-2 text-sm text-navy-100/80">Board-certified spine neurosurgeon practicing with{' '}
-                <a href="https://neurospineplus.com" target="_blank" rel="noopener noreferrer" className="text-teal-300 hover:text-white underline underline-offset-2">NeuroSpine Plus</a> across New Jersey.
+                <a href="https://neurospineplus.com" target="_blank" rel="noopener noreferrer" className="text-teal-300 hover:text-white underline underline-offset-2">NeuroSpine Plus</a> across New Jersey and Staten Island.
               </p>
               <div className="mt-6 space-y-3">
                 <a href={TEL} className="flex items-center gap-2 text-white font-semibold text-lg hover:text-teal-300">
@@ -168,7 +168,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     <MapPin size={16} className="text-teal-300 shrink-0 mt-1" />
                     <a href={loc.url} target="_blank" rel="noopener noreferrer" className="text-sm leading-6 hover:text-white">
                       <span className="block font-semibold text-white">{loc.city}</span>
-                      {loc.street}, {loc.locality}, NJ {loc.postalCode}
+                      {loc.street}, {loc.locality}, {loc.state} {loc.postalCode}
                     </a>
                   </li>
                 ))}

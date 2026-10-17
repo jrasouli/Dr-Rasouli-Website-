@@ -8,7 +8,7 @@ const Statement: React.FC = () => {
     <div className="bg-white">
       <SEO 
         title="About Dr. Jonathan Rasouli | Philosophy & Approach | Spine Neurosurgeon NJ"
-        description="Learn about Dr. Jonathan Rasouli's patient-first philosophy and commitment to treating every patient with precision and compassion. Board-certified neurosurgeon in New Jersey."
+        description="Learn about Dr. Jonathan Rasouli's patient-first philosophy and commitment to treating every patient with precision and compassion. Board-certified neurosurgeon serving New Jersey and Staten Island."
         canonicalPath="/statement"
         breadcrumbs={[
           { name: "Home", item: "/" },
