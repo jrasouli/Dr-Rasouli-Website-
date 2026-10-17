@@ -42,7 +42,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           <div className="flex justify-between items-center h-16 lg:h-[72px] gap-6">
             <Link to="/" className="flex flex-col shrink-0 leading-none">
               <span className="font-serif text-xl md:text-[1.4rem] font-semibold text-navy-800">Jonathan J. Rasouli, MD</span>
-              <span className="mt-1 text-[0.72rem] md:text-xs text-slate-500 font-medium tracking-wide">Spine Neurosurgeon · NeuroSpine Plus</span>
+              <span className="mt-1 text-[0.72rem] md:text-xs text-slate-500 font-medium tracking-wide">Board-Certified Spinal Neurosurgeon</span>
             </Link>
 
             {/* Desktop Nav */}

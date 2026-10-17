@@ -238,10 +238,8 @@ const Home: React.FC = () => {
 
             <div className="md:col-span-7 md:order-1">
               <Eyebrow onDark>NeuroSpine Plus · New Jersey</Eyebrow>
-              <p className="hidden md:block mt-4 font-serif text-2xl md:text-[1.7rem] font-semibold text-white">Jonathan J. Rasouli, MD</p>
-              <p className="mt-2 md:mt-1 text-sm md:text-base text-navy-100/85 font-medium tracking-wide">Board-certified · ABNS · FAANS</p>
               <h1 className="mt-4 md:mt-5 text-[2.25rem] sm:text-5xl lg:text-[3.4rem] font-semibold leading-[1.08] text-white">
-                Complex &amp; robotic spine surgery across New Jersey
+                World-Class Spine Care, Personalized for You
               </h1>
               <p className="mt-5 text-lg md:text-xl text-navy-100/90 leading-relaxed max-w-2xl">
                 Dr. Rasouli is a board-certified, fellowship-trained neurosurgeon specializing in robotic-assisted, minimally invasive, and complex spinal deformity surgery.
