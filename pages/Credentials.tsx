@@ -5,19 +5,22 @@ import { Container, PageHeader, ButtonLink } from '../components/ui';
 import { OFFICE_LOCATIONS } from '../constants';
 
 const EDUCATION = [
-  { inst: 'Cleveland Clinic Foundation', program: 'Complex & Adult Reconstructive Spinal Surgery Fellowship', meta: '2019 – 2020 · Cleveland, OH' },
-  { inst: 'The Mount Sinai Hospital', program: 'Neurological Surgery Residency', meta: '2013 – 2019 · New York, NY' },
-  { inst: 'Albert Einstein College of Medicine', program: 'Doctor of Medicine (M.D.)', meta: '2007 – 2012 · Bronx, NY', notes: ['Alpha Omega Alpha (AOA) Medical Honor Society (2012)', 'Research Distinction in Neurosurgery'] },
+  { inst: 'Cleveland Clinic', program: 'Spine Surgery Fellowship', meta: '2019 – 2020 · Cleveland, OH' },
+  { inst: 'The Mount Sinai Hospital', program: 'Neurological Surgery Residency', meta: '2012 – 2019 · New York, NY', notes: ['Stereotactic & Functional Neurosurgery Fellowship (2015 – 2016)'] },
+  { inst: 'Albert Einstein College of Medicine', program: 'Doctor of Medicine (M.D.)', meta: '2007 – 2012 · Bronx, NY', notes: ['Alpha Omega Alpha (AOA) Honor Medical Society (2011)', 'Research Distinction in Neurological Surgery (2012)'] },
 ];
 
 const HONORS = [
-  { year: '2026', title: 'Top Doctor', org: 'Castle Connolly' },
-  { year: '2025', title: 'Top Doctor', org: 'Castle Connolly' },
-  { year: '2024', title: 'Top Doctor', org: 'New York Magazine' },
-  { year: '2023', title: 'Rising Star in Spine Surgery', org: "Becker's Spine Review" },
-  { year: '2022', title: "Patient's Choice Award", org: 'Vitals.com' },
-  { year: '2021', title: 'Excellence in Teaching Award', org: 'Mount Sinai Health System' },
-  { year: '2012', title: 'Alpha Omega Alpha (AOA)', org: 'Honor Medical Society Inductee' },
+  // Source of truth: the CV (public/JRasouli_CV.pdf), "Honors and Awards".
+  { year: '2023–26', title: 'Top Doctor', org: 'Castle Connolly' },
+  { year: '2023', title: 'Rising Star', org: 'Castle Connolly' },
+  { year: '2020', title: 'Best Clinical Research Abstract Finalist', org: 'AOSNA 18th Annual Fellows Forum' },
+  { year: '2019', title: 'Resident Fellowship Award', org: 'Congress of Neurological Surgeons' },
+  { year: '2018', title: 'Humanitarian Global Surgery Travelling Scholarship', org: 'Eagle Condor' },
+  { year: '2017', title: 'Resident Scholar Fellowship', org: 'Doximity' },
+  { year: '2015', title: 'Functional & Stereotactic Neurosurgery Fellowship Award', org: 'Medtronic' },
+  { year: '2012', title: 'Research Distinction in Neurological Surgery', org: 'Albert Einstein College of Medicine' },
+  { year: '2011', title: 'Alpha Omega Alpha (AOA)', org: 'Honor Medical Society' },
 ];
 
 const SectionTitle: React.FC<{ icon: React.ElementType; children: React.ReactNode }> = ({ icon: Icon, children }) => (
@@ -31,8 +34,8 @@ const Credentials: React.FC = () => {
   return (
     <div className="bg-white">
        <SEO 
-        title="Dr. Jonathan Rasouli Credentials | Cleveland Clinic Fellowship | Castle Connolly Top Doctor"
-        description="Dr. Jonathan Rasouli's credentials: Cleveland Clinic fellowship-trained, board-certified neurosurgeon, Castle Connolly Top Doctor 2024-2026. Mount Sinai residency, Albert Einstein College of Medicine."
+        title="Credentials & CV | Dr. Jonathan J. Rasouli, Board-Certified Spinal Neurosurgeon"
+        description="Credentials of Dr. Jonathan J. Rasouli, board-certified spinal neurosurgeon: Cleveland Clinic spine surgery fellowship, Mount Sinai neurosurgery residency, Albert Einstein College of Medicine, Castle Connolly Top Doctor 2023–2026."
         canonicalPath="/credentials"
         breadcrumbs={[
           { name: "Home", item: "/" },
@@ -92,6 +95,7 @@ const Credentials: React.FC = () => {
                 <div className="rounded-xl border border-slate-200 p-6 md:p-5">
                   <h3 className="text-lg font-semibold text-navy-800 mb-3">Former Positions</h3>
                   <ul className="space-y-3 text-slate-700">
+                    <li><strong className="font-semibold text-ink">Director, Complex and Adult Spinal Deformity Surgery</strong><br /><span className="text-[0.9375rem] text-slate-600">Northwell Health/Staten Island University Hospital</span></li>
                     <li><strong className="font-semibold text-ink md:whitespace-nowrap lg:whitespace-normal xl:whitespace-nowrap">Assistant Professor of Neurosurgery</strong><br /><span className="text-[0.9375rem] text-slate-600">Donald and Barbara Zucker School of Medicine at Hofstra/Northwell</span></li>
                     <li><strong className="font-semibold text-ink md:whitespace-nowrap lg:whitespace-normal xl:whitespace-nowrap">Assistant Professor of Neurosurgery</strong><br /><span className="text-[0.9375rem] text-slate-600">Cleveland Clinic Lerner College of Medicine</span></li>
                   </ul>
@@ -102,6 +106,7 @@ const Credentials: React.FC = () => {
                     <li>Mount Sinai Hospital<br />New York, NY</li>
                     <li>Lenox Hill Hospital<br />New York, NY</li>
                     <li>Staten Island University Hospital<br />Staten Island, NY</li>
+                    <li>NYC Health + Hospitals/South Brooklyn Health<br />Brooklyn, NY</li>
                   </ul>
                 </div>
               </div>
@@ -117,7 +122,7 @@ const Credentials: React.FC = () => {
               <ul className="space-y-4">
                 {HONORS.map((h) => (
                   <li key={h.year + h.title} className="flex gap-4">
-                    <span className="font-serif text-lg font-semibold text-teal-300 w-12 shrink-0">{h.year}</span>
+                    <span className="font-serif text-lg font-semibold text-teal-300 w-[4.5rem] shrink-0 whitespace-nowrap">{h.year}</span>
                     <span>
                       <span className="block font-semibold">{h.title}</span>
                       <span className="block text-[0.9375rem] text-navy-100/80">{h.org}</span>

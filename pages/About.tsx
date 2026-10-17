@@ -10,17 +10,17 @@ const TIMELINE = [
   {
     title: 'Fellowship',
     inst: 'Cleveland Clinic',
-    desc: 'Combined Neurosurgery & Orthopaedic Spine Surgery. Specialized in robotic/minimally invasive techniques.',
+    desc: 'Spine Surgery Fellowship (2019 – 2020).',
   },
   {
     title: 'Residency',
     inst: 'The Mount Sinai Hospital, NY',
-    desc: 'Neurosurgical Residency & Functional Neurosurgery Fellowship.',
+    desc: 'Neurological Surgery Residency (2012 – 2019), including a Stereotactic & Functional Neurosurgery Fellowship (2015 – 2016).',
   },
   {
     title: 'Medical School',
     inst: 'Albert Einstein College of Medicine',
-    desc: 'Graduated with Distinction. Alpha Omega Alpha Honors (2012).',
+    desc: 'Doctor of Medicine with honors (2012). Alpha Omega Alpha Honor Medical Society (2011).',
   },
 ];
 
@@ -28,8 +28,8 @@ const About: React.FC = () => {
   return (
     <div className="bg-white">
       <SEO 
-        title="About Dr. Jonathan Rasouli | Top NY & NJ Spine Surgeon"
-        description="Learn about Dr. Rasouli, a board-certified, dual fellowship-trained spine neurosurgeon. Read about his background and philosophy."
+        title="About Dr. Jonathan J. Rasouli | Board-Certified Spinal Neurosurgeon"
+        description="Learn about Dr. Jonathan J. Rasouli, a board-certified, fellowship-trained spinal neurosurgeon seeing patients in New Jersey and Staten Island. Read about his background and training."
         canonicalPath="/about"
         breadcrumbs={[
           { name: "Home", item: "/" },
@@ -71,7 +71,7 @@ const About: React.FC = () => {
                   Dr. Rasouli is a board-certified, fellowship-trained neurosurgeon specializing in complex spinal conditions. He practices with NeuroSpine Plus, seeing patients at offices across New Jersey and Staten Island, and his work centers on helping patients regain their quality of life through advanced surgical techniques.
                 </p>
                 <p>
-                  After completing his residency at The Mount Sinai Hospital, he pursued advanced fellowship training in both Neurosurgery and Orthopaedic Spine Surgery at the world-renowned Cleveland Clinic. This background allows him to treat spinal deformities with a comprehensive understanding of biomechanics and neurological function.
+                  After completing his residency at The Mount Sinai Hospital, he completed a Spine Surgery Fellowship at the world-renowned Cleveland Clinic. This background allows him to treat spinal deformities with a comprehensive understanding of biomechanics and neurological function.
                 </p>
               </div>
             </section>

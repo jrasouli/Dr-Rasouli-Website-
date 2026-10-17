@@ -12,10 +12,15 @@ interface SEOProps {
   canonicalPath?: string;
   schema?: string | string[];
   breadcrumbs?: Breadcrumb[];
+  /** Keep the page out of search results (used by the 404 page). */
+  noindex?: boolean;
+  /** Absolute URL for og:image / twitter:image. */
+  image?: string;
 }
 
-const SEO: React.FC<SEOProps> = ({ title, description, canonicalPath, schema, breadcrumbs }) => {
+const SEO: React.FC<SEOProps> = ({ title, description, canonicalPath, schema, breadcrumbs, noindex = false, image }) => {
   const domain = 'https://rasouli-md.com';
+  const ogImage = image ?? `${domain}/images/dr-rasouli-og-2026.jpg`;
   const canonicalUrl = canonicalPath ? `${domain}${canonicalPath}` : domain;
   
   // If multiple schemas are provided as an array, map them to multiple scripts
@@ -40,23 +45,27 @@ const SEO: React.FC<SEOProps> = ({ title, description, canonicalPath, schema, br
       {/* Primary Meta Tags */}
       <title>{title}</title>
       <meta name="description" content={description} />
+      {noindex && <meta name="robots" content="noindex" />}
       
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={`${domain}/images/dr-rasouli-og-image.jpg`} />
+      <meta property="og:image" content={ogImage} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content="Jonathan J. Rasouli, MD, Board-Certified Spinal Neurosurgeon" />
       
       {/* Twitter */}
       <meta property="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content={canonicalUrl} />
       <meta property="twitter:title" content={title} />
       <meta property="twitter:description" content={description} />
-      <meta property="twitter:image" content={`${domain}/images/dr-rasouli-og-image.jpg`} />
+      <meta property="twitter:image" content={ogImage} />
       
       {/* Canonical URL */}
-      <link rel="canonical" href={canonicalUrl} />
+      {!noindex && <link rel="canonical" href={canonicalUrl} />}
 
       {/* Schema.org Structured Data */}
       {schemaScripts.map((schemaContent, index) => (

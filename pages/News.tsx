@@ -1,80 +1,103 @@
 import React from 'react';
 import { Calendar, ChevronRight } from 'lucide-react';
 import SEO from '../components/SEO';
-import { Container, PageHeader, Picture } from '../components/ui';
+import { Container, PageHeader } from '../components/ui';
 
 interface NewsArticle {
-  id: number;
+  id: string;
   title: string;
   url: string;
+  /** Human-readable date shown on the card. */
   date: string;
-  category: string;
+  /** ISO date for structured data. */
+  iso: string;
   outlet: string;
   summary: string;
-  image: string | null;
 }
 
+// Newest first. Every URL and date was checked against the original article (Oct 2026).
 const NEWS_ARTICLES: NewsArticle[] = [
   {
-    id: 6,
-    title: "New York Teen’s First Word Months After Being Pulled From Fiery Crash Was ‘Mom’",
-    url: "https://cafemom.com/news/teens-first-word-months-after-being-pulled-from-fiery-crash-was-mom",
-    date: "2024",
-    category: "Press & Media",
-    outlet: "CafeMom",
-    summary: "After a fiery crash left him with severe injuries, a Staten Island teen's first word months later was 'Mom'.",
-    image: "tv-abc7-still"
+    id: 'beckers-2026',
+    title: 'Dr. Jonathan Rasouli joins NeuroSpine Plus',
+    url: 'https://www.beckersspine.com/spine/dr-jonathan-rasouli-joins-neurospine-plus/',
+    date: 'April 22, 2026',
+    iso: '2026-04-22',
+    outlet: "Becker's Spine Review",
+    summary: 'Dr. Rasouli joins NeuroSpine Plus in Paramus, N.J., after serving as director of complex and adult spinal deformity surgery at Staten Island University Hospital.',
   },
   {
-    id: 1,
+    id: 'northwell-2025',
+    title: 'Softening the memory',
+    url: 'https://www.northwell.edu/news/the-latest/softening-the-memory',
+    date: 'April 24, 2025',
+    iso: '2025-04-24',
+    outlet: 'Northwell Health',
+    summary: 'Dr. Rasouli weighs in on the real-world potential of memory modulation and how current therapies aim to soften, not erase, painful memories.',
+  },
+  {
+    id: 'nypost-2025-01',
     title: "Neurosurgeon's hearty recipe fights dementia and brain disease",
-    url: "https://nypost.com/2025/01/20/health/neurosurgeons-hearty-recipe-fights-dementia-and-brain-disease/",
-    date: "January 20, 2025",
-    category: "Press & Media",
-    outlet: "New York Post",
-    summary: "Dr. Jonathan Rasouli shares a highly nutritious, brain-boosting recipe designed to support cognitive health and combat dementia.",
-    image: null
+    url: 'https://nypost.com/2025/01/20/health/neurosurgeons-hearty-recipe-fights-dementia-and-brain-disease/',
+    date: 'January 20, 2025',
+    iso: '2025-01-20',
+    outlet: 'New York Post',
+    summary: 'Dr. Jonathan Rasouli shares a highly nutritious, brain-boosting recipe designed to support cognitive health and combat dementia.',
   },
   {
-    id: 2,
+    id: 'nypost-2024-12',
     title: "Neurosurgeon's easy, cheap recipe boosts memory, prevents dementia",
-    url: "https://nypost.com/2024/12/27/health/neurosurgeons-easy-cheap-recipe-boosts-memory-prevents-dementia/",
-    date: "December 27, 2024",
-    category: "Press & Media",
-    outlet: "New York Post",
+    url: 'https://nypost.com/2024/12/27/health/neurosurgeons-easy-cheap-recipe-boosts-memory-prevents-dementia/',
+    date: 'December 27, 2024',
+    iso: '2024-12-27',
+    outlet: 'New York Post',
     summary: "Discover Dr. Rasouli's simple and affordable dietary recommendations for preserving memory and optimizing long-term brain function.",
-    image: null
   },
   {
-    id: 3,
-    title: "Young paralyzed SI man regains ability to walk and speak",
-    url: "https://nypost.com/2023/12/19/health/young-paralyzed-si-man-regains-ability-to-walk-and-speak/",
-    date: "December 19, 2023",
-    category: "Press & Media",
-    outlet: "New York Post",
+    id: 'silive-2024-01',
+    title: 'Nothing short of a miracle: How a Staten Island teen survived fiery crash and recovered from traumatic brain injury',
+    url: 'https://www.silive.com/news/2024/01/nothing-short-of-a-miracle-how-a-staten-island-teen-survived-fiery-crash-and-recovered-from-traumatic-brain-injury.html',
+    date: 'January 2024',
+    iso: '2024-01',
+    outlet: 'SILive.com',
+    summary: 'An in-depth look at the complex, life-saving interventions and the remarkable resilience of a teen recovering from a traumatic brain injury.',
+  },
+  {
+    id: 'cafemom-2023-12',
+    title: "New York Teen’s First Word Months After Being Pulled From Fiery Crash Was ‘Mom’",
+    url: 'https://cafemom.com/news/teens-first-word-months-after-being-pulled-from-fiery-crash-was-mom',
+    date: 'December 20, 2023',
+    iso: '2023-12-20',
+    outlet: 'CafeMom',
+    summary: "After a fiery crash left him with severe injuries, a Staten Island teen's first word months later was 'Mom'.",
+  },
+  {
+    id: 'nypost-2023-12',
+    title: 'Young paralyzed Staten Island man regains ability to walk and speak',
+    url: 'https://nypost.com/2023/12/19/health/young-paralyzed-si-man-regains-ability-to-walk-and-speak/',
+    date: 'December 19, 2023',
+    iso: '2023-12-19',
+    outlet: 'New York Post',
     summary: "The incredible story of a Staten Island teenager's 'miracle' recovery after severe trauma, guided by Dr. Rasouli's expertise.",
-    image: "tv-nypost-still"
   },
   {
-    id: 4,
-    title: "Nothing short of a miracle: How a Staten Island teen survived fiery crash and recovered from traumatic brain injury",
-    url: "https://www.silive.com/news/2024/01/nothing-short-of-a-miracle-how-a-staten-island-teen-survived-fiery-crash-and-recovered-from-traumatic-brain-injury.html",
-    date: "January 2024",
-    category: "Press & Media",
-    outlet: "SILive.com",
-    summary: "An in-depth look at the complex, life-saving interventions and the remarkable resilience of a teen recovering from a traumatic brain injury.",
-    image: null
+    id: 'cnn-2019',
+    title: 'Unusual symptoms pointing to brain cancer turned out to be a tapeworm',
+    url: 'https://www.cnn.com/2019/06/07/health/tapeworm-brain-trnd/index.html',
+    date: 'June 7, 2019',
+    iso: '2019-06-07',
+    outlet: 'CNN',
+    summary: 'Dr. Rasouli discusses a case in which suspected brain cancer turned out to be a parasitic infection.',
   },
   {
-    id: 5,
-    title: "Brain surgeons went looking for a tumour, but found a tapeworm instead",
-    url: "https://www.cbc.ca/radio/asithappens/as-it-happens-friday-edition-1.5166570/brain-surgeons-went-looking-for-a-tumour-but-found-a-tapeworm-instead-1.5166571",
-    date: "June 7, 2019",
-    category: "Press & Media",
-    outlet: "CBC Radio · As It Happens",
-    summary: "A rare and surprising discovery during surgery highlights the complexities and unpredictability of neurosurgical diagnosis and treatment.",
-    image: null
-  }
+    id: 'cbc-2019',
+    title: 'Brain surgeons went looking for a tumour, but found a tapeworm instead',
+    url: 'https://www.cbc.ca/radio/asithappens/as-it-happens-friday-edition-1.5166570/brain-surgeons-went-looking-for-a-tumour-but-found-a-tapeworm-instead-1.5166571',
+    date: 'June 7, 2019',
+    iso: '2019-06-07',
+    outlet: 'CBC Radio · As It Happens',
+    summary: 'A rare and surprising discovery during surgery highlights the complexities and unpredictability of neurosurgical diagnosis and treatment.',
+  },
 ];
 
 const News: React.FC = () => {
@@ -89,7 +112,7 @@ const News: React.FC = () => {
         "item": {
           "@type": "NewsArticle",
           "headline": article.title,
-          "datePublished": article.date,
+          "datePublished": article.iso,
           "url": article.url,
           "about": {
             "@type": "Person",
@@ -105,8 +128,8 @@ const News: React.FC = () => {
   return (
     <div className="bg-white">
       <SEO 
-        title="Dr. Jonathan Rasouli in the News | Media Features | NY Post, CNN, CBC"
-        description="Dr. Jonathan Rasouli featured in NY Post, CNN, CBC Radio, and more. Read about his groundbreaking cases and expert insights on brain health and spine surgery."
+        title="In the News | Dr. Jonathan J. Rasouli, Board-Certified Spinal Neurosurgeon"
+        description="Dr. Jonathan J. Rasouli, a board-certified spinal neurosurgeon in New Jersey and Staten Island, featured in the New York Post, CNN, CBC Radio, Becker's Spine Review, and more. Read about his groundbreaking cases and expert insights on brain health and spine surgery."
         canonicalPath="/news"
         schema={newsSchema}
         breadcrumbs={[
@@ -125,19 +148,15 @@ const News: React.FC = () => {
           {NEWS_ARTICLES.map((article) => (
             <article key={article.id} className="group flex flex-col rounded-xl border border-slate-200 overflow-hidden bg-white hover:shadow-md transition">
               <a href={article.url} target="_blank" rel="noopener noreferrer" className="block aspect-[16/9] overflow-hidden bg-navy-800" tabIndex={-1} aria-hidden="true">
-                {article.image ? (
-                  <Picture name={article.image} alt="" className="block h-full" imgClassName="w-full h-full object-cover object-top group-hover:scale-[1.02] transition-transform duration-300" />
-                ) : (
-                  <div className="h-full flex flex-col items-center justify-center text-center px-6 bg-[radial-gradient(ellipse_at_top_right,rgba(127,209,199,0.18),transparent_60%)]">
-                    <span className="font-serif text-2xl md:text-[1.7rem] font-semibold text-white">{article.outlet}</span>
-                    <span className="mt-2 h-0.5 w-10 bg-teal-300" />
-                  </div>
-                )}
+                <div className="h-full flex flex-col items-center justify-center text-center px-6 bg-[radial-gradient(ellipse_at_top_right,rgba(127,209,199,0.18),transparent_60%)] transition-colors group-hover:bg-navy-700">
+                  <span className="font-serif text-2xl md:text-[1.7rem] font-semibold text-white">{article.outlet}</span>
+                  <span className="mt-2 h-0.5 w-10 bg-teal-300" />
+                </div>
               </a>
               <div className="p-6 flex flex-col flex-grow">
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-slate-500 mb-3">
                   <span className="font-semibold text-teal-700">{article.outlet}</span>
-                  <span className="flex items-center gap-1.5"><Calendar size={15} /> {article.date}</span>
+                  <span className="flex items-center gap-1.5"><Calendar size={15} aria-hidden="true" /> <time dateTime={article.iso}>{article.date}</time></span>
                 </div>
                 <h2 className="text-xl font-semibold text-navy-800 leading-snug mb-3">
                   <a href={article.url} target="_blank" rel="noopener noreferrer" className="hover:text-teal-700">{article.title}</a>

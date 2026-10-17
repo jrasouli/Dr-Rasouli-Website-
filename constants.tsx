@@ -70,9 +70,9 @@ export const SERVICES: ServiceItem[] = [
   {
     id: 'miss',
     title: 'Minimally Invasive Surgery',
-    description: 'Advanced techniques using smaller incisions for faster recovery, less pain, and reduced tissue damage.',
+    description: 'Advanced techniques, including endoscopic spine surgery, using smaller incisions for faster recovery, less pain, and reduced tissue damage.',
     icon: Microscope,
-    details: ['Tubular Retractors', 'Microdiscectomy', 'Less Blood Loss', 'Faster Recovery']
+    details: ['Endoscopic Spine Surgery', 'Tubular Retractors', 'Microdiscectomy', 'Faster Recovery']
   },
   {
     id: 'robotic',
