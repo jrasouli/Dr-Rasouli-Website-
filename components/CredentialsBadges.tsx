@@ -1,12 +1,12 @@
 import React from 'react';
-import { ShieldCheck, GraduationCap, Award, Stethoscope } from 'lucide-react';
+import { ShieldCheck, GraduationCap, Award, Star } from 'lucide-react';
 import { Container } from './ui';
 import { CASTLE_CONNOLLY_URL } from '../constants';
 
 const ITEMS = [
   { icon: ShieldCheck, title: 'Board Certified', text: 'American Board of Neurological Surgery' },
   { icon: GraduationCap, title: 'Fellowship-Trained', text: 'Complex & Adult Reconstructive Spine, Cleveland Clinic' },
-  { icon: Stethoscope, title: 'Residency', text: 'Neurological Surgery, The Mount Sinai Hospital' },
+  { icon: Star, title: '5-Star Patient Satisfaction', text: 'Rated by patients' },
   { icon: Award, title: 'Castle Connolly Top Doctor', text: '2024 · 2025 · 2026', link: CASTLE_CONNOLLY_URL },
 ];
 
