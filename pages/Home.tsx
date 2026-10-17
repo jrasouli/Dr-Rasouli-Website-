@@ -414,11 +414,11 @@ const Home: React.FC = () => {
             center
             eyebrow="Locations"
             title="Office Locations"
-            lead={<>Dr. Rasouli practices with <a href="https://neurospineplus.com" target="_blank" rel="noopener noreferrer" className="text-teal-700 font-semibold underline underline-offset-2 hover:text-navy-800">NeuroSpine Plus</a>, seeing patients at offices in Paramus, North Bergen, Jersey City, Edison, Hamilton, and Mount Laurel, New Jersey, and on Staten Island, New York.</>}
+            lead={<>Dr. Rasouli practices with <a href="https://neurospineplus.com" target="_blank" rel="noopener noreferrer" className="text-teal-700 font-semibold underline underline-offset-2 hover:text-navy-800">NeuroSpine Plus</a>, seeing patients at offices in Paramus, North Bergen, Jersey City, and Edison, New Jersey, and on Staten Island, New York.</>}
           />
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="mt-12 flex flex-wrap justify-center gap-5">
             {OFFICE_LOCATIONS.map((loc) => (
-              <a key={loc.city} href={loc.url} target="_blank" rel="noopener noreferrer" className="bg-white rounded-xl border border-sand-200 p-6 flex gap-4 hover:border-teal-700/40 hover:shadow-sm transition">
+              <a key={loc.city} href={loc.url} target="_blank" rel="noopener noreferrer" className="w-full sm:w-[calc(50%-0.625rem)] lg:w-[calc((100%-2.5rem)/3)] bg-white rounded-xl border border-sand-200 p-6 flex gap-4 hover:border-teal-700/40 hover:shadow-sm transition">
                 <MapPin className="text-teal-700 shrink-0 mt-1" size={22} />
                 <div>
                   <h3 className="text-lg font-semibold text-navy-800">{loc.city}, {loc.state}</h3>

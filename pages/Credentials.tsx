@@ -58,7 +58,7 @@ const Credentials: React.FC = () => {
               <SectionTitle icon={Briefcase}>Current Practice</SectionTitle>
               <div className="rounded-xl border border-teal-100 bg-teal-50/60 p-6">
                 <h3 className="text-xl font-semibold text-navy-800">Spine Neurosurgeon, NeuroSpine Plus</h3>
-                <p className="mt-1 text-slate-700">Offices in {OFFICE_LOCATIONS.filter((l) => l.state === 'NJ').map((l) => l.city).join(', ')}, New Jersey, and Staten Island, New York.</p>
+                <p className="mt-1 text-slate-700">Offices in {OFFICE_LOCATIONS.filter((l) => l.state === 'NJ').map((l) => l.city).join(', ').replace(/, ([^,]*)$/, ', and $1')}, New Jersey, and Staten Island, New York.</p>
                 <p className="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Hospital affiliations</p>
                 <ul className="mt-2 space-y-1 text-slate-700">
                   <li>Hudson Regional Hospital, Secaucus, NJ</li>

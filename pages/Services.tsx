@@ -129,7 +129,7 @@ const Services: React.FC = () => {
             </div>
             <div className="rounded-xl bg-navy-800 text-white p-6">
               <h2 className="text-xl font-semibold mb-2">Schedule a consultation</h2>
-              <p className="text-navy-100/85 mb-5">Appointments are available at seven NeuroSpine Plus offices across New Jersey and Staten Island.</p>
+              <p className="text-navy-100/85 mb-5">Appointments are available at five NeuroSpine Plus offices across New Jersey and Staten Island.</p>
               <ButtonLink href={APPOINTMENT_URL} className="w-full">Request an Appointment</ButtonLink>
               <a href="tel:2013993388" className="mt-4 flex items-center justify-center gap-2 font-semibold text-white hover:text-teal-300">
                 <Phone size={18} className="text-teal-300" /> (201) 399-3388
