@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.drrasouli.com/sitemap.xml
+Sitemap: https://rasouli-md.com/sitemap.xml
 
 # Block admin/utility pages if any
 Disallow: /admin/

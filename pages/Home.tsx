@@ -1,31 +1,40 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Star, ChevronRight, CheckCircle2, Newspaper, Play } from 'lucide-react';
+import { Star, ChevronRight, CheckCircle2, Newspaper, Play, MapPin } from 'lucide-react';
 import Button from '../components/Button';
 import SEO from '../components/SEO';
-import { SERVICES, TESTIMONIALS } from '../constants';
-import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+import { SERVICES, TESTIMONIALS, OFFICE_LOCATIONS, APPOINTMENT_URL } from '../constants';
 import MediaCarousel from '../components/MediaCarousel';
 import SocialButtons from '../components/SocialButtons';
 import CredentialsBadges from '../components/CredentialsBadges';
 
-// Mock Research Data for Visualization
-const RESEARCH_DATA = [
-  { name: 'National Avg', score: 82 },
-  { name: 'Dr. Rasouli', score: 98 },
-];
+const SITE_URL = 'https://rasouli-md.com';
+
+const clinicLocations = OFFICE_LOCATIONS.map((loc) => ({
+  "@type": "MedicalClinic",
+  "name": `NeuroSpine Plus - ${loc.city}`,
+  "url": loc.url,
+  "telephone": "+1-201-399-3388",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": loc.street,
+    "addressLocality": loc.locality,
+    "addressRegion": "NJ",
+    "postalCode": loc.postalCode,
+    "addressCountry": "US"
+  }
+}));
 
 const Home: React.FC = () => {
   const physicianSchema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Physician",
-    "@id": "https://www.drrasouli.com/#physician",
+    "@id": `${SITE_URL}/#physician`,
     "name": "Dr. Jonathan J. Rasouli, MD",
-    "image": "https://www.drrasouli.com/images/dr-rasouli-headshot.jpg",
+    "image": `${SITE_URL}/images/dr-rasouli-headshot.jpg`,
     "description": "Board-certified, fellowship-trained spine neurosurgeon specializing in complex spinal deformity, minimally invasive surgery, and robotic-assisted spine procedures.",
-    "url": "https://www.drrasouli.com",
+    "url": SITE_URL,
     "telephone": "+1-201-399-3388",
-    "email": "contact@drrasouli.com",
     "medicalSpecialty": [
       "https://schema.org/Neurology",
       {
@@ -108,6 +117,7 @@ const Home: React.FC = () => {
       "name": "NeuroSpine Plus",
       "url": "https://neurospineplus.com"
     },
+    "location": clinicLocations,
     "sameAs": [
       "https://www.youtube.com/c/virtualglobalspineconference",
       "https://www.healthgrades.com/physicians/dr-jonathan-rasouli",
@@ -118,13 +128,14 @@ const Home: React.FC = () => {
   const businessSchema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
-    "@id": "https://www.drrasouli.com/#practice",
+    "@id": `${SITE_URL}/#practice`,
     "name": "Dr. Jonathan J. Rasouli, MD - Spine Neurosurgery",
     "description": "Board-certified spine neurosurgery practice specializing in complex spinal deformity, minimally invasive surgery, and robotic-assisted procedures.",
-    "url": "https://www.drrasouli.com",
+    "url": SITE_URL,
     "telephone": "+1-201-399-3388",
     "priceRange": "$$$$",
     "medicalSpecialty": "Neurosurgery",
+    "location": clinicLocations,
     "availableService": [
       {
         "@type": "MedicalProcedure",
@@ -207,7 +218,6 @@ const Home: React.FC = () => {
       />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-primary to-blue-900 text-white pt-12 pb-24 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://picsum.photos/id/4/1920/1080')] opacity-10 bg-cover bg-center mix-blend-overlay"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col md:flex-row items-center gap-12">
             <div className="md:w-3/5 space-y-6">
@@ -265,7 +275,7 @@ const Home: React.FC = () => {
               <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 relative">
                 {/* Simulated Professional Headshot */}
                 <img 
-                  src="/64B9A1EE-87D6-4E30-A83C-FB3D15B84F79.JPG" 
+                  src="/images/dr-rasouli-headshot.jpg" 
                   alt="Dr. Jonathan J. Rasouli" 
                   className="w-full h-full object-cover object-top"
                 />
@@ -316,22 +326,6 @@ const Home: React.FC = () => {
                   </li>
                 ))}
               </ul>
-
-              {/* Research/Stats Micro-Viz */}
-              <div className="bg-neutral-light p-6 rounded-xl mt-6">
-                <h4 className="text-sm font-bold text-gray-500 uppercase tracking-wide mb-4">Patient Satisfaction Score</h4>
-                <div className="h-40 w-full">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={RESEARCH_DATA} layout="vertical" margin={{ left: 20 }}>
-                      <CartesianGrid strokeDasharray="3 3" horizontal={false} />
-                      <XAxis type="number" domain={[0, 100]} hide />
-                      <YAxis dataKey="name" type="category" width={80} tick={{fontSize: 12, fill: '#666'}} />
-                      <Tooltip cursor={{fill: 'transparent'}} />
-                      <Bar dataKey="score" fill="#1E4D8B" radius={[0, 4, 4, 0]} barSize={24} />
-                    </BarChart>
-                  </ResponsiveContainer>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -432,6 +426,42 @@ const Home: React.FC = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Practice & Office Locations */}
+      <section className="py-20 bg-gray-50" id="locations">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">Office Locations</h2>
+            <p className="text-gray-600 max-w-3xl mx-auto text-lg">
+              Dr. Rasouli practices with <a href="https://neurospineplus.com" target="_blank" rel="noopener noreferrer" className="text-secondary font-semibold hover:text-primary">NeuroSpine Plus</a>, seeing patients at offices across New Jersey in Paramus, North Bergen, Jersey City, Edison, Hamilton, and Mount Laurel.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {OFFICE_LOCATIONS.map((loc) => (
+              <div key={loc.city} className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 flex gap-4">
+                <MapPin className="text-secondary shrink-0 mt-1" size={22} />
+                <div>
+                  <h3 className="font-bold text-gray-900">{loc.city}, NJ</h3>
+                  <address className="not-italic text-gray-600 text-sm leading-relaxed mt-1">
+                    {loc.street}<br />
+                    {loc.locality}, NJ {loc.postalCode}
+                  </address>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center text-gray-700">
+            <p className="mb-4">
+              Appointments for all offices: <a href="tel:2013993388" className="font-bold text-primary hover:text-secondary">(201) 399-3388</a>
+            </p>
+            <a href={APPOINTMENT_URL} target="_blank" rel="noopener noreferrer">
+              <Button variant="secondary" className="px-8">Request an Appointment</Button>
+            </a>
           </div>
         </div>
       </section>

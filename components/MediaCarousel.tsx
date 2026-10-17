@@ -1,15 +1,14 @@
 import React from 'react';
 import { Search } from 'lucide-react';
 
-const LOGOS = [
-  { name: "NY Post", url: "https://placehold.co/160x60/transparent/1E4D8B?text=NY+Post" },
-  { name: "CNN", url: "https://placehold.co/160x60/transparent/cc0000?text=CNN" },
-  { name: "The Washington Post", url: "https://placehold.co/160x60/transparent/333333?text=Washington+Post" },
-  { name: "Becker's Spine", url: "https://placehold.co/160x60/transparent/0066cc?text=Becker's+Spine" },
-  { name: "US News", url: "https://placehold.co/160x60/transparent/0052A3?text=US+News" },
-  { name: "Northwell Health", url: "https://placehold.co/160x60/transparent/333333?text=Northwell" },
-  { name: "WebMD", url: "https://placehold.co/160x60/transparent/0066cc?text=WebMD" },
-  { name: "ResearchGate", url: "https://placehold.co/160x60/transparent/00ccbb?text=ResearchGate" },
+const OUTLETS = [
+  "NY Post",
+  "CNN",
+  "The Washington Post",
+  "Becker's Spine",
+  "U.S. News & World Report",
+  "WebMD",
+  "ResearchGate",
 ];
 
 const MediaCarousel: React.FC<{ className?: string }> = ({ className = "" }) => {
@@ -30,12 +29,12 @@ const MediaCarousel: React.FC<{ className?: string }> = ({ className = "" }) => 
           .carousel-wrapper:hover .carousel-track {
             animation-play-state: paused;
           }
-          .media-logo {
-             filter: grayscale(100%) opacity(0.6);
+          .media-outlet {
+             color: #6b7280;
              transition: all 0.3s ease;
           }
-          .media-logo:hover {
-             filter: grayscale(0%) opacity(1);
+          .media-outlet:hover {
+             color: #1E4D8B;
              transform: scale(1.05);
           }
         `}
@@ -52,34 +51,22 @@ const MediaCarousel: React.FC<{ className?: string }> = ({ className = "" }) => 
         <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
         <div className="carousel-track items-center py-4 px-4">
-          {/* First set of logos */}
-          {LOGOS.map((logo, index) => (
-            <div key={`logo-1-${index}`} className="flex items-center justify-center min-w-[160px] h-20 px-4">
-              <img 
-                src={logo.url} 
-                alt={`${logo.name} Logo`} 
-                className="media-logo h-12 w-auto object-contain"
-              />
+          {/* First set of outlet names */}
+          {OUTLETS.map((name, index) => (
+            <div key={`outlet-1-${index}`} className="flex items-center justify-center min-w-[160px] h-20 px-4">
+              <span className="media-outlet font-heading font-bold text-xl md:text-2xl whitespace-nowrap">{name}</span>
             </div>
           ))}
           {/* Duplicate set for infinite loop */}
-          {LOGOS.map((logo, index) => (
-            <div key={`logo-2-${index}`} className="flex items-center justify-center min-w-[160px] h-20 px-4">
-              <img 
-                src={logo.url} 
-                alt={`${logo.name} Logo`} 
-                className="media-logo h-12 w-auto object-contain"
-              />
+          {OUTLETS.map((name, index) => (
+            <div key={`outlet-2-${index}`} className="flex items-center justify-center min-w-[160px] h-20 px-4" aria-hidden="true">
+              <span className="media-outlet font-heading font-bold text-xl md:text-2xl whitespace-nowrap">{name}</span>
             </div>
           ))}
            {/* Triplicate set for infinite loop on wide screens */}
-           {LOGOS.map((logo, index) => (
-            <div key={`logo-3-${index}`} className="flex items-center justify-center min-w-[160px] h-20 px-4">
-              <img 
-                src={logo.url} 
-                alt={`${logo.name} Logo`} 
-                className="media-logo h-12 w-auto object-contain"
-              />
+           {OUTLETS.map((name, index) => (
+            <div key={`outlet-3-${index}`} className="flex items-center justify-center min-w-[160px] h-20 px-4" aria-hidden="true">
+              <span className="media-outlet font-heading font-bold text-xl md:text-2xl whitespace-nowrap">{name}</span>
             </div>
           ))}
         </div>
