@@ -5,7 +5,7 @@ import { Container, PageHeader, ButtonLink } from '../components/ui';
 import { OFFICE_LOCATIONS } from '../constants';
 
 const EDUCATION = [
-  { inst: 'Cleveland Clinic', program: 'Spine Surgery Fellowship', meta: '2019 – 2020 · Cleveland, OH' },
+  { inst: 'Cleveland Clinic', program: 'Complex Spinal Surgery Fellowship', meta: '2019 – 2020 · Cleveland, OH' },
   { inst: 'The Mount Sinai Hospital', program: 'Neurological Surgery Residency', meta: '2012 – 2019 · New York, NY', notes: ['Stereotactic & Functional Neurosurgery Fellowship (2015 – 2016)'] },
   { inst: 'Albert Einstein College of Medicine', program: 'Doctor of Medicine (M.D.)', meta: '2007 – 2012 · Bronx, NY', notes: ['Alpha Omega Alpha (AOA) Honor Medical Society (2011)', 'Research Distinction in Neurological Surgery (2012)'] },
 ];
@@ -35,7 +35,7 @@ const Credentials: React.FC = () => {
     <div className="bg-white">
        <SEO 
         title="Credentials & CV | Dr. Jonathan J. Rasouli, Board-Certified Spinal Neurosurgeon"
-        description="Credentials of Dr. Jonathan J. Rasouli, board-certified spinal neurosurgeon: Cleveland Clinic spine surgery fellowship, Mount Sinai neurosurgery residency, Albert Einstein College of Medicine, Castle Connolly Top Doctor 2023–2026."
+        description="Credentials of Dr. Jonathan J. Rasouli, board-certified spinal neurosurgeon: Cleveland Clinic complex spinal surgery fellowship, Mount Sinai neurosurgery residency, Albert Einstein College of Medicine, Castle Connolly Top Doctor 2023–2026."
         canonicalPath="/credentials"
         breadcrumbs={[
           { name: "Home", item: "/" },

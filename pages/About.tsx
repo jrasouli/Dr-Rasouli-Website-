@@ -10,7 +10,7 @@ const TIMELINE = [
   {
     title: 'Fellowship',
     inst: 'Cleveland Clinic',
-    desc: 'Spine Surgery Fellowship (2019 – 2020).',
+    desc: 'Complex Spinal Surgery Fellowship (2019 – 2020).',
   },
   {
     title: 'Residency',
@@ -71,7 +71,7 @@ const About: React.FC = () => {
                   Dr. Rasouli is a board-certified, fellowship-trained neurosurgeon specializing in complex spinal conditions. He practices with NeuroSpine Plus, seeing patients at offices across New Jersey and Staten Island, and his work centers on helping patients regain their quality of life through advanced surgical techniques.
                 </p>
                 <p>
-                  After completing his residency at The Mount Sinai Hospital, he completed a Spine Surgery Fellowship at the world-renowned Cleveland Clinic. This background allows him to treat spinal deformities with a comprehensive understanding of biomechanics and neurological function.
+                  After completing his residency at The Mount Sinai Hospital, he completed a Complex Spinal Surgery Fellowship at the world-renowned Cleveland Clinic. This background allows him to treat spinal deformities with a comprehensive understanding of biomechanics and neurological function.
                 </p>
               </div>
             </section>

@@ -37,7 +37,7 @@ const Services: React.FC = () => {
         "name": "Is Dr. Rasouli board certified?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, Dr. Rasouli is board certified by the American Board of Neurological Surgery. He completed a Spine Surgery Fellowship at the Cleveland Clinic, one of the world's leading medical institutions."
+          "text": "Yes, Dr. Rasouli is board certified by the American Board of Neurological Surgery. He completed a Complex Spinal Surgery Fellowship at the Cleveland Clinic, one of the world's leading medical institutions."
         }
       },
       {

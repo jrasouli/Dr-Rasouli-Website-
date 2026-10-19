@@ -62,7 +62,7 @@ const Home: React.FC = () => {
       {
         "@type": "EducationalOrganization",
         "name": "Cleveland Clinic Foundation",
-        "description": "Spine Surgery Fellowship"
+        "description": "Complex Spinal Surgery Fellowship"
       },
       {
         "@type": "EducationalOrganization",
