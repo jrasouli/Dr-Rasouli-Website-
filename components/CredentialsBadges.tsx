@@ -16,8 +16,8 @@ type Item = {
 
 const ITEMS: Item[] = [
   { icon: ShieldCheck, title: 'Board Certified', text: 'American Board of Neurological Surgery' },
-  { icon: GraduationCap, title: 'Cleveland Clinic\u2013\u2060Trained', text: 'Complex Spinal Surgery Fellowship at the world-renowned Cleveland Clinic' },
-  { icon: Star, title: '5-Star Patient Satisfaction', text: 'Patient ratings on U.S.\u00A0News', href: USNEWS_URL, ariaLabel: "5-Star Patient Satisfaction: view patient ratings on Dr. Rasouli's U.S. News profile (opens in a new tab)" },
+  { icon: GraduationCap, title: 'Cleveland Clinic\u2013\u2060Trained', text: 'Complex & Minimally Invasive Spinal Neurosurgeon' },
+  { icon: Star, title: '5-Star Patient Satisfaction', text: 'Patient ratings on U.S.\u00A0News & World\u00A0Report', href: USNEWS_URL, ariaLabel: "5-Star Patient Satisfaction: view patient ratings on Dr. Rasouli's U.S. News profile (opens in a new tab)" },
   { icon: Award, title: 'Castle Connolly Top Doctor', text: '2023 – 2026', href: CASTLE_CONNOLLY_URL, ariaLabel: "Castle Connolly Top Doctor 2023 to 2026: view Dr. Rasouli's Castle Connolly profile (opens in a new tab)" },
 ];
 
