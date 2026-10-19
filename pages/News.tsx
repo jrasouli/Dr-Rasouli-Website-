@@ -98,6 +98,15 @@ const NEWS_ARTICLES: NewsArticle[] = [
     outlet: 'CBC Radio · As It Happens',
     summary: 'A rare and surprising discovery during surgery highlights the complexities and unpredictability of neurosurgical diagnosis and treatment.',
   },
+  {
+    id: 'wapo-2019',
+    title: 'Surgeons opened her skull to remove a cancerous tumor. Instead, they found a tapeworm.',
+    url: 'https://www.washingtonpost.com/health/2019/06/06/surgeons-opened-her-skull-remove-cancerous-tumor-instead-they-found-tapeworm/',
+    date: 'June 6, 2019',
+    iso: '2019-06-06',
+    outlet: 'The Washington Post',
+    summary: 'Dr. Rasouli, then chief neurosurgery resident at Mount Sinai, describes finding a tapeworm cyst where doctors had expected a malignant brain tumor.',
+  },
 ];
 
 const News: React.FC = () => {
