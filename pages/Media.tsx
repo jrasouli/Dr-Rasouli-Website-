@@ -13,6 +13,7 @@ const COVERAGE = [
   { outlet: "Becker's Spine Review", date: 'Apr 22, 2026', title: 'Dr. Jonathan Rasouli joins NeuroSpine Plus', text: 'Becker\'s reports on Dr. Rasouli joining NeuroSpine Plus in Paramus, N.J., to focus on complex and minimally invasive spine procedures.', url: 'https://www.beckersspine.com/spine/dr-jonathan-rasouli-joins-neurospine-plus/' },
   { outlet: 'Northwell Health', date: 'Apr 24, 2025', title: 'Softening the memory', text: 'Dr. Rasouli weighs in on the real-world potential of memory modulation and how current therapies aim to soften, not erase, painful memories.', url: 'https://www.northwell.edu/news/the-latest/softening-the-memory' },
   { outlet: 'CNN', date: 'Jun 7, 2019', title: 'Unusual symptoms pointing to brain cancer turned out to be a tapeworm', text: 'Dr. Rasouli discusses a case in which suspected brain cancer turned out to be a parasitic infection.', url: 'https://www.cnn.com/2019/06/07/health/tapeworm-brain-trnd/index.html' },
+  { outlet: 'The Washington Post', date: 'Jun 6, 2019', title: 'Surgeons opened her skull to remove a cancerous tumor. Instead, they found a tapeworm.', text: 'Dr. Rasouli, then chief neurosurgery resident at Mount Sinai, describes finding a tapeworm cyst where doctors had expected a malignant brain tumor.', url: 'https://www.washingtonpost.com/health/2019/06/06/surgeons-opened-her-skull-remove-cancerous-tumor-instead-they-found-tapeworm/' },
 ];
 
 const JOURNALS = [

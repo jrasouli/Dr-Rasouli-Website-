@@ -5,7 +5,7 @@ import { Container, PageHeader, ButtonLink } from '../components/ui';
 import { OFFICE_LOCATIONS } from '../constants';
 
 const EDUCATION = [
-  { inst: 'Cleveland Clinic', program: 'Spine Surgery Fellowship', meta: '2019 – 2020 · Cleveland, OH' },
+  { inst: 'Cleveland Clinic', program: 'Complex Spinal Surgery Fellowship', meta: '2019 – 2020 · Cleveland, OH' },
   { inst: 'The Mount Sinai Hospital', program: 'Neurological Surgery Residency', meta: '2012 – 2019 · New York, NY', notes: ['Stereotactic & Functional Neurosurgery Fellowship (2015 – 2016)'] },
   { inst: 'Albert Einstein College of Medicine', program: 'Doctor of Medicine (M.D.)', meta: '2007 – 2012 · Bronx, NY', notes: ['Alpha Omega Alpha (AOA) Honor Medical Society (2011)', 'Research Distinction in Neurological Surgery (2012)'] },
 ];
@@ -35,7 +35,7 @@ const Credentials: React.FC = () => {
     <div className="bg-white">
        <SEO 
         title="Credentials & CV | Dr. Jonathan J. Rasouli, Board-Certified Spinal Neurosurgeon"
-        description="Credentials of Dr. Jonathan J. Rasouli, board-certified spinal neurosurgeon: Cleveland Clinic spine surgery fellowship, Mount Sinai neurosurgery residency, Albert Einstein College of Medicine, Castle Connolly Top Doctor 2023–2026."
+        description="Credentials of Dr. Jonathan J. Rasouli, board-certified spinal neurosurgeon: Cleveland Clinic complex spinal surgery fellowship, Mount Sinai neurosurgery residency, Albert Einstein College of Medicine, Castle Connolly Top Doctor 2023–2026."
         canonicalPath="/credentials"
         breadcrumbs={[
           { name: "Home", item: "/" },
@@ -60,7 +60,7 @@ const Credentials: React.FC = () => {
             <section>
               <SectionTitle icon={Briefcase}>Current Practice</SectionTitle>
               <div className="rounded-xl border border-teal-100 bg-teal-50/60 p-6">
-                <h3 className="text-xl font-semibold text-navy-800">Spine Neurosurgeon, NeuroSpine Plus</h3>
+                <h3 className="text-xl font-semibold text-navy-800 text-balance">Complex &amp; Minimally&nbsp;Invasive Spinal Neurosurgeon, NeuroSpine&nbsp;Plus</h3>
                 <p className="mt-1 text-slate-700">Offices in {OFFICE_LOCATIONS.filter((l) => l.state === 'NJ').map((l) => l.city).join(', ').replace(/, ([^,]*)$/, ', and $1')}, New Jersey, and Staten Island, New York.</p>
                 <p className="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Hospital affiliations</p>
                 <ul className="mt-2 space-y-1 text-slate-700">
