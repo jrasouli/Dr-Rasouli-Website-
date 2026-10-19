@@ -293,11 +293,11 @@ const Home: React.FC = () => {
               <SectionHeading
                 eyebrow="Why patients choose Dr. Rasouli"
                 title="Academic training, focused on complex spine care"
-                lead={<>Dr. Rasouli trained in neurological surgery at The Mount Sinai Hospital, including a stereotactic and functional neurosurgery fellowship, then completed a <strong className="text-navy-800 font-semibold">Spine Surgery Fellowship</strong> at the Cleveland Clinic. This background allows him to approach complex spinal deformities from multiple expert perspectives.</>}
+                lead={<>Dr. Rasouli trained in neurological surgery at The Mount Sinai Hospital, then completed a <strong className="text-navy-800 font-semibold">Spine Surgery Fellowship</strong> at the world-renowned Cleveland Clinic. His practice is dedicated entirely to the spine, from minimally invasive and endoscopic procedures to complex deformity correction.</>}
               />
               <ul className="mt-8 grid sm:grid-cols-2 gap-x-6 gap-y-4">
                 {[
-                  'Fellowship Trained (Cleveland Clinic)',
+                  'Cleveland Clinic\u2013Trained Spine Surgeon',
                   'Alpha Omega Alpha Honor Society',
                   'Specialist in Robotic-Assisted Surgery',
                   'Featured in CNN & The Washington Post',
