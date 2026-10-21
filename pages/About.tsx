@@ -15,12 +15,12 @@ const TIMELINE = [
   {
     title: 'Residency',
     inst: 'The Mount Sinai Hospital, NY',
-    desc: ['Neurological Surgery Residency (2012 – 2019)', 'Stereotactic & Functional Neurosurgery Fellowship (2015 – 2016)'],
+    desc: ['Residency, Neurosurgery (2012 – 2019)', 'Fellowship, Stereotactic & Functional Neurosurgery (2015 – 2016)'],
   },
   {
     title: 'Medical School',
     inst: 'Albert Einstein College of Medicine',
-    desc: ['Doctor of Medicine with honors (2012)', 'Alpha Omega Alpha (2011)'],
+    desc: ['Alpha Omega Alpha (2011)'],
   },
 ];
 
