@@ -15,12 +15,12 @@ const TIMELINE = [
   {
     title: 'Residency',
     inst: 'The Mount Sinai Hospital, NY',
-    desc: 'Neurological Surgery Residency (2012 – 2019), including a Stereotactic & Functional Neurosurgery Fellowship (2015 – 2016).',
+    desc: ['Neurological Surgery Residency (2012 – 2019)', 'Stereotactic & Functional Neurosurgery Fellowship (2015 – 2016)'],
   },
   {
     title: 'Medical School',
     inst: 'Albert Einstein College of Medicine',
-    desc: 'Doctor of Medicine with honors (2012). Alpha Omega Alpha Honor Medical Society (2011).',
+    desc: ['Doctor of Medicine with honors (2012)', 'Alpha Omega Alpha (2011)'],
   },
 ];
 
@@ -86,7 +86,9 @@ const About: React.FC = () => {
                     <span className="absolute -left-[41px] top-1.5 bg-teal-700 w-4 h-4 rounded-full ring-4 ring-white" aria-hidden="true"></span>
                     <p className="text-xs font-semibold uppercase tracking-[0.14em] text-teal-700">{item.title}</p>
                     <h3 className="text-xl font-semibold text-navy-800 mt-1">{item.inst}</h3>
-                    <p className="text-slate-600 mt-1">{item.desc}</p>
+                    {(Array.isArray(item.desc) ? item.desc : [item.desc]).map((line) => (
+                      <p key={line} className="text-slate-600 mt-1">{line}</p>
+                    ))}
                   </li>
                 ))}
               </ol>
