@@ -81,10 +81,10 @@ const GlobalWork: React.FC = () => {
         <Container>
           <div className="grid gap-6 md:grid-cols-2">
             {[
-              { src: 'or-imaging-review', w: 1200, h: 1600, caption: 'Reviewing spinal imaging with the surgical team before a case', alt: 'Dr. Rasouli, in surgical scrubs and cap, points to spinal imaging on a wall-mounted viewer while a colleague looks on' },
-              { src: 'bedside-recovery', w: 1440, h: 1233, caption: 'With a patient in recovery after surgery', alt: 'Dr. Rasouli in scrubs stands beside a smiling patient resting in a hospital recovery bed' },
+              { src: 'or-imaging-review', w: 1200, h: 1600, alt: 'Dr. Rasouli, in surgical scrubs and cap, points to spinal imaging on a wall-mounted viewer while a colleague looks on' },
+              { src: 'bedside-recovery', w: 1440, h: 1233, alt: 'Dr. Rasouli in scrubs stands beside a smiling patient resting in a hospital recovery bed' },
             ].map((ph) => (
-              <figure key={ph.src} className="overflow-hidden rounded-2xl bg-navy-800 ring-1 ring-navy-900/10 shadow-sm">
+              <figure key={ph.src} className="overflow-hidden rounded-2xl bg-navy-900 ring-1 ring-navy-900/10 shadow-sm">
                 <div className="aspect-[4/3] overflow-hidden bg-navy-900">
                   <img
                     src={`/images/global-work/${ph.src}-1600.webp`}
@@ -98,10 +98,6 @@ const GlobalWork: React.FC = () => {
                     className="h-full w-full object-cover object-[50%_20%]"
                   />
                 </div>
-                <figcaption className="flex items-start gap-3 px-5 py-4 text-navy-100/90 border-t-2 border-teal-400">
-                  <MapPin size={18} className="mt-0.5 shrink-0 text-teal-300" aria-hidden="true" />
-                  <span>{ph.caption}</span>
-                </figcaption>
               </figure>
             ))}
           </div>
