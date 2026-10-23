@@ -168,7 +168,7 @@ const Media: React.FC = () => {
             ))}
             <article className="rounded-xl border border-slate-200 overflow-hidden flex flex-col">
               <a href={VUMEDI_URL} target="_blank" rel="noopener noreferrer" className="relative block aspect-video bg-navy-800 group" aria-label="Watch on VuMedi (opens in a new tab)">
-                <img src="/images/lectures/pso.webp" alt="" loading="lazy" decoding="async" width={960} height={540} className="w-full h-full object-cover" />
+                <img src="/images/lectures/pso.webp" srcSet="/images/lectures/pso.webp 1x, /images/lectures/pso@2x.webp 2x" alt="" loading="lazy" decoding="async" width={960} height={540} className="w-full h-full object-cover" />
                 <span className="absolute inset-0 flex items-center justify-center bg-navy-900/25 group-hover:bg-navy-900/40 transition-colors">
                   <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/95 text-navy-800 shadow-lg"><ExternalLink size={22} /></span>
                 </span>
