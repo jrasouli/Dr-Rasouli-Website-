@@ -33,15 +33,15 @@ const TALKS = [
 
 // Virtual Global Spine Conference lectures (IDs verified via YouTube oEmbed, Oct 2026).
 const LECTURES = [
-  { id: 'dTyFv3gGkQA', title: 'Post-operative Evaluation of the Spine', year: '2026' },
-  { id: 'LDS1SbuJZbE', title: 'Decompression and Fusion of the Cervical Spine', year: '2025' },
-  { id: 'OY_lQBHeffM', title: 'Cervical Arthroplasty: Where Do We Stand in 2025?', year: '2025' },
+  { id: 'dTyFv3gGkQA', cover: '/images/lectures/postop.webp', title: 'Post-operative Evaluation of the Spine', year: '2026' },
+  { id: 'LDS1SbuJZbE', cover: '/images/lectures/fusion.webp', title: 'Decompression and Fusion of the Cervical Spine', year: '2025' },
+  { id: 'OY_lQBHeffM', cover: '/images/lectures/arthroplasty.webp', title: 'Cervical Arthroplasty: Where Do We Stand in 2025?', year: '2025' },
 ];
 
 const VUMEDI_URL = 'https://www.vumedi.com/video/rigid-cervicothoracic-deformity-t2-pedicle-subtraction-osteotomy-for-sagittal-correction/';
 
 // Click-to-load embed: shows a lazy thumbnail until clicked, then loads the privacy-enhanced player.
-const LectureVideo: React.FC<{ id: string; title: string }> = ({ id, title }) => {
+const LectureVideo: React.FC<{ id: string; title: string; cover: string }> = ({ id, title, cover }) => {
   const [playing, setPlaying] = useState(false);
   return (
     <div className="relative aspect-video bg-navy-800">
@@ -55,7 +55,7 @@ const LectureVideo: React.FC<{ id: string; title: string }> = ({ id, title }) =>
         />
       ) : (
         <button type="button" onClick={() => setPlaying(true)} className="absolute inset-0 w-full h-full group" aria-label={`Play video: ${title}`}>
-          <img src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`} alt="" loading="lazy" decoding="async" width={480} height={360} className="w-full h-full object-cover" />
+          <img src={cover} alt="" loading="lazy" decoding="async" width={960} height={540} className="w-full h-full object-cover" />
           <span className="absolute inset-0 flex items-center justify-center bg-navy-900/25 group-hover:bg-navy-900/40 transition-colors">
             <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/95 text-navy-800 shadow-lg"><Play size={22} fill="currentColor" className="ml-1" /></span>
           </span>
@@ -158,7 +158,7 @@ const Media: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {LECTURES.map((l) => (
               <article key={l.id} className="rounded-xl border border-slate-200 overflow-hidden flex flex-col">
-                <LectureVideo id={l.id} title={l.title} />
+                <LectureVideo id={l.id} title={l.title} cover={l.cover} />
                 <div className="p-6">
                   <p className="text-xs font-semibold uppercase tracking-[0.14em] text-teal-700 mb-2">Lecture <span className="text-slate-500 normal-case tracking-normal font-medium">· {l.year}</span></p>
                   <h3 className="text-xl font-semibold text-navy-800">{l.title}</h3>
@@ -168,7 +168,7 @@ const Media: React.FC = () => {
             ))}
             <article className="rounded-xl border border-slate-200 overflow-hidden flex flex-col">
               <a href={VUMEDI_URL} target="_blank" rel="noopener noreferrer" className="relative block aspect-video bg-navy-800 group" aria-label="Watch on VuMedi (opens in a new tab)">
-                <img src="https://media.vumedi.com/thumbs/video/2026/7/5860695d-2120-4551-9982-ec22e318b549.300x170_q85_crop-smart_upscale.jpg" alt="" loading="lazy" decoding="async" width={300} height={170} className="w-full h-full object-cover" />
+                <img src="/images/lectures/pso.webp" alt="" loading="lazy" decoding="async" width={960} height={540} className="w-full h-full object-cover" />
                 <span className="absolute inset-0 flex items-center justify-center bg-navy-900/25 group-hover:bg-navy-900/40 transition-colors">
                   <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/95 text-navy-800 shadow-lg"><ExternalLink size={22} /></span>
                 </span>
