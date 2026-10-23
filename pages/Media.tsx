@@ -176,7 +176,7 @@ const Media: React.FC = () => {
               <div className="p-6 flex flex-col flex-grow">
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-teal-700 mb-2">VuMedi</p>
                 <h3 className="text-xl font-semibold text-navy-800">Rigid Cervicothoracic Deformity: T2 Pedicle Subtraction Osteotomy for Sagittal Correction</h3>
-                <p className="mt-2 text-slate-600 flex-grow">Video on VuMedi (free clinician login required).</p>
+                <p className="mt-2 text-slate-600 flex-grow">Video on VuMedi (clinician login required).</p>
                 <a href={VUMEDI_URL} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-1.5 font-semibold text-teal-700 hover:text-navy-800">Watch on VuMedi <ExternalLink size={16} /></a>
               </div>
             </article>
