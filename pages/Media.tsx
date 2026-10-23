@@ -31,6 +31,40 @@ const TALKS = [
   { year: '2018', venue: 'International Spinal Deformity Symposium · New York, NY', text: '"The Case for T2 Pedicle Subtraction Osteotomy in the Surgical Treatment of Rigid Cervicothoracic Deformity"' },
 ];
 
+// Virtual Global Spine Conference lectures (IDs verified via YouTube oEmbed, Oct 2026).
+const LECTURES = [
+  { id: 'dTyFv3gGkQA', cover: '/images/lectures/postop.webp', cover2x: '/images/lectures/postop@2x.webp', title: 'Post-operative Evaluation of the Spine', year: '2026' },
+  { id: 'LDS1SbuJZbE', cover: '/images/lectures/fusion.webp', cover2x: '/images/lectures/fusion@2x.webp', title: 'Decompression and Fusion of the Cervical Spine', year: '2025' },
+  { id: 'OY_lQBHeffM', cover: '/images/lectures/arthroplasty.webp', cover2x: '/images/lectures/arthroplasty@2x.webp', title: 'Cervical Arthroplasty: Where Do We Stand in 2025?', year: '2025' },
+];
+
+const VUMEDI_URL = 'https://www.vumedi.com/video/rigid-cervicothoracic-deformity-t2-pedicle-subtraction-osteotomy-for-sagittal-correction/';
+
+// Click-to-load embed: shows a lazy thumbnail until clicked, then loads the privacy-enhanced player.
+const LectureVideo: React.FC<{ id: string; title: string; cover: string; cover2x?: string }> = ({ id, title, cover, cover2x }) => {
+  const [playing, setPlaying] = useState(false);
+  return (
+    <div className="relative aspect-video bg-navy-800">
+      {playing ? (
+        <iframe
+          className="absolute inset-0 w-full h-full"
+          src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`}
+          title={title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
+      ) : (
+        <button type="button" onClick={() => setPlaying(true)} className="absolute inset-0 w-full h-full group" aria-label={`Play video: ${title}`}>
+          <img src={cover} srcSet={cover2x ? `${cover} 1x, ${cover2x} 2x` : undefined} alt="" loading="lazy" decoding="async" width={960} height={540} className="w-full h-full object-cover" />
+          <span className="absolute inset-0 flex items-center justify-center bg-navy-900/25 group-hover:bg-navy-900/40 transition-colors">
+            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/95 text-navy-800 shadow-lg"><Play size={22} fill="currentColor" className="ml-1" /></span>
+          </span>
+        </button>
+      )}
+    </div>
+  );
+};
+
 const Media: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'journals' | 'presentations'>('journals');
   const tabCls = (active: boolean) => `px-5 py-3 font-semibold border-b-2 -mb-px transition-colors ${active ? 'border-teal-700 text-navy-800' : 'border-transparent text-slate-500 hover:text-navy-800'}`;
@@ -115,6 +149,40 @@ const Media: React.FC = () => {
       </section>
 
       <MediaCarousel />
+
+      {/* Lectures */}
+      <section className="py-14 md:py-20 border-t border-slate-200">
+        <Container>
+          <Eyebrow className="mb-3">Virtual Global Spine Conference</Eyebrow>
+          <h2 className="text-2xl md:text-3xl font-semibold text-navy-800 mb-6 flex items-center gap-2"><Mic className="text-teal-700" /> Lectures</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {LECTURES.map((l) => (
+              <article key={l.id} className="rounded-xl border border-slate-200 overflow-hidden flex flex-col">
+                <LectureVideo id={l.id} title={l.title} cover={l.cover} cover2x={'cover2x' in l ? l.cover2x : undefined} />
+                <div className="p-6">
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-teal-700 mb-2">Lecture <span className="text-slate-500 normal-case tracking-normal font-medium">· {l.year}</span></p>
+                  <h3 className="text-xl font-semibold text-navy-800">{l.title}</h3>
+                  <p className="mt-2 text-slate-600">Presented by Dr. Rasouli at the Virtual Global Spine Conference.</p>
+                </div>
+              </article>
+            ))}
+            <article className="rounded-xl border border-slate-200 overflow-hidden flex flex-col">
+              <a href={VUMEDI_URL} target="_blank" rel="noopener noreferrer" className="relative block aspect-video bg-navy-800 group" aria-label="Watch on VuMedi (opens in a new tab)">
+                <img src="/images/lectures/pso.webp" srcSet="/images/lectures/pso.webp 1x, /images/lectures/pso@2x.webp 2x" alt="" loading="lazy" decoding="async" width={960} height={540} className="w-full h-full object-cover" />
+                <span className="absolute inset-0 flex items-center justify-center bg-navy-900/25 group-hover:bg-navy-900/40 transition-colors">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/95 text-navy-800 shadow-lg"><ExternalLink size={22} /></span>
+                </span>
+              </a>
+              <div className="p-6 flex flex-col flex-grow">
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-teal-700 mb-2">VuMedi</p>
+                <h3 className="text-xl font-semibold text-navy-800">Rigid Cervicothoracic Deformity: T2 Pedicle Subtraction Osteotomy for Sagittal Correction</h3>
+                <p className="mt-2 text-slate-600 flex-grow">Video on VuMedi (clinician login required).</p>
+                <a href={VUMEDI_URL} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-1.5 font-semibold text-teal-700 hover:text-navy-800">Watch on VuMedi <ExternalLink size={16} /></a>
+              </div>
+            </article>
+          </div>
+        </Container>
+      </section>
 
       {/* Research & Publications */}
       <section className="py-14 md:py-20">
