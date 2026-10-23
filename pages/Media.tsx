@@ -151,7 +151,7 @@ const Media: React.FC = () => {
       <MediaCarousel />
 
       {/* Lectures */}
-      <section className="py-14 md:py-20 border-t border-slate-200">
+      <section id="lectures" className="py-14 md:py-20 border-t border-slate-200 scroll-mt-24">
         <Container>
           <Eyebrow className="mb-3">Virtual Global Spine Conference</Eyebrow>
           <h2 className="text-2xl md:text-3xl font-semibold text-navy-800 mb-6 flex items-center gap-2"><Mic className="text-teal-700" /> Lectures</h2>
