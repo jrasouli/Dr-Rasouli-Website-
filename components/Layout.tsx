@@ -16,8 +16,15 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     if (!location.hash) {
       window.scrollTo(0, 0);
     } else {
-      const element = document.getElementById(location.hash.replace('#', ''));
-      if (element) element.scrollIntoView({ behavior: 'smooth' });
+      // Retry briefly so links from other pages work once the target page has rendered.
+      const id = decodeURIComponent(location.hash.slice(1));
+      let tries = 0;
+      const tryScroll = () => {
+        const element = document.getElementById(id);
+        if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        else if (tries++ < 20) setTimeout(tryScroll, 50);
+      };
+      tryScroll();
     }
     const timeoutId = setTimeout(() => setIsMenuOpen(false), 0);
     return () => clearTimeout(timeoutId);
@@ -27,6 +34,12 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     if (path === '/') return location.pathname === '/';
     const paths = children ? children.map((c) => c.path) : [path];
     return paths.some((p) => location.pathname === p || location.pathname.startsWith(`${p}/`));
+  };
+
+  // Exact match on path and hash, so /media and /media#lectures are told apart.
+  const childActive = (to: string) => {
+    const [p, h] = to.split('#');
+    return location.pathname === p && location.hash === (h ? `#${h}` : '');
   };
 
   const linkBase = 'text-[0.9375rem] font-medium whitespace-nowrap transition-colors py-2 border-b-2';
@@ -57,7 +70,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                       <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-opacity duration-150">
                         <div className="w-56 bg-white shadow-lg rounded-lg border border-slate-200 py-2">
                           {link.children.map((child) => (
-                            <Link key={child.path} to={child.path} className="block px-4 py-2.5 text-[0.9375rem] text-slate-700 hover:bg-sand hover:text-navy-800">
+                            <Link key={child.path} to={child.path} onClick={(e) => e.currentTarget.blur()} className="block px-4 py-2.5 text-[0.9375rem] text-slate-700 hover:bg-sand hover:text-navy-800">
                               {child.label}
                             </Link>
                           ))}
@@ -101,9 +114,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     <div className="py-3">
                       <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 mb-1">{link.label}</p>
                       {link.children.map((child) => (
-                        <NavLink key={child.path} to={child.path} end className={({ isActive: a }) => `block py-2 text-lg ${a ? 'text-teal-700 font-semibold' : 'text-navy-800'}`}>
+                        <Link key={child.path} to={child.path} aria-current={childActive(child.path) ? 'page' : undefined} className={`block py-2 text-lg ${childActive(child.path) ? 'text-teal-700 font-semibold' : 'text-navy-800'}`}>
                           {child.label}
-                        </NavLink>
+                        </Link>
                       ))}
                     </div>
                   ) : (
@@ -183,6 +196,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                   { label: 'Personal Statement', path: '/statement' },
                   { label: 'Services', path: '/services' },
                   { label: 'Media & Publications', path: '/media' },
+                  { label: 'Lectures', path: '/media#lectures' },
                   { label: 'News Coverage', path: '/news' },
                   { label: 'Global Work', path: '/global-work' },
                   { label: 'Credentials & CV', path: '/credentials' },

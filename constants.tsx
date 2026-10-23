@@ -17,6 +17,7 @@ export const NAV_LINKS: NavItem[] = [
     path: '/media',
     children: [
       { label: 'Media & Publications', path: '/media' },
+      { label: 'Lectures', path: '/media#lectures' },
       { label: 'News Coverage', path: '/news' },
     ]
   },
