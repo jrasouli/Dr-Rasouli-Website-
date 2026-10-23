@@ -33,8 +33,8 @@ const TALKS = [
 
 // Virtual Global Spine Conference lectures (IDs verified via YouTube oEmbed, Oct 2026).
 const LECTURES = [
-  { id: 'dTyFv3gGkQA', cover: '/images/lectures/postop.webp', title: 'Post-operative Evaluation of the Spine', year: '2026' },
-  { id: 'LDS1SbuJZbE', cover: '/images/lectures/fusion.webp', title: 'Decompression and Fusion of the Cervical Spine', year: '2025' },
+  { id: 'dTyFv3gGkQA', cover: '/images/lectures/postop.webp', cover2x: '/images/lectures/postop@2x.webp', title: 'Post-operative Evaluation of the Spine', year: '2026' },
+  { id: 'LDS1SbuJZbE', cover: '/images/lectures/fusion.webp', cover2x: '/images/lectures/fusion@2x.webp', title: 'Decompression and Fusion of the Cervical Spine', year: '2025' },
   { id: 'OY_lQBHeffM', cover: '/images/lectures/arthroplasty.webp', cover2x: '/images/lectures/arthroplasty@2x.webp', title: 'Cervical Arthroplasty: Where Do We Stand in 2025?', year: '2025' },
 ];
 
