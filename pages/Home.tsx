@@ -231,13 +231,13 @@ const Home: React.FC = () => {
             <div className="md:col-span-5 md:order-2">
               <div className="relative mx-auto max-w-[420px]">
                 <Picture
-                  name="dr-rasouli-hero"
-                  alt="Dr. Jonathan J. Rasouli, MD"
+                  name="dr-rasouli-statement"
+                  alt="Dr. Jonathan J. Rasouli, MD, in a navy suit"
                   priority
                   width={1000}
                   height={1500}
                   className="block"
-                  imgClassName="w-full aspect-[3/2] md:aspect-[4/5] object-cover object-[center_18%] rounded-xl shadow-2xl ring-1 ring-white/10"
+                  imgClassName="w-full aspect-[3/2] md:aspect-[4/5] object-cover object-top rounded-xl shadow-2xl ring-1 ring-white/10"
                 />
               </div>
             </div>
