@@ -7,12 +7,12 @@ const Statement: React.FC = () => {
   return (
     <div className="bg-white">
       <SEO 
-        title="Personal Statement | Dr. Jonathan J. Rasouli"
-        description="Learn about Dr. Jonathan Rasouli's patient-first philosophy and commitment to treating every patient with precision and compassion. Board-certified neurosurgeon serving New Jersey and Staten Island."
+        title={"Personal Statement | Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli"}
+        description={"Learn about Dr.\u00A0Jonathan\u00A0Rasouli's patient-first philosophy and commitment to treating every patient with precision and compassion. Board-certified neurosurgeon serving New Jersey and Staten Island."}
         canonicalPath="/statement"
         breadcrumbs={[
           { name: "Home", item: "/" },
-          { name: "About Dr. Rasouli", item: "/about" },
+          { name: "About Dr.\u00A0Rasouli", item: "/about" },
           { name: "Statement", item: "/statement" }
         ]}
       />
@@ -34,7 +34,7 @@ const Statement: React.FC = () => {
           <div className="md:col-span-5">
             <Picture
               name="dr-rasouli-hero"
-              alt="Dr. Jonathan J. Rasouli, MD"
+              alt="Dr.&nbsp;Jonathan&nbsp;J.&nbsp;Rasouli, MD"
               width={1000}
               height={1500}
               className="block"

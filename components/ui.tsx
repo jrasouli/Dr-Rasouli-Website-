@@ -56,14 +56,25 @@ export const SectionHeading: React.FC<{ eyebrow?: string; title: React.ReactNode
   </div>
 );
 
-/** The one page-header style used on every inner page. */
-export const PageHeader: React.FC<{ eyebrow?: string; title: React.ReactNode; lead?: React.ReactNode; children?: React.ReactNode }> = ({ eyebrow, title, lead, children }) => (
+/** The one page-header style used on every inner page.
+ *  leadWide lets a long subtitle use the full container on large screens
+ *  while the title stays in the usual column. */
+export const PageHeader: React.FC<{ eyebrow?: string; title: React.ReactNode; lead?: React.ReactNode; children?: React.ReactNode; leadWide?: boolean }> = ({ eyebrow, title, lead, children, leadWide = false }) => (
   <header className="bg-sand border-b border-sand-200">
     <Container className="py-12 md:py-16">
       <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-        <div className="max-w-3xl">
-          {eyebrow && <Eyebrow className="mb-3">{eyebrow}</Eyebrow>}
-          <h1 className="text-4xl md:text-5xl font-semibold text-navy-800 leading-[1.1]">{title}</h1>
+        <div className={leadWide ? 'w-full min-w-0' : 'max-w-3xl'}>
+          {leadWide ? (
+            <div className="max-w-3xl">
+              {eyebrow && <Eyebrow className="mb-3">{eyebrow}</Eyebrow>}
+              <h1 className="text-4xl md:text-5xl font-semibold text-navy-800 leading-[1.1]">{title}</h1>
+            </div>
+          ) : (
+            <>
+              {eyebrow && <Eyebrow className="mb-3">{eyebrow}</Eyebrow>}
+              <h1 className="text-4xl md:text-5xl font-semibold text-navy-800 leading-[1.1]">{title}</h1>
+            </>
+          )}
           {lead && <p className="mt-4 text-lg md:text-xl text-slate-600 leading-relaxed">{lead}</p>}
         </div>
         {children && <div className="shrink-0">{children}</div>}

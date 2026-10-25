@@ -34,12 +34,12 @@ const Credentials: React.FC = () => {
   return (
     <div className="bg-white">
        <SEO 
-        title="Credentials & CV | Dr. Jonathan J. Rasouli, Board-Certified Spinal Neurosurgeon"
-        description="Credentials of Dr. Jonathan J. Rasouli, board-certified spinal neurosurgeon: Cleveland Clinic complex spinal surgery fellowship, Mount Sinai neurosurgery residency, Albert Einstein College of Medicine, Castle Connolly Top Doctor 2023–2026."
+        title={"Credentials & CV | Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, Board-Certified Spinal Neurosurgeon"}
+        description={"Credentials of Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, board-certified spinal neurosurgeon: Cleveland Clinic complex spinal surgery fellowship, Mount Sinai neurosurgery residency, Albert Einstein College of Medicine, Castle Connolly Top Doctor 2023–2026."}
         canonicalPath="/credentials"
         breadcrumbs={[
           { name: "Home", item: "/" },
-          { name: "About Dr. Rasouli", item: "/about" },
+          { name: "About Dr.\u00A0Rasouli", item: "/about" },
           { name: "Credentials", item: "/credentials" }
         ]}
       />
@@ -53,7 +53,7 @@ const Credentials: React.FC = () => {
             <section>
               <h2 className="text-2xl md:text-3xl font-semibold text-navy-800 mb-4">Professional Summary</h2>
               <p className="text-lg text-slate-700 leading-relaxed">
-                Dr. Jonathan J. Rasouli is a board-certified spinal neurosurgeon specializing in complex spinal deformity, minimally invasive spine surgery, and robotic-assisted techniques. He is dedicated to providing comprehensive, patient-centered care, utilizing the latest advancements in neurosurgery to achieve optimal outcomes.
+                Dr.&nbsp;Jonathan&nbsp;J.&nbsp;Rasouli is a board-certified spinal neurosurgeon specializing in complex spinal deformity, minimally invasive spine surgery, and robotic-assisted techniques. He is dedicated to providing comprehensive, patient-centered care, utilizing the latest advancements in neurosurgery to achieve optimal outcomes.
               </p>
             </section>
 

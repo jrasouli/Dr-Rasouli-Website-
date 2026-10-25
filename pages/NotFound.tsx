@@ -5,7 +5,7 @@ import SEO from '../components/SEO';
 import { Container, ButtonLink, Eyebrow } from '../components/ui';
 
 const LINKS = [
-  { path: '/about', label: 'About Dr. Rasouli' },
+  { path: '/about', label: 'About Dr.\u00A0Rasouli' },
   { path: '/services', label: 'Services' },
   { path: '/credentials', label: 'Credentials' },
   { path: '/news', label: 'News' },
@@ -14,8 +14,8 @@ const LINKS = [
 const NotFound: React.FC = () => (
   <>
     <SEO
-      title="Page Not Found | Dr. Jonathan J. Rasouli"
-      description="The page you were looking for could not be found. Visit the home page of Dr. Jonathan J. Rasouli, board-certified spinal neurosurgeon."
+      title={"Page Not Found | Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli"}
+      description={"The page you were looking for could not be found. Visit the home page of Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, board-certified spinal neurosurgeon."}
       noindex
     />
     <section className="bg-sand border-b border-sand-200">
