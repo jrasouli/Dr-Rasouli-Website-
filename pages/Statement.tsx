@@ -33,12 +33,12 @@ const Statement: React.FC = () => {
           </div>
           <div className="md:col-span-5">
             <Picture
-              name="dr-rasouli-statement"
-              alt="Dr. Jonathan J. Rasouli, MD, in a navy suit"
+              name="dr-rasouli-hero"
+              alt="Dr. Jonathan J. Rasouli, MD"
               width={1000}
               height={1500}
               className="block"
-              imgClassName="w-full max-w-[380px] mx-auto rounded-xl shadow-lg object-cover aspect-[4/5] object-[center_top]"
+              imgClassName="w-full max-w-[380px] mx-auto rounded-xl shadow-lg object-cover aspect-[4/5] object-[center_18%]"
             />
           </div>
         </div>
