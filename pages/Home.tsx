@@ -234,7 +234,7 @@ const Home: React.FC = () => {
                   name="dr-rasouli-navy-suit"
                   alt={"Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, MD, in a navy suit"}
                   priority
-                  width={1000}
+                  width={992}
                   height={1502}
                   className="block"
                   imgClassName="w-full h-auto rounded-xl shadow-[0_16px_40px_-12px_rgba(0,0,0,0.55)]"
