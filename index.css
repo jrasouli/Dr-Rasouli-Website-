@@ -42,34 +42,3 @@ body { font-family: 'Inter Variable', 'Inter', system-ui, sans-serif; color: #1C
 h1, h2, h3, h4 { font-family: 'Source Serif 4 Variable', 'Source Serif 4', Georgia, serif; letter-spacing: -0.01em; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 .animate-fadeIn { animation: fadeIn .25s ease-out; }
-
-/* Homepage hero portrait. The face and suit stay opaque; the edges,
-   especially the left and bottom, fade into the navy field so the photo
-   does not end in a hard card. Mobile only feathers the rim, because that
-   crop is mostly head and shoulders. */
-.hero-portrait {
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-  -webkit-mask-image:
-    linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.5) 4%, #000 11%, #000 91%, rgba(0, 0, 0, 0.45) 96%, transparent 100%),
-    linear-gradient(to bottom, transparent 0%, #000 2.5%, #000 94%, rgba(0, 0, 0, 0.5) 97.5%, transparent 100%);
-  mask-image:
-    linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.5) 4%, #000 11%, #000 91%, rgba(0, 0, 0, 0.45) 96%, transparent 100%),
-    linear-gradient(to bottom, transparent 0%, #000 2.5%, #000 94%, rgba(0, 0, 0, 0.5) 97.5%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-composite: intersect;
-}
-@media (min-width: 768px) {
-  .hero-portrait {
-    -webkit-mask-image:
-      linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.2) 6%, rgba(0, 0, 0, 0.72) 12%, #000 18%, #000 94%, rgba(0, 0, 0, 0.45) 97.5%, transparent 100%),
-      linear-gradient(to bottom, transparent 0%, #000 3.5%, #000 78%, rgba(0, 0, 0, 0.55) 90%, transparent 100%);
-    mask-image:
-      linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.2) 6%, rgba(0, 0, 0, 0.72) 12%, #000 18%, #000 94%, rgba(0, 0, 0, 0.45) 97.5%, transparent 100%),
-      linear-gradient(to bottom, transparent 0%, #000 3.5%, #000 78%, rgba(0, 0, 0, 0.55) 90%, transparent 100%);
-  }
-}
