@@ -18,39 +18,39 @@ const Services: React.FC = () => {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What conditions does Dr. Rasouli treat?",
+        "name": "What conditions does Dr.\u00A0Rasouli treat?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Dr. Rasouli specializes in complex spinal deformity, adult scoliosis, herniated discs, spinal stenosis, spinal tumors, spinal trauma, and degenerative spine conditions. He offers both minimally invasive and robotic-assisted surgical options."
+          "text": "Dr.\u00A0Rasouli specializes in complex spinal deformity, adult scoliosis, herniated discs, spinal stenosis, spinal tumors, spinal trauma, and degenerative spine conditions. He offers both minimally invasive and robotic-assisted surgical options."
         }
       },
       {
         "@type": "Question",
-        "name": "Where does Dr. Rasouli see patients?",
+        "name": "Where does Dr.\u00A0Rasouli see patients?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Dr. Rasouli practices with NeuroSpine Plus and sees patients at offices in Paramus, North Bergen, Jersey City, and Edison, New Jersey, and on Staten Island, New York. His hospital affiliations are Hudson Regional Hospital in Secaucus, NJ and Bayonne Medical Center in Bayonne, NJ."
+          "text": "Dr.\u00A0Rasouli practices with NeuroSpine Plus and sees patients at offices in Paramus, North Bergen, Jersey City, and Edison, New Jersey, and on Staten Island, New York. His hospital affiliations are Hudson Regional Hospital in Secaucus, NJ and Bayonne Medical Center in Bayonne, NJ."
         }
       },
       {
         "@type": "Question",
-        "name": "Is Dr. Rasouli board certified?",
+        "name": "Is Dr.\u00A0Rasouli board certified?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, Dr. Rasouli is board certified by the American Board of Neurological Surgery. He completed a Complex Spinal Surgery Fellowship at the Cleveland Clinic, one of the world's leading medical institutions."
+          "text": "Yes, Dr.\u00A0Rasouli is board certified by the American Board of Neurological Surgery. He completed a Complex Spinal Surgery Fellowship at the Cleveland Clinic, one of the world's leading medical institutions."
         }
       },
       {
         "@type": "Question",
-        "name": "Does Dr. Rasouli perform minimally invasive spine surgery?",
+        "name": "Does Dr.\u00A0Rasouli perform minimally invasive spine surgery?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, Dr. Rasouli is specially trained in minimally invasive spine surgery techniques, including robotic-assisted procedures. These approaches typically result in smaller incisions, less pain, shorter hospital stays, and faster recovery times."
+          "text": "Yes, Dr.\u00A0Rasouli is specially trained in minimally invasive spine surgery techniques, including robotic-assisted procedures. These approaches typically result in smaller incisions, less pain, shorter hospital stays, and faster recovery times."
         }
       },
       {
         "@type": "Question",
-        "name": "How do I schedule a consultation with Dr. Rasouli?",
+        "name": "How do I schedule a consultation with Dr.\u00A0Rasouli?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "You can schedule a consultation by calling (201) 399-3388 or by visiting the NeuroSpine Plus website at neurospineplus.com/contact-us to book an appointment online."
@@ -62,8 +62,8 @@ const Services: React.FC = () => {
   return (
     <div className="bg-white">
       <SEO 
-        title="Spine Surgery Services | Minimally Invasive, Endoscopic & Robotic | Dr. Rasouli, NJ & Staten Island"
-        description="Dr. Rasouli offers complex spinal deformity correction, minimally invasive and endoscopic spine surgery, robotic-assisted procedures, adult scoliosis treatment, and more in New Jersey and Staten Island."
+        title={"Spine Surgery Services | Minimally Invasive, Endoscopic & Robotic | Dr.\u00A0Rasouli, NJ & Staten Island"}
+        description={"Dr.\u00A0Rasouli offers complex spinal deformity correction, minimally invasive and endoscopic spine surgery, robotic-assisted procedures, adult scoliosis treatment, and more in New Jersey and Staten Island."}
         canonicalPath="/services"
         schema={faqSchema}
         breadcrumbs={[
@@ -74,7 +74,7 @@ const Services: React.FC = () => {
       <PageHeader
         eyebrow="Services"
         title="Surgical & Non-Surgical Treatments"
-        lead="Dr. Rasouli provides expert treatment for a wide range of spine conditions, prioritizing conservative management whenever possible."
+        lead={"Dr.\u00A0Rasouli provides expert treatment for a wide range of spine conditions, prioritizing conservative management whenever possible."}
       />
 
       <Container className="py-14 md:py-20">
@@ -126,7 +126,7 @@ const Services: React.FC = () => {
               <HeartHandshake className="text-teal-700 mb-3" size={28} />
               <h2 className="text-xl font-semibold text-navy-800 mb-2">Conservative First Approach</h2>
               <p className="text-slate-700 leading-relaxed">
-                Dr. Rasouli believes spine surgery is not always the answer. We thoroughly explore non-surgical options including physical therapy, pain management, and lifestyle modifications before recommending surgical intervention.
+                Dr.&nbsp;Rasouli believes spine surgery is not always the answer. We thoroughly explore non-surgical options including physical therapy, pain management, and lifestyle modifications before recommending surgical intervention.
               </p>
             </div>
             <div className="rounded-xl bg-navy-800 text-white p-6">

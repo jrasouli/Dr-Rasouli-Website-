@@ -7,7 +7,7 @@ export const NAV_LINKS: NavItem[] = [
     label: 'About',
     path: '/about',
     children: [
-      { label: 'About Dr. Rasouli', path: '/about' },
+      { label: 'About Dr.\u00A0Rasouli', path: '/about' },
       { label: 'Personal Statement', path: '/statement' },
     ]
   },
@@ -36,7 +36,7 @@ export const CASTLE_CONNOLLY_URL = 'https://www.castleconnolly.com/top-doctors/j
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 1,
-    quote: "Dr. Rasouli did his homework by reviewing my X-rays and MRIs prior to our first visit and determined the source of my lingering pain. He gave me clear explanations and addressed all my concerns.",
+    quote: "Dr.\u00A0Rasouli did his homework by reviewing my X-rays and MRIs prior to our first visit and determined the source of my lingering pain. He gave me clear explanations and addressed all my concerns.",
     author: "Michael D.",
     condition: "Spinal Stenosis",
     date: "October 2024",
@@ -52,7 +52,7 @@ export const TESTIMONIALS: Testimonial[] = [
   },
   {
     id: 3,
-    quote: "After seeing multiple doctors, Dr. Rasouli was the only one who truly understood my complex spine condition. His expertise in spinal deformity was exactly what I needed.",
+    quote: "After seeing multiple doctors, Dr.\u00A0Rasouli was the only one who truly understood my complex spine condition. His expertise in spinal deformity was exactly what I needed.",
     author: "Robert L.",
     condition: "Spinal Deformity",
     date: "June 2024",
@@ -124,7 +124,7 @@ export const CREDENTIALS: Credential[] = [
 export const FAQS: FaqItem[] = [
   {
     question: "How do I know if I need spine surgery?",
-    answer: "Surgery is typically recommended only after conservative treatments (physical therapy, medications, injections) have been tried, or when there are progressive neurological symptoms like weakness or numbness. Dr. Rasouli will thoroughly evaluate your condition."
+    answer: "Surgery is typically recommended only after conservative treatments (physical therapy, medications, injections) have been tried, or when there are progressive neurological symptoms like weakness or numbness. Dr.\u00A0Rasouli will thoroughly evaluate your condition."
   },
   {
     question: "What is the recovery time for minimally invasive surgery?",
@@ -136,7 +136,7 @@ export const FAQS: FaqItem[] = [
   },
   {
     question: "Can I get a second opinion?",
-    answer: "Absolutely. Dr. Rasouli welcomes second opinion consultations and believes informed patients make the best decisions about their care. Please bring your recent imaging to your appointment."
+    answer: "Absolutely. Dr.\u00A0Rasouli welcomes second opinion consultations and believes informed patients make the best decisions about their care. Please bring your recent imaging to your appointment."
   }
 ];
 

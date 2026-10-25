@@ -19,12 +19,12 @@ interface NewsArticle {
 const NEWS_ARTICLES: NewsArticle[] = [
   {
     id: 'beckers-2026',
-    title: 'Dr. Jonathan Rasouli joins NeuroSpine Plus',
+    title: 'Dr.\u00A0Jonathan\u00A0Rasouli joins NeuroSpine Plus',
     url: 'https://www.beckersspine.com/spine/dr-jonathan-rasouli-joins-neurospine-plus/',
     date: 'April 22, 2026',
     iso: '2026-04-22',
     outlet: "Becker's Spine Review",
-    summary: 'Dr. Rasouli joins NeuroSpine Plus in Paramus, N.J., after serving as director of complex and adult spinal deformity surgery at Staten Island University Hospital.',
+    summary: 'Dr.\u00A0Rasouli joins NeuroSpine Plus in Paramus, N.J., after serving as director of complex and adult spinal deformity surgery at Staten Island University Hospital.',
   },
   {
     id: 'northwell-2025',
@@ -33,7 +33,7 @@ const NEWS_ARTICLES: NewsArticle[] = [
     date: 'April 24, 2025',
     iso: '2025-04-24',
     outlet: 'Northwell Health',
-    summary: 'Dr. Rasouli weighs in on the real-world potential of memory modulation and how current therapies aim to soften, not erase, painful memories.',
+    summary: 'Dr.\u00A0Rasouli weighs in on the real-world potential of memory modulation and how current therapies aim to soften, not erase, painful memories.',
   },
   {
     id: 'nypost-2025-01',
@@ -42,7 +42,7 @@ const NEWS_ARTICLES: NewsArticle[] = [
     date: 'January 20, 2025',
     iso: '2025-01-20',
     outlet: 'New York Post',
-    summary: 'Dr. Jonathan Rasouli shares a highly nutritious, brain-boosting recipe designed to support cognitive health and combat dementia.',
+    summary: 'Dr.\u00A0Jonathan\u00A0Rasouli shares a highly nutritious, brain-boosting recipe designed to support cognitive health and combat dementia.',
   },
   {
     id: 'nypost-2024-12',
@@ -51,7 +51,7 @@ const NEWS_ARTICLES: NewsArticle[] = [
     date: 'December 27, 2024',
     iso: '2024-12-27',
     outlet: 'New York Post',
-    summary: "Discover Dr. Rasouli's simple and affordable dietary recommendations for preserving memory and optimizing long-term brain function.",
+    summary: "Discover Dr.\u00A0Rasouli's simple and affordable dietary recommendations for preserving memory and optimizing long-term brain function.",
   },
   {
     id: 'silive-2024-01',
@@ -78,7 +78,7 @@ const NEWS_ARTICLES: NewsArticle[] = [
     date: 'December 19, 2023',
     iso: '2023-12-19',
     outlet: 'New York Post',
-    summary: "The incredible story of a Staten Island teenager's 'miracle' recovery after severe trauma, guided by Dr. Rasouli's expertise.",
+    summary: "The incredible story of a Staten Island teenager's 'miracle' recovery after severe trauma, guided by Dr.\u00A0Rasouli's expertise.",
   },
   {
     id: 'cnn-2019',
@@ -87,7 +87,7 @@ const NEWS_ARTICLES: NewsArticle[] = [
     date: 'June 7, 2019',
     iso: '2019-06-07',
     outlet: 'CNN',
-    summary: 'Dr. Rasouli discusses a case in which suspected brain cancer turned out to be a parasitic infection.',
+    summary: 'Dr.\u00A0Rasouli discusses a case in which suspected brain cancer turned out to be a parasitic infection.',
   },
   {
     id: 'cbc-2019',
@@ -105,7 +105,7 @@ const NEWS_ARTICLES: NewsArticle[] = [
     date: 'June 6, 2019',
     iso: '2019-06-06',
     outlet: 'The Washington Post',
-    summary: 'Dr. Rasouli, then chief neurosurgery resident at Mount Sinai, describes finding a tapeworm cyst where doctors had expected a malignant brain tumor.',
+    summary: 'Dr.\u00A0Rasouli, then chief neurosurgery resident at Mount Sinai, describes finding a tapeworm cyst where doctors had expected a malignant brain tumor.',
   },
 ];
 
@@ -125,7 +125,7 @@ const News: React.FC = () => {
           "url": article.url,
           "about": {
             "@type": "Person",
-            "name": "Dr. Jonathan J. Rasouli"
+            "name": "Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli"
           }
         }
       }))
@@ -137,8 +137,8 @@ const News: React.FC = () => {
   return (
     <div className="bg-white">
       <SEO 
-        title="In the News | Dr. Jonathan J. Rasouli, Board-Certified Spinal Neurosurgeon"
-        description="Dr. Jonathan J. Rasouli, a board-certified spinal neurosurgeon in New Jersey and Staten Island, featured in the New York Post, CNN, CBC Radio, Becker's Spine Review, and more. Read about his groundbreaking cases and expert insights on brain health and spine surgery."
+        title={"In the News | Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, Board-Certified Spinal Neurosurgeon"}
+        description={"Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, a board-certified spinal neurosurgeon in New Jersey and Staten Island, featured in the New York Post, CNN, CBC Radio, Becker's Spine Review, and more. Read about his groundbreaking cases and expert insights on brain health and spine surgery."}
         canonicalPath="/news"
         schema={newsSchema}
         breadcrumbs={[
@@ -149,7 +149,8 @@ const News: React.FC = () => {
       <PageHeader
         eyebrow="Media & News"
         title="News Coverage"
-        lead="Media coverage, published research, and professional updates featuring Dr. Jonathan J. Rasouli."
+        leadWide
+        lead={"Media coverage, published research, and professional updates featuring Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli."}
       />
 
       <Container className="py-14 md:py-20">

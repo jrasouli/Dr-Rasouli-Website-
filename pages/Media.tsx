@@ -10,10 +10,10 @@ const NYPOST_URL = 'https://nypost.com/2023/12/19/health/young-paralyzed-si-man-
 
 // Every item links to the original article (verified Oct 2026).
 const COVERAGE = [
-  { outlet: "Becker's Spine Review", date: 'Apr 22, 2026', title: 'Dr. Jonathan Rasouli joins NeuroSpine Plus', text: 'Becker\'s reports on Dr. Rasouli joining NeuroSpine Plus in Paramus, N.J., to focus on complex and minimally invasive spine procedures.', url: 'https://www.beckersspine.com/spine/dr-jonathan-rasouli-joins-neurospine-plus/' },
-  { outlet: 'Northwell Health', date: 'Apr 24, 2025', title: 'Softening the memory', text: 'Dr. Rasouli weighs in on the real-world potential of memory modulation and how current therapies aim to soften, not erase, painful memories.', url: 'https://www.northwell.edu/news/the-latest/softening-the-memory' },
-  { outlet: 'CNN', date: 'Jun 7, 2019', title: 'Unusual symptoms pointing to brain cancer turned out to be a tapeworm', text: 'Dr. Rasouli discusses a case in which suspected brain cancer turned out to be a parasitic infection.', url: 'https://www.cnn.com/2019/06/07/health/tapeworm-brain-trnd/index.html' },
-  { outlet: 'The Washington Post', date: 'Jun 6, 2019', title: 'Surgeons opened her skull to remove a cancerous tumor. Instead, they found a tapeworm.', text: 'Dr. Rasouli, then chief neurosurgery resident at Mount Sinai, describes finding a tapeworm cyst where doctors had expected a malignant brain tumor.', url: 'https://www.washingtonpost.com/health/2019/06/06/surgeons-opened-her-skull-remove-cancerous-tumor-instead-they-found-tapeworm/' },
+  { outlet: "Becker's Spine Review", date: 'Apr 22, 2026', title: 'Dr.\u00A0Jonathan\u00A0Rasouli joins NeuroSpine Plus', text: 'Becker\'s reports on Dr.\u00A0Rasouli joining NeuroSpine Plus in Paramus, N.J., to focus on complex and minimally invasive spine procedures.', url: 'https://www.beckersspine.com/spine/dr-jonathan-rasouli-joins-neurospine-plus/' },
+  { outlet: 'Northwell Health', date: 'Apr 24, 2025', title: 'Softening the memory', text: 'Dr.\u00A0Rasouli weighs in on the real-world potential of memory modulation and how current therapies aim to soften, not erase, painful memories.', url: 'https://www.northwell.edu/news/the-latest/softening-the-memory' },
+  { outlet: 'CNN', date: 'Jun 7, 2019', title: 'Unusual symptoms pointing to brain cancer turned out to be a tapeworm', text: 'Dr.\u00A0Rasouli discusses a case in which suspected brain cancer turned out to be a parasitic infection.', url: 'https://www.cnn.com/2019/06/07/health/tapeworm-brain-trnd/index.html' },
+  { outlet: 'The Washington Post', date: 'Jun 6, 2019', title: 'Surgeons opened her skull to remove a cancerous tumor. Instead, they found a tapeworm.', text: 'Dr.\u00A0Rasouli, then chief neurosurgery resident at Mount Sinai, describes finding a tapeworm cyst where doctors had expected a malignant brain tumor.', url: 'https://www.washingtonpost.com/health/2019/06/06/surgeons-opened-her-skull-remove-cancerous-tumor-instead-they-found-tapeworm/' },
 ];
 
 const JOURNALS = [
@@ -72,8 +72,8 @@ const Media: React.FC = () => {
   return (
     <div className="bg-white">
       <SEO 
-        title="Media & Publications | Dr. Jonathan J. Rasouli, Board-Certified Spinal Neurosurgeon"
-        description="Media coverage, peer-reviewed journal articles, and presentations from Dr. Jonathan J. Rasouli, a board-certified spinal neurosurgeon serving New Jersey and Staten Island."
+        title={"Media & Publications | Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, Board-Certified Spinal Neurosurgeon"}
+        description={"Media coverage, peer-reviewed journal articles, and presentations from Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, a board-certified spinal neurosurgeon serving New Jersey and Staten Island."}
         canonicalPath="/media"
         breadcrumbs={[
           { name: "Home", item: "/" },
@@ -104,7 +104,7 @@ const Media: React.FC = () => {
           <Eyebrow className="mb-6">Featured Story</Eyebrow>
           <div className="rounded-2xl border border-slate-200 overflow-hidden grid lg:grid-cols-2">
             <a href={NYPOST_URL} target="_blank" rel="noopener noreferrer" className="relative block bg-navy-800 min-h-[320px] group">
-              <Picture name="dr-rasouli-patient-nypost" alt="Dr. Rasouli with his patient, as featured in the New York Post" className="block absolute inset-0" imgClassName="w-full h-full object-cover object-[center_30%]" />
+              <Picture name="dr-rasouli-patient-nypost" alt={"Dr.\u00A0Rasouli with his patient, as featured in the New York Post"} className="block absolute inset-0" imgClassName="w-full h-full object-cover object-[center_30%]" />
               <span className="absolute inset-0 flex items-center justify-center bg-navy-900/20 group-hover:bg-navy-900/35 transition-colors">
                 <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white/95 text-navy-800 shadow-lg"><Play size={26} fill="currentColor" className="ml-1" /></span>
               </span>
@@ -114,11 +114,11 @@ const Media: React.FC = () => {
               <p className="text-sm text-slate-500"><span className="font-semibold text-teal-700">New York Post</span> · Dec 19, 2023</p>
               <h2 className="mt-3 text-3xl font-semibold text-navy-800 leading-tight">Teen paralyzed in fiery car crash makes &lsquo;miracle&rsquo; recovery</h2>
               <p className="mt-4 text-lg text-slate-700 leading-relaxed">
-                A teenager left paralyzed and unable to speak after a devastating car accident has made a remarkable recovery that even his doctors called miraculous. Dr. Rasouli guided him through multiple complex surgeries.
+                A teenager left paralyzed and unable to speak after a devastating car accident has made a remarkable recovery that even his doctors called miraculous. Dr.&nbsp;Rasouli guided him through multiple complex surgeries.
               </p>
               <blockquote className="mt-6 border-l-2 border-teal-700 pl-5">
                 <p className="font-serif text-xl text-navy-800 leading-snug">&ldquo;The injuries were life-threatening. I admittedly had doubts about a positive outcome&hellip; He ultimately did fantastic.&rdquo;</p>
-                <footer className="mt-2 text-sm text-slate-500">Dr. Jonathan Rasouli</footer>
+                <footer className="mt-2 text-sm text-slate-500">Dr.&nbsp;Jonathan&nbsp;Rasouli</footer>
               </blockquote>
               <ButtonLink href={NYPOST_URL} className="mt-8 self-start">Read Full Article <ExternalLink size={17} /></ButtonLink>
             </div>
@@ -162,7 +162,7 @@ const Media: React.FC = () => {
                 <div className="p-6">
                   <p className="text-xs font-semibold uppercase tracking-[0.14em] text-teal-700 mb-2">Lecture <span className="text-slate-500 normal-case tracking-normal font-medium">· {l.year}</span></p>
                   <h3 className="text-xl font-semibold text-navy-800">{l.title}</h3>
-                  <p className="mt-2 text-slate-600">Presented by Dr. Rasouli at the Virtual Global Spine Conference.</p>
+                  <p className="mt-2 text-slate-600">Presented by Dr.&nbsp;Rasouli at the Virtual Global Spine Conference.</p>
                 </div>
               </article>
             ))}
@@ -227,7 +227,7 @@ const Media: React.FC = () => {
       <section className="bg-navy-800 text-white py-16">
         <Container narrow className="text-center">
           <h2 className="text-3xl md:text-4xl font-semibold">Inspired by these stories?</h2>
-          <p className="mt-4 text-xl text-navy-100/90">If you or a loved one is facing a complex spine condition, Dr. Rasouli is here to help you find your own path to recovery.</p>
+          <p className="mt-4 text-xl text-navy-100/90">If you or a loved one is facing a complex spine condition, Dr.&nbsp;Rasouli is here to help you find your own path to recovery.</p>
           <ButtonLink href={APPOINTMENT_URL} className="mt-8 text-lg px-8">Request an Appointment</ButtonLink>
         </Container>
       </section>

@@ -30,7 +30,7 @@ const Home: React.FC = () => {
     "@context": "https://schema.org",
     "@type": "Physician",
     "@id": `${SITE_URL}/#physician`,
-    "name": "Dr. Jonathan J. Rasouli, MD",
+    "name": "Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, MD",
     "image": `${SITE_URL}/images/dr-rasouli-headshot-2026.jpg`,
     "description": "Board-certified, fellowship-trained spinal neurosurgeon specializing in complex spinal deformity, minimally invasive surgery, and robotic-assisted spine procedures.",
     "url": SITE_URL,
@@ -134,7 +134,7 @@ const Home: React.FC = () => {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
     "@id": `${SITE_URL}/#practice`,
-    "name": "Dr. Jonathan J. Rasouli, MD - Spine Neurosurgery",
+    "name": "Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, MD - Spine Neurosurgery",
     "description": "Board-certified spine neurosurgery practice specializing in complex spinal deformity, minimally invasive surgery, and robotic-assisted procedures.",
     "url": SITE_URL,
     "telephone": "+1-201-399-3388",
@@ -216,8 +216,8 @@ const Home: React.FC = () => {
   return (
     <div className="flex flex-col">
       <SEO 
-        title="Dr. Jonathan J. Rasouli, MD | Board-Certified Spinal Neurosurgeon | NJ & Staten Island"
-        description="Dr. Jonathan J. Rasouli is a board-certified, fellowship-trained spinal neurosurgeon specializing in complex spinal deformity, minimally invasive surgery, and robotic-assisted procedures. Serving patients in New Jersey and Staten Island, NY. Call (201) 399-3388."
+        title={"Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, MD | Board-Certified Spinal Neurosurgeon | NJ & Staten Island"}
+        description={"Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli is a board-certified, fellowship-trained spinal neurosurgeon specializing in complex spinal deformity, minimally invasive surgery, and robotic-assisted procedures. Serving patients in New Jersey and Staten Island, NY. Call (201) 399-3388."}
         canonicalPath="/"
         schema={[physicianSchema, businessSchema]}
       />
@@ -232,12 +232,12 @@ const Home: React.FC = () => {
               <div className="relative mx-auto max-w-[420px]">
                 <Picture
                   name="dr-rasouli-statement"
-                  alt="Dr. Jonathan J. Rasouli, MD, in a navy suit"
+                  alt={"Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, MD, in a navy suit"}
                   priority
                   width={1000}
                   height={1500}
                   className="block"
-                  imgClassName="w-full aspect-[3/2] md:aspect-[4/5] object-cover object-top rounded-xl shadow-2xl ring-1 ring-white/10"
+                  imgClassName="hero-portrait w-full aspect-[3/2] md:aspect-[4/5] object-cover object-top"
                 />
               </div>
             </div>
@@ -248,7 +248,7 @@ const Home: React.FC = () => {
                 World-Class Spine Care, Personalized for You
               </h1>
               <p className="mt-5 text-lg md:text-xl text-navy-100/90 leading-relaxed max-w-2xl">
-                Dr. Rasouli is a board-certified, fellowship-trained neurosurgeon specializing in robotic-assisted, minimally invasive, and complex spinal deformity surgery.
+                Dr.&nbsp;Rasouli is a board-certified, fellowship-trained neurosurgeon specializing in robotic-assisted, minimally invasive, and complex spinal deformity surgery.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
                 <ButtonLink href={APPOINTMENT_URL} className="text-lg px-7">Request an Appointment</ButtonLink>
@@ -283,7 +283,7 @@ const Home: React.FC = () => {
           <div className="grid items-center gap-10 lg:gap-16 lg:grid-cols-2">
             <Picture
               name="dr-rasouli-office"
-              alt="Dr. Rasouli reviewing spine imaging in his office"
+              alt={"Dr.\u00A0Rasouli reviewing spine imaging in his office"}
               width={1200}
               height={800}
               className="block"
@@ -291,9 +291,9 @@ const Home: React.FC = () => {
             />
             <div>
               <SectionHeading
-                eyebrow="Why patients choose Dr. Rasouli"
+                eyebrow={"Why patients choose Dr.\u00A0Rasouli"}
                 title="Academic training, focused on complex spine care"
-                lead={<>Dr. Rasouli trained in neurological surgery at The Mount Sinai Hospital, then completed a <strong className="text-navy-800 font-semibold">Complex Spinal Surgery Fellowship</strong> at the world-renowned Cleveland Clinic. His practice is dedicated entirely to the spine, from minimally invasive and endoscopic procedures to complex deformity correction.</>}
+                lead={<>Dr.&nbsp;Rasouli trained in neurological surgery at The Mount Sinai Hospital, then completed a <strong className="text-navy-800 font-semibold">Complex Spinal Surgery Fellowship</strong> at the world-renowned Cleveland Clinic. His practice is dedicated entirely to the spine, from minimally invasive and endoscopic procedures to complex deformity correction.</>}
               />
               <ul className="mt-8 grid sm:grid-cols-2 gap-x-6 gap-y-4">
                 {[
@@ -351,11 +351,11 @@ const Home: React.FC = () => {
               <Eyebrow className="mb-3">In the news</Eyebrow>
               <h2 className="text-3xl md:text-4xl font-semibold text-navy-800 leading-tight">&ldquo;Miracle&rdquo; recovery featured in the New York Post</h2>
               <p className="mt-4 text-lg text-slate-600 leading-relaxed">
-                Dr. Rasouli&apos;s expertise was instrumental in the recovery of a paralyzed teen who defied all odds. Read the inspiring story that captivated the nation.
+                Dr.&nbsp;Rasouli&apos;s expertise was instrumental in the recovery of a paralyzed teen who defied all odds. Read the inspiring story that captivated the nation.
               </p>
               <blockquote className="mt-8 border-l-2 border-teal-700 pl-5">
                 <p className="font-serif text-xl md:text-2xl text-navy-800 leading-snug">&ldquo;The injuries were life-threatening&hellip; He ultimately did fantastic.&rdquo;</p>
-                <footer className="mt-3 text-sm text-slate-500">Dr. Jonathan Rasouli, as quoted in the New York Post</footer>
+                <footer className="mt-3 text-sm text-slate-500">Dr.&nbsp;Jonathan&nbsp;Rasouli, as quoted in the New York Post</footer>
               </blockquote>
               <div className="mt-8 flex flex-wrap gap-4">
                 <ButtonLink href="/media">Watch the Story</ButtonLink>
@@ -368,13 +368,13 @@ const Home: React.FC = () => {
               <figure>
                 <Picture
                   name="dr-rasouli-patient-nypost"
-                  alt="Dr. Rasouli at the bedside with his patient and family"
+                  alt={"Dr.\u00A0Rasouli at the bedside with his patient and family"}
                   width={900}
                   height={1125}
                   className="block"
                   imgClassName="w-full max-w-md mx-auto rounded-xl shadow-lg object-cover aspect-[4/5]"
                 />
-                <figcaption className="mt-3 text-sm text-slate-500 text-center">Dr. Rasouli with his patient, as featured in the New York Post.</figcaption>
+                <figcaption className="mt-3 text-sm text-slate-500 text-center">Dr.&nbsp;Rasouli with his patient, as featured in the New York Post.</figcaption>
               </figure>
             </div>
           </div>
@@ -416,7 +416,7 @@ const Home: React.FC = () => {
             center
             eyebrow="Locations"
             title="Office Locations"
-            lead={<>Dr. Rasouli practices with <a href="https://neurospineplus.com" target="_blank" rel="noopener noreferrer" className="text-teal-700 font-semibold underline underline-offset-2 hover:text-navy-800">NeuroSpine Plus</a>, seeing patients at offices in Paramus, North Bergen, Jersey City, and Edison, New Jersey, and on Staten Island, New York.</>}
+            lead={<>Dr.&nbsp;Rasouli practices with <a href="https://neurospineplus.com" target="_blank" rel="noopener noreferrer" className="text-teal-700 font-semibold underline underline-offset-2 hover:text-navy-800">NeuroSpine Plus</a>, seeing patients at offices in Paramus, North Bergen, Jersey City, and Edison, New Jersey, and on Staten Island, New York.</>}
           />
           <div className="mt-12 flex flex-wrap justify-center gap-5">
             {OFFICE_LOCATIONS.map((loc) => (
@@ -443,13 +443,13 @@ const Home: React.FC = () => {
       <section className="py-16 md:py-20 bg-white">
         <Container narrow className="text-center">
           <h2 className="text-3xl md:text-4xl font-semibold text-navy-800">Start your journey to a pain-free life</h2>
-          <p className="mt-4 text-xl text-slate-600">Dr. Rasouli is currently accepting new patients for complex spine consultations.</p>
+          <p className="mt-4 text-xl text-slate-600">Dr.&nbsp;Rasouli is currently accepting new patients for complex spine consultations.</p>
           <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
             <ButtonLink href={APPOINTMENT_URL} className="text-lg px-8">Request an Appointment</ButtonLink>
             <ButtonLink href="/services" variant="secondary" className="text-lg px-8">Explore Services</ButtonLink>
           </div>
           <div className="mt-12 pt-8 border-t border-slate-200 flex flex-col items-center gap-4">
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-teal-700">Follow Dr. Rasouli</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-teal-700">Follow Dr.&nbsp;Rasouli</p>
             <SocialButtons />
           </div>
         </Container>

@@ -28,7 +28,7 @@ const MediaCarousel: React.FC<{ className?: string }> = ({ className = '' }) => 
         ))}
       </ul>
       <p className="mt-8 text-sm text-slate-600">
-        Research Dr. Rasouli:{' '}
+        Research Dr.&nbsp;Rasouli:{' '}
         {RESEARCH_LINKS.map((l, i) => (
           <React.Fragment key={l.label}>
             {i > 0 && <span className="text-slate-300 mx-2" aria-hidden="true">·</span>}

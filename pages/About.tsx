@@ -28,17 +28,17 @@ const About: React.FC = () => {
   return (
     <div className="bg-white">
       <SEO 
-        title="About Dr. Jonathan J. Rasouli | Board-Certified Spinal Neurosurgeon"
-        description="Learn about Dr. Jonathan J. Rasouli, a board-certified, fellowship-trained spinal neurosurgeon seeing patients in New Jersey and Staten Island. Read about his background and training."
+        title={"About Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli | Board-Certified Spinal Neurosurgeon"}
+        description={"Learn about Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, a board-certified, fellowship-trained spinal neurosurgeon seeing patients in New Jersey and Staten Island. Read about his background and training."}
         canonicalPath="/about"
         breadcrumbs={[
           { name: "Home", item: "/" },
-          { name: "About Dr. Rasouli", item: "/about" }
+          { name: "About Dr.\u00A0Rasouli", item: "/about" }
         ]}
       />
       <PageHeader
         eyebrow="About"
-        title="About Dr. Rasouli"
+        title={"About Dr.\u00A0Rasouli"}
         lead="A board-certified neurosurgeon combining fellowship training with a compassionate, patient-centered approach to complex spine care."
       />
 
@@ -48,7 +48,7 @@ const About: React.FC = () => {
             <div className="lg:sticky lg:top-28">
               <Picture
                 name="dr-rasouli-portrait"
-                alt="Dr. Jonathan J. Rasouli, MD"
+                alt={"Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, MD"}
                 eager
                 width={900}
                 height={1350}
@@ -68,7 +68,7 @@ const About: React.FC = () => {
               <h2 className="text-3xl font-semibold text-navy-800 mb-5">Professional Biography</h2>
               <div className="space-y-4 text-lg text-slate-700 leading-relaxed">
                 <p>
-                  Dr. Rasouli is a board-certified, fellowship-trained neurosurgeon specializing in complex spinal conditions. He practices with NeuroSpine Plus, seeing patients at offices across New Jersey and Staten Island, and his work centers on helping patients regain their quality of life through advanced surgical techniques.
+                  Dr.&nbsp;Rasouli is a board-certified, fellowship-trained neurosurgeon specializing in complex spinal conditions. He practices with NeuroSpine Plus, seeing patients at offices across New Jersey and Staten Island, and his work centers on helping patients regain their quality of life through advanced surgical techniques.
                 </p>
                 <p>
                   After completing his residency at The Mount Sinai Hospital, he completed a Complex Spinal Surgery Fellowship at the world-renowned Cleveland Clinic. This background allows him to treat spinal deformities with a comprehensive understanding of biomechanics and neurological function.
