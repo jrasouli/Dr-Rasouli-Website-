@@ -12,6 +12,7 @@ const EDUCATION = [
 
 const HONORS = [
   // Source of truth: the CV (public/JRasouli_CV.pdf), "Honors and Awards".
+  { year: '2027', title: 'Top Doctor', org: 'NJ Top Docs' },
   { year: '2023–26', title: 'Top Doctor', org: 'Castle Connolly' },
   { year: '2023', title: 'Rising Star', org: 'Castle Connolly' },
   { year: '2020', title: 'Best Clinical Research Abstract Finalist', org: 'AOSNA 18th Annual Fellows Forum' },

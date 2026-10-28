@@ -257,19 +257,33 @@ const Home: React.FC = () => {
                 </a>
               </div>
 
-              {/* One clear Castle Connolly treatment */}
-              <a
-                href={CASTLE_CONNOLLY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-9 inline-flex items-center gap-4 rounded-xl bg-white/[0.06] hover:bg-white/10 ring-1 ring-white/15 p-3 pr-5 transition-colors"
-              >
-                <Picture name="castle-connolly-2026" alt="Castle Connolly Top Doctors 2026" width={213} height={320} className="block shrink-0" imgClassName="h-20 w-auto rounded" />
-                <span>
-                  <span className="block font-serif text-lg font-semibold text-white">Castle Connolly Top Doctors</span>
-                  <span className="block text-sm text-navy-100/85">2023 – 2026 &nbsp;|&nbsp; Rising Star 2023</span>
-                </span>
-              </a>
+              {/* Recognition badges, same treatment as Castle Connolly */}
+              <div className="mt-9 flex flex-wrap items-center gap-3">
+                <a
+                  href={CASTLE_CONNOLLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-full items-center gap-4 rounded-xl bg-white/[0.06] hover:bg-white/10 ring-1 ring-white/15 p-3 pr-5 transition-colors min-[1140px]:w-auto"
+                >
+                  <Picture name="castle-connolly-2026" alt="Castle Connolly Top Doctors 2026" width={213} height={320} className="block shrink-0" imgClassName="h-20 w-auto rounded" />
+                  <span>
+                    <span className="block font-serif text-lg font-semibold text-white">Castle Connolly Top Doctors</span>
+                    <span className="block text-sm text-navy-100/85">2023 – 2026 &nbsp;|&nbsp; Rising Star 2023</span>
+                  </span>
+                </a>
+                <div className="inline-flex w-full items-center gap-4 rounded-xl bg-white/[0.06] ring-1 ring-white/15 p-3 pr-5 min-[1140px]:w-auto">
+                  <span className="flex h-20 w-[3.4rem] shrink-0 flex-col items-center justify-center rounded bg-navy-950 text-center ring-1 ring-teal-300/50" aria-hidden="true">
+                    <span className="text-[0.625rem] font-semibold uppercase leading-none tracking-[0.16em] text-white">NJ</span>
+                    <span className="mt-1 text-[0.5rem] font-semibold uppercase leading-[1.05] tracking-[0.14em] text-teal-300">Top<br />Docs</span>
+                    <span className="mt-1.5 h-px w-6 bg-teal-300/80"></span>
+                    <span className="mt-1 font-serif text-[0.9375rem] font-semibold leading-none text-teal-300">2027</span>
+                  </span>
+                  <span>
+                    <span className="block font-serif text-lg font-semibold text-white">NJ Top Docs</span>
+                    <span className="block text-sm text-navy-100/85">Top Doctor 2027</span>
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </Container>
