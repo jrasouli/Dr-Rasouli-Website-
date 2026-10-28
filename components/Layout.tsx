@@ -42,7 +42,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return location.pathname === p && location.hash === (h ? `#${h}` : '');
   };
 
-  const linkBase = 'text-[0.9375rem] font-medium whitespace-nowrap transition-colors py-2 border-b-2';
+  const linkBase = 'text-[0.8125rem] xl:text-[0.9375rem] font-medium whitespace-nowrap transition-colors py-2 border-b-2';
   const linkState = (active: boolean) => (active ? 'text-navy-800 border-teal-700' : 'text-slate-600 border-transparent hover:text-navy-800');
 
   return (
@@ -52,14 +52,14 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200">
         <Container>
-          <div className="flex justify-between items-center h-16 lg:h-[72px] gap-6">
+          <div className="flex justify-between items-center h-16 lg:h-[72px] gap-6 lg:gap-5 xl:gap-6">
             <Link to="/" className="flex flex-col shrink-0 leading-none">
               <span className="font-serif text-xl md:text-[1.4rem] font-semibold text-navy-800">Jonathan J. Rasouli, MD</span>
               <span className="mt-1 text-[0.72rem] md:text-xs text-slate-500 font-medium tracking-wide">Board-Certified Spinal Neurosurgeon</span>
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden xl:flex items-center gap-6" aria-label="Main">
+            <nav className="hidden lg:flex lg:flex-1 lg:justify-between lg:gap-3 xl:flex-none xl:justify-start xl:gap-6 items-center" aria-label="Main">
               {NAV_LINKS.map((link) => (
                 <div key={link.label} className="relative group">
                   {link.children ? (
@@ -86,8 +86,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               ))}
             </nav>
 
-            <div className="hidden xl:flex items-center gap-4">
-              <a href={APPOINTMENT_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-md bg-teal-700 hover:bg-teal-800 text-white px-4 py-2.5 text-[0.9375rem] font-semibold transition-colors whitespace-nowrap">
+            <div className="hidden lg:flex items-center shrink-0">
+              <a href={APPOINTMENT_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-md bg-teal-700 hover:bg-teal-800 text-white px-3 py-2 text-[0.8125rem] font-semibold transition-colors whitespace-nowrap xl:px-4 xl:py-2.5 xl:text-[0.9375rem]">
                 Request an Appointment
               </a>
             </div>
@@ -95,7 +95,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="xl:hidden text-navy-800 p-2 -mr-2"
+              className="lg:hidden text-navy-800 p-2 -mr-2"
               aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isMenuOpen}
             >
@@ -106,7 +106,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
         {/* Mobile Nav Drawer */}
         {isMenuOpen && (
-          <div className="xl:hidden bg-white border-t border-slate-200 absolute w-full shadow-lg z-50 max-h-[calc(100vh-64px)] overflow-y-auto">
+          <div className="lg:hidden bg-white border-t border-slate-200 absolute w-full shadow-lg z-50 max-h-[calc(100vh-64px)] overflow-y-auto">
             <nav className="px-5 pt-2 pb-8" aria-label="Mobile">
               {NAV_LINKS.map((link) => (
                 <div key={link.label} className="border-b border-slate-100">
