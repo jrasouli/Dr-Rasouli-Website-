@@ -39,7 +39,7 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: "Dr.\u00A0Rasouli did his homework by reviewing my X-rays and MRIs prior to our first visit and determined the source of my lingering pain. He gave me clear explanations and addressed all my concerns.",
     author: "Michael D.",
     condition: "Spinal Stenosis",
-    date: "October 2024",
+    date: "November 2025",
     rating: 5
   },
   {
@@ -47,7 +47,7 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: "He recommended minimally invasive surgery and the results were amazing. Back to my normal life in weeks, not months. His entire team was top-notch.",
     author: "Sarah M.",
     condition: "Herniated Disc",
-    date: "August 2024",
+    date: "August 2025",
     rating: 5
   },
   {
@@ -55,7 +55,7 @@ export const TESTIMONIALS: Testimonial[] = [
     quote: "After seeing multiple doctors, Dr.\u00A0Rasouli was the only one who truly understood my complex spine condition. His expertise in spinal deformity was exactly what I needed.",
     author: "Robert L.",
     condition: "Spinal Deformity",
-    date: "June 2024",
+    date: "June 2026",
     rating: 5
   }
 ];
