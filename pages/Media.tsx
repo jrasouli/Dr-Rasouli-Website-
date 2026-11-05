@@ -5,6 +5,11 @@ import MediaCarousel from '../components/MediaCarousel';
 import SEO from '../components/SEO';
 import { Container, PageHeader, ButtonLink, Eyebrow, Picture } from '../components/ui';
 import { APPOINTMENT_URL } from '../constants';
+import PRESS_DATA from '../data/press.json';
+
+// Curated press mentions. Each one was opened and checked for a direct quote or feature before adding.
+const PRESS = [...PRESS_DATA].sort((a, b) => b.date.localeCompare(a.date));
+const fmtDate = (d: string) => new Date(d + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 
 const NYPOST_URL = 'https://nypost.com/2023/12/19/health/young-paralyzed-si-man-regains-ability-to-walk-and-speak/';
 
@@ -97,6 +102,24 @@ const Media: React.FC = () => {
           </ul>
         </Container>
       </div>
+
+      {/* Press mentions */}
+      <section id="press" className="py-14 md:py-20 scroll-mt-24">
+        <Container>
+          <Eyebrow className="mb-3">In the Press</Eyebrow>
+          <h2 className="text-2xl md:text-3xl font-semibold text-navy-800 mb-6 flex items-center gap-2"><Newspaper className="text-teal-700" /> Press Mentions</h2>
+          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {PRESS.map((p) => (
+              <li key={p.url} className="rounded-xl border border-slate-200 p-6 flex flex-col">
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-teal-700 mb-3">{p.outlet} <span className="text-slate-500 normal-case tracking-normal font-medium">· <time dateTime={p.date}>{fmtDate(p.date)}</time></span></p>
+                <h3 className="text-lg font-semibold text-navy-800 mb-3"><a href={p.url} target="_blank" rel="noopener noreferrer" className="hover:text-teal-700">{p.headline}</a></h3>
+                <blockquote className="border-l-2 border-teal-700 pl-4 text-slate-600 italic flex-grow">&ldquo;{p.quote}&rdquo;</blockquote>
+                <a href={p.url} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-1.5 font-semibold text-teal-700 hover:text-navy-800" aria-label={`Read "${p.headline}" on ${p.outlet} (opens in a new tab)`}>Read article <ExternalLink size={16} /></a>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
 
       {/* Featured story */}
       <section className="py-14 md:py-20">

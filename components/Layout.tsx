@@ -197,6 +197,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                   { label: 'Services', path: '/services' },
                   { label: 'Media & Publications', path: '/media' },
                   { label: 'Lectures', path: '/media#lectures' },
+                  { label: 'Press', path: '/media#press' },
                   { label: 'News Coverage', path: '/news' },
                   { label: 'Global Work', path: '/global-work' },
                   { label: 'Credentials & CV', path: '/credentials' },
