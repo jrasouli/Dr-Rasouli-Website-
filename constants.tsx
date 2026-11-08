@@ -13,6 +13,18 @@ export const NAV_LINKS: NavItem[] = [
   },
   { label: 'Services', path: '/services' },
   {
+    label: 'My Philosophy',
+    path: '/philosophy',
+    children: [
+      { label: 'Overview', path: '/philosophy' },
+      { label: 'Cervical Stenosis', path: '/philosophy/cervical-stenosis' },
+      { label: 'Lumbar Stenosis', path: '/philosophy/lumbar-stenosis' },
+      { label: 'Herniated Discs', path: '/philosophy/herniated-disc' },
+      { label: 'Fusion vs. Disc Replacement', path: '/philosophy/fusion-vs-disc-replacement' },
+      { label: 'Spinal Deformity', path: '/philosophy/spinal-deformity' },
+    ],
+  },
+  {
     label: 'Media & News',
     path: '/media',
     children: [

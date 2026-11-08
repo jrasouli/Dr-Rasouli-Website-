@@ -42,7 +42,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return location.pathname === p && location.hash === (h ? `#${h}` : '');
   };
 
-  const linkBase = 'text-[0.8125rem] xl:text-[0.9375rem] font-medium whitespace-nowrap transition-colors py-2 border-b-2';
+  // Link size stays compact from lg up so the extra Philosophy item still fits
+  // on one line inside the shared max-w-6xl header (tuned in #16).
+  const linkBase = 'text-[0.8125rem] font-medium tracking-tight whitespace-nowrap transition-colors py-2 border-b-2';
   const linkState = (active: boolean) => (active ? 'text-navy-800 border-teal-700' : 'text-slate-600 border-transparent hover:text-navy-800');
 
   return (
@@ -52,14 +54,14 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200">
         <Container>
-          <div className="flex justify-between items-center h-16 lg:h-[72px] gap-6 lg:gap-5 xl:gap-6">
+          <div className="flex justify-between items-center h-16 lg:h-[72px] gap-4 lg:gap-2.5 xl:gap-4">
             <Link to="/" className="flex flex-col shrink-0 leading-none">
-              <span className="font-serif text-xl md:text-[1.4rem] font-semibold text-navy-800">Jonathan J. Rasouli, MD</span>
-              <span className="mt-1 text-[0.72rem] md:text-xs text-slate-500 font-medium tracking-wide">Board-Certified Spinal Neurosurgeon</span>
+              <span className="font-serif text-xl md:text-[1.4rem] lg:text-[1.2rem] xl:text-[1.35rem] font-semibold tracking-tight text-navy-800">Jonathan J. Rasouli, MD</span>
+              <span className="mt-1 text-[0.72rem] md:text-xs lg:text-[0.75rem] xl:text-xs text-slate-500 font-medium tracking-wide">Board-Certified Spinal Neurosurgeon</span>
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex lg:flex-1 lg:justify-between lg:gap-3 xl:flex-none xl:justify-start xl:gap-6 items-center" aria-label="Main">
+            <nav className="hidden lg:flex lg:flex-1 lg:justify-between lg:gap-1 xl:flex-none xl:justify-start xl:gap-3.5 items-center" aria-label="Main">
               {NAV_LINKS.map((link) => (
                 <div key={link.label} className="relative group">
                   {link.children ? (
@@ -68,7 +70,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                         {link.label} <ChevronDown size={14} className="opacity-60" />
                       </Link>
                       <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-opacity duration-150">
-                        <div className="w-56 bg-white shadow-lg rounded-lg border border-slate-200 py-2">
+                        <div className="w-max min-w-[14rem] bg-white shadow-lg rounded-lg border border-slate-200 py-2">
                           {link.children.map((child) => (
                             <Link key={child.path} to={child.path} onClick={(e) => e.currentTarget.blur()} className="block px-4 py-2.5 text-[0.9375rem] text-slate-700 hover:bg-sand hover:text-navy-800">
                               {child.label}
@@ -87,7 +89,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </nav>
 
             <div className="hidden lg:flex items-center shrink-0">
-              <a href={APPOINTMENT_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-md bg-teal-700 hover:bg-teal-800 text-white px-3 py-2 text-[0.8125rem] font-semibold transition-colors whitespace-nowrap xl:px-4 xl:py-2.5 xl:text-[0.9375rem]">
+              <a href={APPOINTMENT_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-md bg-teal-700 hover:bg-teal-800 text-white px-2.5 py-2 text-[0.75rem] font-semibold tracking-tight transition-colors whitespace-nowrap xl:px-3.5 xl:text-[0.8125rem]">
                 Request an Appointment
               </a>
             </div>
@@ -195,6 +197,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                   { label: 'About', path: '/about' },
                   { label: 'Personal Statement', path: '/statement' },
                   { label: 'Services', path: '/services' },
+                  { label: 'My Philosophy', path: '/philosophy' },
                   { label: 'Media & Publications', path: '/media' },
                   { label: 'Lectures', path: '/media#lectures' },
                   { label: 'News Coverage', path: '/news' },

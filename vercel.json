@@ -7,6 +7,12 @@
     { "source": "/global-work", "destination": "/global-work/index.html" },
     { "source": "/news", "destination": "/news/index.html" },
     { "source": "/services", "destination": "/services/index.html" },
-    { "source": "/media", "destination": "/media/index.html" }
+    { "source": "/media", "destination": "/media/index.html" },
+    { "source": "/philosophy", "destination": "/philosophy/index.html" },
+    { "source": "/philosophy/cervical-stenosis", "destination": "/philosophy/cervical-stenosis/index.html" },
+    { "source": "/philosophy/lumbar-stenosis", "destination": "/philosophy/lumbar-stenosis/index.html" },
+    { "source": "/philosophy/herniated-disc", "destination": "/philosophy/herniated-disc/index.html" },
+    { "source": "/philosophy/fusion-vs-disc-replacement", "destination": "/philosophy/fusion-vs-disc-replacement/index.html" },
+    { "source": "/philosophy/spinal-deformity", "destination": "/philosophy/spinal-deformity/index.html" }
   ]
 }
