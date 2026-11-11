@@ -148,6 +148,7 @@ const SpinalDeformity: React.FC = () => (
     <RelatedPages
       links={[
         { href: "/philosophy/lumbar-stenosis", label: "Lumbar stenosis" },
+        { href: "/philosophy/compression-fractures", label: "Compression fractures" },
         { href: "/philosophy/fusion-vs-disc-replacement", label: "Fusion vs. disc replacement" },
         { href: "/philosophy", label: "My Philosophy" },
       ]}

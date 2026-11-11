@@ -5,7 +5,6 @@ import {
   Disclaimer,
   FaqList,
   Figure,
-  IllustrationSlot,
   PhilosophyArticle,
   RelatedPages,
   STANDARD_DISCLAIMER,
@@ -52,8 +51,7 @@ const LumbarStenosis: React.FC = () => (
       <p>
         Lumbar spinal stenosis is narrowing of the spinal canal in the lower back. It usually comes from age-related changes: bulging discs, enlarged facet joints, thickened ligaments, and sometimes one vertebra slipping forward over another (<Term>degenerative spondylolisthesis</Term>). The narrowing squeezes the nerves that run to your legs.
       </p>
-      {/* Proposed alt text: Cross-section illustration of lumbar spinal stenosis narrowing the spinal canal and compressing nerves */}
-      <IllustrationSlot proposedAlt="Cross-section illustration of lumbar spinal stenosis narrowing the spinal canal and compressing nerves" />
+      {/* Illustration slot for later, not rendered: axial cross-section of a normal lumbar canal beside a narrowed one. Proposed alt: "Cross-section illustration of lumbar spinal stenosis narrowing the spinal canal and compressing nerves" */}
     </Section>
 
     <Section id="lumbar-symptoms" title="What does it feel like?">
@@ -104,8 +102,7 @@ const LumbarStenosis: React.FC = () => (
           <><Term>Other options in selected patients:</Term> sometimes a minimally-invasive, endoscopic foraminotomy/laminotomy is an option as well.</>,
         ]}
       />
-      {/* Proposed alt text: Annotated lumbar MRI showing spinal stenosis and the area removed during laminectomy decompression */}
-      <IllustrationSlot proposedAlt="Annotated lumbar MRI showing spinal stenosis and the area removed during laminectomy decompression" />
+      {/* Illustration slot for later, not rendered: decompression diagram. Proposed alt: "Annotated lumbar MRI showing spinal stenosis and the area removed during laminectomy decompression" */}
     </Section>
 
     <Section id="lumbar-decide" title="How I decide with you">
@@ -123,6 +120,7 @@ const LumbarStenosis: React.FC = () => (
     <RelatedPages
       links={[
         { href: "/philosophy/herniated-disc", label: "Herniated discs" },
+        { href: "/philosophy/compression-fractures", label: "Compression fractures" },
         { href: "/philosophy/spinal-deformity", label: "Spinal deformity" },
         { href: "/philosophy/fusion-vs-disc-replacement", label: "Fusion vs. disc replacement" },
         { href: "/philosophy", label: "My Philosophy" },

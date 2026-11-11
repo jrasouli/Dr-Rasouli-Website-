@@ -5,7 +5,6 @@ import {
   Disclaimer,
   FaqList,
   Figure,
-  IllustrationSlot,
   InlineLink,
   PhilosophyArticle,
   RelatedPages,
@@ -56,8 +55,14 @@ const CervicalStenosis: React.FC = () => (
       <p>
         "Stenosis" means narrowing. In the cervical spine (your neck), the canal that holds the spinal cord, or the openings where nerves exit, can narrow over time. The usual causes are worn discs, bone spurs, and thickened ligaments, the normal wear and tear of aging. When the narrowing presses on a nerve root it is called <Term>radiculopathy</Term>. When it presses on the spinal cord itself it is called <Term>myelopathy</Term>, and that distinction matters a great deal for treatment.
       </p>
-      {/* Proposed alt text: Illustration comparing a normal cervical spinal canal with cervical spinal stenosis compressing the spinal cord */}
-      <IllustrationSlot proposedAlt="Illustration comparing a normal cervical spinal canal with cervical spinal stenosis compressing the spinal cord" />
+      <Figure
+        name="cervical-stenosis-mri"
+        alt="MRI showing degenerative cervical spinal stenosis."
+        width={928}
+        height={1520}
+        caption="MRI showing degenerative cervical spinal stenosis."
+        contain
+      />
     </Section>
 
     <Section id="cervical-symptoms" title="What symptoms does it cause?">
@@ -106,8 +111,7 @@ const CervicalStenosis: React.FC = () => (
           <><Term>Posterior foraminotomy:</Term> a smaller operation to free a single pinched nerve, often with a small incision.</>,
         ]}
       />
-      {/* Proposed alt text: Diagram of cervical stenosis surgery options: anterior cervical discectomy and fusion and laminoplasty */}
-      <IllustrationSlot proposedAlt="Diagram of cervical stenosis surgery options: anterior cervical discectomy and fusion and laminoplasty" />
+      {/* Illustration slot for later, not rendered: diagram of ACDF versus laminoplasty. Proposed alt: "Diagram of cervical stenosis surgery options: anterior cervical discectomy and fusion and laminoplasty" */}
     </Section>
 
     <Section id="cervical-decide" title="How I decide with you">

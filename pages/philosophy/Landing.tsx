@@ -29,9 +29,12 @@ const CONDITIONS = [
   { href: "/philosophy/cervical-stenosis", label: "Cervical spinal stenosis" },
   { href: "/philosophy/lumbar-stenosis", label: "Lumbar spinal stenosis" },
   { href: "/philosophy/herniated-disc", label: "Herniated discs in the neck and lower back" },
+  { href: "/philosophy/compression-fractures", label: "Osteoporotic compression fractures and vertebral augmentation" },
   { href: "/philosophy/fusion-vs-disc-replacement", label: "Fusion vs. artificial disc replacement" },
   { href: "/philosophy/spinal-deformity", label: "Adult scoliosis and kyphosis (spinal deformity)" },
 ];
+
+const HERO_ALT = "Dr. Jonathan Rasouli explaining a spine MRI to a patient using a spine model";
 
 /** Full graphic from the lg breakpoint, where the bitmap labels stay readable.
  *  Narrower screens crop to the three icons and set the labels in HTML. */
@@ -110,14 +113,34 @@ const Landing: React.FC = () => {
       </header>
 
       <Container className="py-12 md:py-16">
-        <Figure
-          name="dr-rasouli-explaining-spine-mri"
-          alt="Spine neurosurgeon Dr. Jonathan Rasouli explaining an MRI and treatment options using a spine model"
-          width={1688}
-          height={950}
-          eager
-          framed={false}
-        />
+        <figure className="overflow-hidden rounded-2xl shadow-[0_16px_40px_-20px_rgba(15,42,74,0.45)]">
+          <picture className="block sm:hidden">
+            <source srcSet="/images/dr-rasouli-mri-consult-mobile.webp" type="image/webp" />
+            <img
+              src="/images/dr-rasouli-mri-consult-mobile.jpg"
+              alt={HERO_ALT}
+              width={880}
+              height={760}
+              className="h-auto w-full"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+            />
+          </picture>
+          <picture className="hidden sm:block">
+            <source srcSet="/images/dr-rasouli-mri-consult.webp" type="image/webp" />
+            <img
+              src="/images/dr-rasouli-mri-consult.jpg"
+              alt={HERO_ALT}
+              width={1420}
+              height={740}
+              className="h-auto w-full"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+            />
+          </picture>
+        </figure>
 
         <div className="mx-auto mt-12 max-w-3xl md:mt-16">
           <section aria-labelledby="conservative-care">
@@ -168,7 +191,7 @@ const Landing: React.FC = () => {
           <h2 id="specific-conditions" className="scroll-mt-28 text-2xl font-semibold leading-tight text-navy-800 md:text-[2rem]">
             Learn more about specific conditions
           </h2>
-          <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+          <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {CONDITIONS.map((item) => (
               <li key={item.href}>
                 <Link

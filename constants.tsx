@@ -20,6 +20,7 @@ export const NAV_LINKS: NavItem[] = [
       { label: 'Cervical Stenosis', path: '/philosophy/cervical-stenosis' },
       { label: 'Lumbar Stenosis', path: '/philosophy/lumbar-stenosis' },
       { label: 'Herniated Discs', path: '/philosophy/herniated-disc' },
+      { label: 'Compression Fractures', path: '/philosophy/compression-fractures' },
       { label: 'Fusion vs. Disc Replacement', path: '/philosophy/fusion-vs-disc-replacement' },
       { label: 'Spinal Deformity', path: '/philosophy/spinal-deformity' },
     ],

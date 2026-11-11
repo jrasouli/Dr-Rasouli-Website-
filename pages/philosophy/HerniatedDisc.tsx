@@ -5,7 +5,6 @@ import {
   Disclaimer,
   FaqList,
   Figure,
-  IllustrationSlot,
   PhilosophyArticle,
   RelatedPages,
   STANDARD_DISCLAIMER,
@@ -51,8 +50,14 @@ const HerniatedDisc: React.FC = () => (
       <p>
         Between the bones of your spine are discs, rubbery cushions with a tough outer ring and a softer, gel-like center. When the outer ring tears, some of the center can push out (herniate) and press on a nearby nerve. It happens most often in the lower back (lumbar spine) and the neck (cervical spine).
       </p>
-      {/* Proposed alt text: Diagram of a herniated disc pressing on a spinal nerve root compared with a healthy spinal disc */}
-      <IllustrationSlot proposedAlt="Diagram of a herniated disc pressing on a spinal nerve root compared with a healthy spinal disc" />
+      <Figure
+        name="l5-s1-disc-herniation-mri"
+        alt="MRI showing a large L5-S1 lumbar disc herniation."
+        width={1010}
+        height={1426}
+        caption="MRI showing a large L5-S1 lumbar disc herniation."
+        contain
+      />
     </Section>
 
     <Section id="herniated-symptoms" title="What symptoms does it cause?">
@@ -61,6 +66,14 @@ const HerniatedDisc: React.FC = () => (
           <><Term>Lower back (lumbar):</Term> sciatica, meaning sharp, shooting pain from the buttock down the leg, often below the knee, sometimes with numbness, tingling, or weakness in the leg or foot.</>,
           <><Term>Neck (cervical):</Term> pain radiating into the shoulder, arm, or hand, with possible numbness, tingling, or weakness. A large cervical herniation can occasionally press on the spinal cord and cause hand clumsiness or balance problems.</>,
         ]}
+      />
+      <Figure
+        name="c6-7-disc-herniation-mri"
+        alt="MRI showing a large C6-7 cervical disc herniation."
+        width={1086}
+        height={1600}
+        caption="MRI showing a large C6-7 cervical disc herniation."
+        contain
       />
       <Figure
         name="sciatica-and-arm-pain-map"
@@ -105,8 +118,7 @@ const HerniatedDisc: React.FC = () => (
           <><Term>Cervical options:</Term> anterior cervical discectomy and fusion (ACDF), cervical disc replacement, or posterior cervical foraminotomy, depending on where the herniation sits and the health of the rest of your neck.</>,
         ]}
       />
-      {/* Proposed alt text: Illustration of lumbar microdiscectomy removing a herniated disc fragment to relieve nerve pressure */}
-      <IllustrationSlot proposedAlt="Illustration of lumbar microdiscectomy removing a herniated disc fragment to relieve nerve pressure" />
+      {/* Illustration slot for later, not rendered: lumbar microdiscectomy diagram. Proposed alt: "Illustration of lumbar microdiscectomy removing a herniated disc fragment to relieve nerve pressure" */}
     </Section>
 
     <Section id="herniated-decide" title="How I decide with you">

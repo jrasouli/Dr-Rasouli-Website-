@@ -65,6 +65,8 @@ interface FigureProps {
   /** Repeats in-image labels for narrow screens, where the bitmap text shrinks. */
   mobileCaption?: string;
   framed?: boolean;
+  /** Portrait scans stay fully visible without stretching the column. */
+  contain?: boolean;
 }
 
 export const Figure: React.FC<FigureProps> = ({
@@ -76,8 +78,10 @@ export const Figure: React.FC<FigureProps> = ({
   eager = false,
   mobileCaption,
   framed = true,
+  contain = false,
 }) => {
   const frame = framed ? "rounded-xl border border-sand-200 bg-white" : "rounded-2xl shadow-[0_16px_40px_-20px_rgba(15,42,74,0.45)]";
+  const fit = contain ? "mx-auto h-auto max-h-[70vh] w-auto max-w-full object-contain" : "h-auto w-full";
 
   return (
     <figure className="my-2">
@@ -88,8 +92,8 @@ export const Figure: React.FC<FigureProps> = ({
         height={height}
         eager={eager}
         priority={eager}
-        className="block"
-        imgClassName={`h-auto w-full ${frame}`}
+        className={contain ? "flex justify-center" : "block"}
+        imgClassName={`${fit} ${frame}`}
       />
       {mobileCaption && (
         <p className="mt-2 text-center text-sm font-medium text-navy-800 sm:hidden" aria-hidden="true">{mobileCaption}</p>

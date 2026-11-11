@@ -6,7 +6,6 @@ import {
   FUSION_DISCLAIMER,
   FaqList,
   Figure,
-  IllustrationSlot,
   InlineLink,
   PhilosophyArticle,
   REDISCOVER_ARTICLE_URL,
@@ -114,8 +113,14 @@ const FusionVsDisc: React.FC = () => (
           <><Term>Total disc replacement (TDR), also called arthroplasty or an artificial disc:</Term> a motion-preserving implant is placed, so the level keeps moving.</>,
         ]}
       />
-      {/* Proposed alt text: Illustration comparing anterior cervical discectomy and fusion with cervical disc replacement that preserves neck motion */}
-      <IllustrationSlot proposedAlt="Illustration comparing anterior cervical discectomy and fusion with cervical disc replacement that preserves neck motion" />
+      <Figure
+        name="c6-7-disc-herniation-mri"
+        alt="MRI showing a large C6-7 cervical disc herniation."
+        width={1086}
+        height={1600}
+        caption="MRI showing a large C6-7 cervical disc herniation."
+        contain
+      />
     </Section>
 
     <Section id="case-for-disc-replacement" title="The case for disc replacement">

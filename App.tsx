@@ -16,6 +16,7 @@ import LumbarStenosis from './pages/philosophy/LumbarStenosis';
 import HerniatedDisc from './pages/philosophy/HerniatedDisc';
 import FusionVsDisc from './pages/philosophy/FusionVsDisc';
 import SpinalDeformity from './pages/philosophy/SpinalDeformity';
+import CompressionFractures from './pages/philosophy/CompressionFractures';
 
 // Every route listed here is pre-rendered to static HTML at build time (see scripts/prerender.mjs).
 export const ROUTES = [
@@ -33,6 +34,7 @@ export const ROUTES = [
   '/philosophy/herniated-disc',
   '/philosophy/fusion-vs-disc-replacement',
   '/philosophy/spinal-deformity',
+  '/philosophy/compression-fractures',
 ];
 
 // Rendered to dist/404.html, which Vercel serves with HTTP 404 for any unmatched URL.
@@ -55,6 +57,7 @@ export const AppRoutes: React.FC = () => (
       <Route path="/philosophy/herniated-disc" element={<HerniatedDisc />} />
       <Route path="/philosophy/fusion-vs-disc-replacement" element={<FusionVsDisc />} />
       <Route path="/philosophy/spinal-deformity" element={<SpinalDeformity />} />
+      <Route path="/philosophy/compression-fractures" element={<CompressionFractures />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </Layout>

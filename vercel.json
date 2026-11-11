@@ -13,6 +13,7 @@
     { "source": "/philosophy/lumbar-stenosis", "destination": "/philosophy/lumbar-stenosis/index.html" },
     { "source": "/philosophy/herniated-disc", "destination": "/philosophy/herniated-disc/index.html" },
     { "source": "/philosophy/fusion-vs-disc-replacement", "destination": "/philosophy/fusion-vs-disc-replacement/index.html" },
-    { "source": "/philosophy/spinal-deformity", "destination": "/philosophy/spinal-deformity/index.html" }
+    { "source": "/philosophy/spinal-deformity", "destination": "/philosophy/spinal-deformity/index.html" },
+    { "source": "/philosophy/compression-fractures", "destination": "/philosophy/compression-fractures/index.html" }
   ]
 }
