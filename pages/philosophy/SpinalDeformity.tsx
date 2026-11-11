@@ -1,4 +1,5 @@
 import React from "react";
+import { Picture } from "../../components/ui";
 import {
   BulletList,
   ConsultBand,
@@ -123,14 +124,25 @@ const SpinalDeformity: React.FC = () => (
           <><Term>Minimally invasive and hybrid techniques:</Term> for selected patients such as direct lateral lumbar interbody fusion (XLIF, DLIF, LTP) or robotic-assisted techniques.</>,
         ]}
       />
-      <Figure
-        name="deformity-correction-before-after-illustration"
-        alt="Illustrated example of adult scoliosis before and after spinal deformity correction surgery"
-        width={1400}
-        height={898}
-        caption="Illustration only."
-        mobileCaption="Before and after correction. Illustration only."
-      />
+      <figure className="my-2 space-y-3">
+        <Picture
+          name="adult-scoliosis-before-after-1"
+          alt="Full-spine X-ray of adult scoliosis before and after spinal fusion and correction by Dr. Jonathan Rasouli"
+          width={1600}
+          height={1588}
+          className="block"
+          imgClassName="h-auto w-full rounded-xl border border-sand-200 bg-white"
+        />
+        <Picture
+          name="adult-scoliosis-before-after-2"
+          alt="Full-spine X-ray of adult scoliosis before and after spinal fusion and correction by Dr. Jonathan Rasouli"
+          width={1600}
+          height={1562}
+          className="block"
+          imgClassName="h-auto w-full rounded-xl border border-sand-200 bg-white"
+        />
+        <figcaption className="text-sm leading-relaxed text-slate-500">Adult scoliosis before and after surgical correction.</figcaption>
+      </figure>
     </Section>
 
     <Section id="deformity-decide" title="How I decide with you">
