@@ -137,11 +137,12 @@ const FusionVsDisc: React.FC = () => (
         ACDF has been the "gold standard" for cervical radiculopathy and myelopathy (spinal cord compression) for more than 50 years. It is safe and effective, and its results are predictable. Because a fusion removes motion at that segment, some studies show it changes the forces on the discs above and below, which can speed up wear there later in life. This is called <Term>adjacent segment disease</Term>. Most people who develop it never have symptoms, but a small percentage need another surgery in the future.
       </p>
       <Figure
-        name="adjacent-segment-disease"
-        alt="Diagram of adjacent segment disease at the spinal levels above and below a cervical fusion"
-        width={1400}
-        height={1160}
-        mobileCaption="Extra stress on the levels next to a fusion."
+        name="cervical-fusion-before-after-xray"
+        alt="Cervical spine X-ray before and after anterior cervical discectomy and fusion"
+        width={1600}
+        height={1600}
+        caption="Lateral cervical X-rays before and after anterior cervical fusion."
+        contain
       />
       <p>
         The indications for disc replacement are narrower. The vast majority of patients with cervical disc disease are good candidates for ACDF, which is why it is still the more commonly performed procedure in the United States.

@@ -74,13 +74,6 @@ const CervicalStenosis: React.FC = () => (
         ]}
       />
       <p>Myelopathy can start subtly. People often blame it on age, which is why a careful exam matters.</p>
-      <Figure
-        name="cervical-stenosis-mri-illustration"
-        alt="Annotated MRI of the neck showing cervical spinal stenosis and spinal cord compression"
-        width={1400}
-        height={898}
-        caption="Illustration, not an actual patient scan."
-      />
     </Section>
 
     <Section id="cervical-nonsurgical" title="When is non-surgical care enough?">
