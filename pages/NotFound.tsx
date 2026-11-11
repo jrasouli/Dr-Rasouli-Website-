@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Phone } from 'lucide-react';
 import SEO from '../components/SEO';
 import { Container, ButtonLink, Eyebrow } from '../components/ui';
+import { CONTACT_INFO } from '../constants';
 
 const LINKS = [
   { path: '/about', label: 'About Dr.\u00A0Rasouli' },
@@ -27,7 +28,7 @@ const NotFound: React.FC = () => (
         </p>
         <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
           <ButtonLink href="/">Back to home</ButtonLink>
-          <ButtonLink href="tel:2013993388" variant="secondary"><Phone size={18} aria-hidden="true" /> (201) 399-3388</ButtonLink>
+          <ButtonLink href={CONTACT_INFO.phoneTel} variant="secondary"><Phone size={18} aria-hidden="true" /> {CONTACT_INFO.phone}</ButtonLink>
         </div>
         <nav aria-label="Popular pages" className="mt-10">
           <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-[0.9375rem]">

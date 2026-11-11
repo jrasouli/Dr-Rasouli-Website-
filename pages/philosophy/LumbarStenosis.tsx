@@ -13,9 +13,9 @@ import {
 } from "../../components/philosophy/ui";
 import type { FaqEntry } from "../../components/philosophy/schema";
 
-const SEO_TITLE = "Lumbar Spinal Stenosis Treatment | Dr. Rasouli";
+const SEO_TITLE = "Lumbar Spinal Stenosis Treatment | Dr.\u00A0Rasouli";
 const DESCRIPTION =
-  "Leg pain or heaviness when you walk or stand may be lumbar stenosis. Learn your non-surgical and surgical options and how Dr. Rasouli helps you decide.";
+  "Leg pain or heaviness when you walk or stand may be lumbar stenosis. Learn your non-surgical and surgical options and how Dr.\u00A0Rasouli helps you decide.";
 
 const FAQS: FaqEntry[] = [
   {

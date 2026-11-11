@@ -5,7 +5,7 @@ import { NAV_LINKS, CONTACT_INFO, APPOINTMENT_URL, OFFICE_LOCATIONS } from '../c
 import { Container } from './ui';
 import SocialButtons from './SocialButtons';
 
-const TEL = `tel:${CONTACT_INFO.phone.replace(/\D/g, '')}`;
+const TEL = CONTACT_INFO.phoneTel;
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

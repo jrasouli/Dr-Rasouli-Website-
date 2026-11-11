@@ -15,9 +15,9 @@ import {
 } from "../../components/philosophy/ui";
 import type { FaqEntry } from "../../components/philosophy/schema";
 
-const SEO_TITLE = "Spinal Fusion vs. Disc Replacement | Dr. Rasouli";
+const SEO_TITLE = "Spinal Fusion vs. Disc Replacement | Dr.\u00A0Rasouli";
 const DESCRIPTION =
-  "ACDF fusion or artificial disc replacement? Dr. Jonathan Rasouli explains how each works, who is a good candidate, and how to choose the right option.";
+  "ACDF fusion or artificial disc replacement? Dr.\u00A0Jonathan\u00A0Rasouli explains how each works, who is a good candidate, and how to choose the right option.";
 
 const FAQS: FaqEntry[] = [
   {

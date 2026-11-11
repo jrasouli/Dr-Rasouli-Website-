@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
-import App from './App';
+import App, { preloadRoute } from './App';
 import './index.css';
 
 // Old links used hash routing (e.g. /#/about). Send them to the clean URL (/about).
@@ -15,15 +15,18 @@ if (!rootElement) {
   throw new Error("Could not find root element to mount to");
 }
 
-// Pre-rendered pages ship their own head tags so crawlers see them without JS.
-// Remove them before React renders its own copies to avoid duplicates.
-document.head.querySelectorAll('[data-prerender]').forEach((el) => el.remove());
+// Load this route's chunk before replacing the pre-rendered HTML.
+preloadRoute(window.location.pathname).then(() => {
+  // Pre-rendered pages ship their own head tags so crawlers see them without JS.
+  // Remove them before React renders its own copies to avoid duplicates.
+  document.head.querySelectorAll('[data-prerender]').forEach((el) => el.remove());
 
-const root = ReactDOM.createRoot(rootElement);
-root.render(
-  <React.StrictMode>
-    <HelmetProvider>
-      <App />
-    </HelmetProvider>
-  </React.StrictMode>
-);
+  const root = ReactDOM.createRoot(rootElement);
+  root.render(
+    <React.StrictMode>
+      <HelmetProvider>
+        <App />
+      </HelmetProvider>
+    </React.StrictMode>
+  );
+});

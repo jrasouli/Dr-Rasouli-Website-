@@ -40,7 +40,7 @@ export const NAV_LINKS: NavItem[] = [
 
 export const SOCIAL_LINKS = {
   instagram: 'https://www.instagram.com/jonathan_rasouli/',
-  x: 'https://twitter.com/jrasouli',
+  x: 'https://x.com/jrasouli',
   linkedin: 'https://www.linkedin.com/in/jonathan-rasouli/',
 };
 
@@ -79,42 +79,51 @@ export const SERVICES: ServiceItem[] = [
     title: 'Complex Spinal Deformity',
     description: 'Specialized correction for adult scoliosis, kyphosis, and spinal imbalances using advanced planning.',
     icon: Activity,
-    details: ['Adult Scoliosis', 'Kyphosis Correction', 'Spinal Imbalance', 'Revision Surgery']
+    details: ['Adult Scoliosis', 'Kyphosis Correction', 'Spinal Imbalance', 'Revision Surgery'],
+    links: [{ href: '/philosophy/spinal-deformity', label: 'Adult scoliosis and kyphosis' }],
   },
   {
     id: 'miss',
     title: 'Minimally Invasive Surgery',
     description: 'Advanced techniques, including endoscopic spine surgery, using smaller incisions for faster recovery, less pain, and reduced tissue damage.',
     icon: Microscope,
-    details: ['Endoscopic Spine Surgery', 'Tubular Retractors', 'Microdiscectomy', 'Faster Recovery']
+    details: ['Endoscopic Spine Surgery', 'Tubular Retractors', 'Microdiscectomy', 'Faster Recovery'],
+    links: [{ href: '/philosophy/herniated-disc', label: 'Herniated discs and microdiscectomy' }],
   },
   {
     id: 'robotic',
     title: 'Robotic-Assisted Surgery',
     description: 'State-of-the-art robotic guidance for unparalleled precision and safety in complex spine procedures.',
     icon: Brain,
-    details: ['Enhanced Precision', '3D Navigation', 'Improved Safety', 'Reduced Radiation']
+    details: ['Enhanced Precision', '3D Navigation', 'Improved Safety', 'Reduced Radiation'],
+    links: [{ href: '/philosophy/spinal-deformity', label: 'Robotic-assisted techniques for spinal deformity' }],
   },
   {
     id: 'stenosis',
     title: 'Spinal Stenosis',
     description: 'Decompression procedures to relieve pressure on nerves causing pain, numbness, or weakness.',
     icon: UserCheck,
-    details: ['Laminectomy', 'Laminotomy', 'Spinal Fusion', 'Conservative Care']
+    details: ['Laminectomy', 'Laminotomy', 'Spinal Fusion', 'Conservative Care'],
+    links: [
+      { href: '/philosophy/cervical-stenosis', label: 'Cervical spinal stenosis' },
+      { href: '/philosophy/lumbar-stenosis', label: 'Lumbar spinal stenosis' },
+    ],
   },
   {
     id: 'revision',
     title: 'Second Opinion & Revision Spinal Surgery',
     description: 'Expert evaluation and surgical correction for patients experiencing continued pain or complications after previous spine surgery.',
     icon: Stethoscope,
-    details: ['Failed Back Surgery Syndrome', 'Pseudarthrosis', 'Hardware Failure', 'Adjacent Segment Disease']
+    details: ['Failed Back Surgery Syndrome', 'Pseudarthrosis', 'Hardware Failure', 'Adjacent Segment Disease'],
+    links: [{ href: '/philosophy/fusion-vs-disc-replacement', label: 'Fusion, disc replacement, and adjacent segment disease' }],
   },
   {
     id: 'trauma',
     title: 'Spinal Trauma & Tumors',
     description: 'Urgent and complex care for spinal fractures, injuries, and oncological spinal conditions.',
     icon: ShieldCheck,
-    details: ['Fracture Stabilization', 'Tumor Resection', 'Spinal Reconstruction', 'Emergency Care']
+    details: ['Fracture Stabilization', 'Tumor Resection', 'Spinal Reconstruction', 'Emergency Care'],
+    links: [{ href: '/philosophy/compression-fractures', label: 'Osteoporotic compression fractures' }],
   }
 ];
 
@@ -122,7 +131,7 @@ export const CREDENTIALS: Credential[] = [
   {
     title: "Castle Connolly Top Doctor 2026",
     subtitle: "",
-    link: "https://www.castleconnolly.com/doctors/profile/1003172974/jonathan-j-rasouli-staten-island-ny"
+    link: CASTLE_CONNOLLY_URL
   },
   {
     title: "Fellowship-Trained",
@@ -154,7 +163,9 @@ export const FAQS: FaqItem[] = [
 ];
 
 export const CONTACT_INFO = {
-  phone: "(201) 399-3388",
+  phone: "(201) 992-4856",
+  phoneTel: "tel:+12019924856",
+  phoneSchema: "+1-201-992-4856",
   email: "contact@rasoulimd.com"
 };
 // NeuroSpine Plus office locations (addresses verified on neurospineplus.com/locations, Oct 2026)
@@ -166,4 +177,14 @@ export const OFFICE_LOCATIONS = [
   { city: "Jersey City", street: "550 Newark Avenue, Suite 408", locality: "Jersey City", state: "NJ", postalCode: "07306", url: "https://neurospineplus.com/locations/jersey-city/" },
   { city: "Edison", street: "1656 Oak Tree Road, 3rd Floor", locality: "Edison", state: "NJ", postalCode: "08820", url: "https://neurospineplus.com/locations/edison/" },
   { city: "Staten Island", street: "2777 Hylan Blvd", locality: "Staten Island", state: "NY", postalCode: "10306", url: "https://www.google.com/maps/search/?api=1&query=2777+Hylan+Blvd%2C+Staten+Island%2C+NY+10306" },
+];
+
+/** Patient-education pages. Labels match the My Philosophy landing page. */
+export const CONDITION_PAGES = [
+  { href: "/philosophy/cervical-stenosis", label: "Cervical spinal stenosis" },
+  { href: "/philosophy/lumbar-stenosis", label: "Lumbar spinal stenosis" },
+  { href: "/philosophy/herniated-disc", label: "Herniated discs in the neck and lower back" },
+  { href: "/philosophy/compression-fractures", label: "Osteoporotic compression fractures and vertebral augmentation" },
+  { href: "/philosophy/fusion-vs-disc-replacement", label: "Fusion vs. artificial disc replacement" },
+  { href: "/philosophy/spinal-deformity", label: "Adult scoliosis and kyphosis (spinal deformity)" },
 ];

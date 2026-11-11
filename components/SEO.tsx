@@ -16,9 +16,11 @@ interface SEOProps {
   noindex?: boolean;
   /** Absolute URL for og:image / twitter:image. */
   image?: string;
+  /** LCP image to preload, such as the homepage hero AVIF. */
+  preloadImage?: string;
 }
 
-const SEO: React.FC<SEOProps> = ({ title, description, canonicalPath, schema, breadcrumbs, noindex = false, image }) => {
+const SEO: React.FC<SEOProps> = ({ title, description, canonicalPath, schema, breadcrumbs, noindex = false, image, preloadImage }) => {
   const domain = 'https://rasouli-md.com';
   const ogImage = image ?? `${domain}/images/dr-rasouli-og-2026.jpg`;
   const canonicalUrl = canonicalPath ? `${domain}${canonicalPath}` : domain;
@@ -66,6 +68,7 @@ const SEO: React.FC<SEOProps> = ({ title, description, canonicalPath, schema, br
       
       {/* Canonical URL */}
       {!noindex && <link rel="canonical" href={canonicalUrl} />}
+      {preloadImage && <link rel="preload" as="image" href={preloadImage} type="image/avif" fetchPriority="high" />}
 
       {/* Schema.org Structured Data */}
       {schemaScripts.map((schemaContent, index) => (

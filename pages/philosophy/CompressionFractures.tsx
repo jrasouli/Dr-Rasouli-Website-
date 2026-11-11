@@ -13,9 +13,9 @@ import {
 } from "../../components/philosophy/ui";
 import type { FaqEntry } from "../../components/philosophy/schema";
 
-const SEO_TITLE = "Osteoporotic Compression Fractures & Vertebral Augmentation | Dr. Rasouli";
+const SEO_TITLE = "Osteoporotic Compression Fractures | Dr.\u00A0Rasouli";
 const DESCRIPTION =
-  "A weakened vertebra can collapse and cause sudden back pain. Learn when bracing and osteoporosis care are enough, and when vertebral augmentation may help, from Dr. Jonathan Rasouli.";
+  "A collapsed vertebra can cause sudden back pain. Dr.\u00A0Jonathan\u00A0Rasouli explains bracing, osteoporosis care, and when vertebral augmentation may help.";
 
 const FAQS: FaqEntry[] = [
   {
@@ -49,6 +49,8 @@ const CompressionFractures: React.FC = () => (
     h1="Osteoporotic Compression Fractures: Bracing, Bone Health, and When Augmentation Helps"
     about={{ type: "MedicalCondition", name: "Osteoporotic vertebral compression fracture" }}
     faqs={FAQS}
+    published="2026-11-11"
+    modified="2026-11-11"
   >
     <Section id="what-is-compression-fracture" title="What is an osteoporotic compression fracture?" first>
       <p>

@@ -1,3 +1,5 @@
+import { PHYSICIAN_ID, SITE_URL, WEBSITE_ID, physicianLd } from "../schema";
+
 export interface FaqEntry {
   question: string;
   answer: string;
@@ -8,8 +10,7 @@ export interface AboutTopic {
   name: string;
 }
 
-const SITE = "https://rasouli-md.com";
-const PHYSICIAN_ID = `${SITE}/#physician`;
+const SITE = SITE_URL;
 
 /** MedicalWebPage + Physician, plus FAQPage when the page has an FAQ block. */
 export function philosophySchema({
@@ -18,12 +19,16 @@ export function philosophySchema({
   description,
   about,
   faqs,
+  published = "2026-11-08",
+  modified = "2026-11-08",
 }: {
   path: string;
   title: string;
   description: string;
   about?: AboutTopic | AboutTopic[];
   faqs?: FaqEntry[];
+  published?: string;
+  modified?: string;
 }): string[] {
   const url = `${SITE}${path}`;
   const topics = about ? (Array.isArray(about) ? about : [about]) : [{ type: "MedicalSpecialty", name: "Spinal Neurosurgery" }];
@@ -37,38 +42,19 @@ export function philosophySchema({
     name: title,
     description,
     inLanguage: "en-US",
-    datePublished: "2026-11-08",
-    dateModified: "2026-11-08",
-    lastReviewed: "2026-11-08",
+    datePublished: published,
+    dateModified: modified,
+    lastReviewed: modified,
     audience: { "@type": "MedicalAudience", audienceType: "Patient" },
-    isPartOf: { "@type": "WebSite", name: "Jonathan J. Rasouli, MD", url: SITE },
+    isPartOf: { "@id": WEBSITE_ID },
     author: { "@id": PHYSICIAN_ID },
     reviewedBy: { "@id": PHYSICIAN_ID },
     about: aboutNodes.length === 1 ? aboutNodes[0] : aboutNodes,
     specialty: { "@type": "MedicalSpecialty", name: "Spinal Neurosurgery" },
   };
 
-  // Same @id as the homepage Physician so crawlers treat this as one person.
-  const physician = {
-    "@context": "https://schema.org",
-    "@type": "Physician",
-    "@id": PHYSICIAN_ID,
-    name: "Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, MD",
-    url: SITE,
-    image: `${SITE}/images/dr-rasouli-headshot-2026.jpg`,
-    telephone: "+1-201-399-3388",
-    medicalSpecialty: [
-      "https://schema.org/Neurology",
-      { "@type": "MedicalSpecialty", name: "Spinal Neurosurgery" },
-    ],
-    affiliation: {
-      "@type": "MedicalOrganization",
-      name: "NeuroSpine Plus",
-      url: "https://neurospineplus.com",
-    },
-  };
-
-  const scripts = [JSON.stringify(medicalWebPage), JSON.stringify(physician)];
+  // Same @id and fields as the homepage Physician so crawlers treat this as one person.
+  const scripts = [JSON.stringify(medicalWebPage), JSON.stringify(physicianLd())];
 
   if (faqs && faqs.length > 0) {
     scripts.push(JSON.stringify({

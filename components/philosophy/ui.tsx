@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Phone } from "lucide-react";
-import { APPOINTMENT_URL } from "../../constants";
+import { APPOINTMENT_URL, CONTACT_INFO } from "../../constants";
 import { ButtonLink, Container, Eyebrow, PageHeader, Picture } from "../ui";
 import SEO from "../SEO";
 import { philosophySchema, type AboutTopic, type FaqEntry } from "./schema";
 
 export const CONSULT_URL = APPOINTMENT_URL;
 export const CONSULT_LABEL = "Schedule a consult with Dr.\u00A0Rasouli at NeuroSpine Plus";
-export const CONSULT_PHONE_DISPLAY = "201-425-1648";
-export const CONSULT_PHONE_TEL = "tel:+12014251648";
+export const CONSULT_PHONE_DISPLAY = CONTACT_INFO.phone;
+export const CONSULT_PHONE_TEL = CONTACT_INFO.phoneTel;
 export const REDISCOVER_ARTICLE_URL = "https://rediscovermylife.org/reads.php?p=20";
 
 export const STANDARD_DISCLAIMER =
@@ -206,6 +206,8 @@ interface ArticleProps {
   h1: string;
   about?: AboutTopic | AboutTopic[];
   faqs?: FaqEntry[];
+  published?: string;
+  modified?: string;
   /** Rendered directly under the H1, inside the page header. */
   hero?: React.ReactNode;
   children: React.ReactNode;
@@ -219,10 +221,12 @@ export const PhilosophyArticle: React.FC<ArticleProps> = ({
   h1,
   about,
   faqs,
+  published,
+  modified,
   hero,
   children,
 }) => {
-  const schema = philosophySchema({ path, title: seoTitle, description, about, faqs });
+  const schema = philosophySchema({ path, title: seoTitle, description, about, faqs, published, modified });
   const breadcrumbs = [
     { name: "Home", item: "/" },
     { name: "My Philosophy", item: "/philosophy" },

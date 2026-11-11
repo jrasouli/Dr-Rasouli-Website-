@@ -16,7 +16,7 @@ const template = fs.readFileSync(path.join(distDir, 'index.html'), 'utf-8');
 const HEAD_TAG = /<(title)[^>]*>[\s\S]*?<\/title>|<(meta|link)\b[^>]*\/?>/g;
 
 for (const route of [...ROUTES, NOT_FOUND_ROUTE]) {
-  const appHtml = render(route);
+  const appHtml = await render(route);
   const headTags = [];
   const body = appHtml.replace(HEAD_TAG, (tag) => {
     headTags.push(tag.replace(/^<(\w+)/, '<$1 data-prerender=""'));
@@ -28,10 +28,11 @@ for (const route of [...ROUTES, NOT_FOUND_ROUTE]) {
 
   let html = template
     // Page-specific title/description replace the generic ones from index.html.
+    // Function replacers so `$` in JSON-LD (for example priceRange) stays literal.
     .replace(/\s*<title>[\s\S]*?<\/title>/, '')
     .replace(/\s*<meta name="description"[^>]*>/, '')
-    .replace('</head>', `  ${headTags.join('\n    ')}\n  </head>`)
-    .replace('<div id="root"></div>', `<div id="root">${body}</div>`);
+    .replace('</head>', () => `  ${headTags.join('\n    ')}\n  </head>`)
+    .replace('<div id="root"></div>', () => `<div id="root">${body}</div>`);
 
   // The catch-all route becomes dist/404.html (served by Vercel with a 404 status).
   const outFile = route === '/'

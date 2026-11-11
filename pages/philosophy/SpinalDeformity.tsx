@@ -14,9 +14,9 @@ import {
 } from "../../components/philosophy/ui";
 import type { FaqEntry } from "../../components/philosophy/schema";
 
-const SEO_TITLE = "Adult Scoliosis & Kyphosis Treatment | Dr. Rasouli";
+const SEO_TITLE = "Adult Scoliosis & Kyphosis Treatment | Dr.\u00A0Rasouli";
 const DESCRIPTION =
-  "Adult scoliosis or a forward-stooping spine? Learn about symptoms, non-surgical care, and when deformity surgery is worth it, from Dr. Jonathan Rasouli.";
+  "Adult scoliosis or a forward-stooping spine? Learn about symptoms, non-surgical care, and when deformity surgery is worth it, from Dr.\u00A0Jonathan\u00A0Rasouli.";
 
 const FAQS: FaqEntry[] = [
   {
@@ -127,7 +127,7 @@ const SpinalDeformity: React.FC = () => (
       <figure className="my-2 space-y-3">
         <Picture
           name="adult-scoliosis-before-after-1"
-          alt="Full-spine X-ray of adult scoliosis before and after spinal fusion and correction by Dr. Jonathan Rasouli"
+          alt={"Full-spine X-ray of adult scoliosis before and after spinal fusion and correction by Dr.\u00A0Jonathan\u00A0Rasouli"}
           width={1600}
           height={1588}
           className="block"
@@ -135,7 +135,7 @@ const SpinalDeformity: React.FC = () => (
         />
         <Picture
           name="adult-scoliosis-before-after-2"
-          alt="Full-spine X-ray of adult scoliosis before and after spinal fusion and correction by Dr. Jonathan Rasouli"
+          alt={"Full-spine X-ray of adult scoliosis before and after spinal fusion and correction by Dr.\u00A0Jonathan\u00A0Rasouli"}
           width={1600}
           height={1562}
           className="block"
