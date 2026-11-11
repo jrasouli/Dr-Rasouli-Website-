@@ -10,9 +10,32 @@ import Credentials from './pages/Credentials';
 import GlobalWork from './pages/GlobalWork';
 import News from './pages/News';
 import NotFound from './pages/NotFound';
+import PhilosophyLanding from './pages/philosophy/Landing';
+import CervicalStenosis from './pages/philosophy/CervicalStenosis';
+import LumbarStenosis from './pages/philosophy/LumbarStenosis';
+import HerniatedDisc from './pages/philosophy/HerniatedDisc';
+import FusionVsDisc from './pages/philosophy/FusionVsDisc';
+import SpinalDeformity from './pages/philosophy/SpinalDeformity';
+import CompressionFractures from './pages/philosophy/CompressionFractures';
 
 // Every route listed here is pre-rendered to static HTML at build time (see scripts/prerender.mjs).
-export const ROUTES = ['/', '/about', '/statement', '/credentials', '/global-work', '/news', '/services', '/media'];
+export const ROUTES = [
+  '/',
+  '/about',
+  '/statement',
+  '/credentials',
+  '/global-work',
+  '/news',
+  '/services',
+  '/media',
+  '/philosophy',
+  '/philosophy/cervical-stenosis',
+  '/philosophy/lumbar-stenosis',
+  '/philosophy/herniated-disc',
+  '/philosophy/fusion-vs-disc-replacement',
+  '/philosophy/spinal-deformity',
+  '/philosophy/compression-fractures',
+];
 
 // Rendered to dist/404.html, which Vercel serves with HTTP 404 for any unmatched URL.
 export const NOT_FOUND_ROUTE = '/404';
@@ -28,6 +51,13 @@ export const AppRoutes: React.FC = () => (
       <Route path="/news" element={<News />} />
       <Route path="/services" element={<Services />} />
       <Route path="/media" element={<Media />} />
+      <Route path="/philosophy" element={<PhilosophyLanding />} />
+      <Route path="/philosophy/cervical-stenosis" element={<CervicalStenosis />} />
+      <Route path="/philosophy/lumbar-stenosis" element={<LumbarStenosis />} />
+      <Route path="/philosophy/herniated-disc" element={<HerniatedDisc />} />
+      <Route path="/philosophy/fusion-vs-disc-replacement" element={<FusionVsDisc />} />
+      <Route path="/philosophy/spinal-deformity" element={<SpinalDeformity />} />
+      <Route path="/philosophy/compression-fractures" element={<CompressionFractures />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </Layout>
