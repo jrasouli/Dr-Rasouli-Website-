@@ -7,7 +7,6 @@ import { philosophySchema } from "../../components/philosophy/schema";
 import {
   ConsultBand,
   Disclaimer,
-  Figure,
   STANDARD_DISCLAIMER,
   Term,
 } from "../../components/philosophy/ui";
@@ -167,13 +166,32 @@ const Landing: React.FC = () => {
               <p>
                 You know your goals, your job, your family, and how much your symptoms limit you. I know the anatomy, the evidence, and what each option can and can't do. Good decisions need both. I'll show you your imaging, walk you through what I see, set out the realistic options, and give you an honest recommendation. Then we decide together. At a typical consult, we'll review your MRI scans together, discuss possible treatment options, and come up with a plan that works for you. I encourage all my patients to invite family members at the visit and get second (or even third) opinions afterwards.
               </p>
-              <Figure
-                name="dr-rasouli-shared-decision-consult"
-                alt="Dr. Jonathan Rasouli talking through treatment options during a consultation"
-                width={1600}
-                height={1200}
-                framed={false}
-              />
+              <figure className="overflow-hidden rounded-2xl shadow-[0_16px_40px_-20px_rgba(15,42,74,0.45)]">
+                <picture className="block sm:hidden">
+                  <source srcSet="/images/dr-rasouli-or-xray-review-mobile.webp" type="image/webp" />
+                  <img
+                    src="/images/dr-rasouli-or-xray-review-mobile.jpg"
+                    alt="Dr. Jonathan Rasouli reviewing a spine X-ray with his surgical team in the operating room"
+                    width={1020}
+                    height={1280}
+                    className="h-auto w-full"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+                <picture className="hidden sm:block">
+                  <source srcSet="/images/dr-rasouli-or-xray-review.webp" type="image/webp" />
+                  <img
+                    src="/images/dr-rasouli-or-xray-review.jpg"
+                    alt="Dr. Jonathan Rasouli reviewing a spine X-ray with his surgical team in the operating room"
+                    width={1600}
+                    height={1067}
+                    className="h-auto w-full"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+              </figure>
             </div>
           </section>
 
