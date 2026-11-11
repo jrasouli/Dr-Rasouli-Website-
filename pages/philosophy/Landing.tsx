@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
+import { CONDITION_PAGES } from "../../constants";
 import SEO from "../../components/SEO";
 import { Container, Eyebrow, Picture } from "../../components/ui";
 import { philosophySchema } from "../../components/philosophy/schema";
@@ -13,10 +14,10 @@ import {
 
 const SEO_TITLE = "My Philosophy on Spine Care | Jonathan Rasouli, MD";
 const DESCRIPTION =
-  "Conservative care first, shared decisions, and surgery only when it will truly help. How spine neurosurgeon Dr. Jonathan Rasouli approaches your care.";
+  "Conservative care first, shared decisions, and surgery only when it will truly help. How spine neurosurgeon Dr.\u00A0Jonathan\u00A0Rasouli approaches your care.";
 
 const PRINCIPLES_ALT =
-  "Dr. Rasouli's three principles of spine care: conservative care first, shared decisions, surgery only when it helps";
+  "Dr.\u00A0Rasouli's three principles of spine care: conservative care first, shared decisions, surgery only when it helps";
 
 const PRINCIPLES = [
   { href: "#conservative-care", label: "Conservative care first" },
@@ -24,16 +25,7 @@ const PRINCIPLES = [
   { href: "#surgery-when-it-helps", label: "Surgery only when it helps" },
 ];
 
-const CONDITIONS = [
-  { href: "/philosophy/cervical-stenosis", label: "Cervical spinal stenosis" },
-  { href: "/philosophy/lumbar-stenosis", label: "Lumbar spinal stenosis" },
-  { href: "/philosophy/herniated-disc", label: "Herniated discs in the neck and lower back" },
-  { href: "/philosophy/compression-fractures", label: "Osteoporotic compression fractures and vertebral augmentation" },
-  { href: "/philosophy/fusion-vs-disc-replacement", label: "Fusion vs. artificial disc replacement" },
-  { href: "/philosophy/spinal-deformity", label: "Adult scoliosis and kyphosis (spinal deformity)" },
-];
-
-const HERO_ALT = "Dr. Jonathan Rasouli explaining a spine MRI to a patient using a spine model";
+const HERO_ALT = "Dr.\u00A0Jonathan\u00A0Rasouli explaining a spine MRI to a patient using a spine model";
 
 /** Full graphic from the lg breakpoint, where the bitmap labels stay readable.
  *  Narrower screens crop to the three icons and set the labels in HTML. */
@@ -171,7 +163,7 @@ const Landing: React.FC = () => {
                   <source srcSet="/images/dr-rasouli-or-xray-review-mobile.webp" type="image/webp" />
                   <img
                     src="/images/dr-rasouli-or-xray-review-mobile.jpg"
-                    alt="Dr. Jonathan Rasouli reviewing a spine X-ray with his surgical team in the operating room"
+                    alt={"Dr.\u00A0Jonathan\u00A0Rasouli reviewing a spine X-ray with his surgical team in the operating room"}
                     width={1020}
                     height={1280}
                     className="h-auto w-full"
@@ -183,7 +175,7 @@ const Landing: React.FC = () => {
                   <source srcSet="/images/dr-rasouli-or-xray-review.webp" type="image/webp" />
                   <img
                     src="/images/dr-rasouli-or-xray-review.jpg"
-                    alt="Dr. Jonathan Rasouli reviewing a spine X-ray with his surgical team in the operating room"
+                    alt={"Dr.\u00A0Jonathan\u00A0Rasouli reviewing a spine X-ray with his surgical team in the operating room"}
                     width={1600}
                     height={1067}
                     className="h-auto w-full"
@@ -210,7 +202,7 @@ const Landing: React.FC = () => {
             Learn more about specific conditions
           </h2>
           <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {CONDITIONS.map((item) => (
+            {CONDITION_PAGES.map((item) => (
               <li key={item.href}>
                 <Link
                   to={item.href}

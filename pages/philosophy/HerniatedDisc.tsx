@@ -13,7 +13,7 @@ import {
 } from "../../components/philosophy/ui";
 import type { FaqEntry } from "../../components/philosophy/schema";
 
-const SEO_TITLE = "Herniated Disc Treatment: Neck & Back | Dr. Rasouli";
+const SEO_TITLE = "Herniated Disc Treatment: Neck & Back | Dr.\u00A0Rasouli";
 const DESCRIPTION =
   "Most herniated discs heal without surgery. Learn the symptoms, warning signs, and when surgery makes sense for neck or back disc herniations.";
 

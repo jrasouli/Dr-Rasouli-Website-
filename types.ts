@@ -22,6 +22,8 @@ export interface ServiceItem {
   description: string;
   icon: LucideIcon;
   details?: string[];
+  /** Matching patient-education pages under /philosophy. */
+  links?: { href: string; label: string }[];
 }
 
 export interface Credential {

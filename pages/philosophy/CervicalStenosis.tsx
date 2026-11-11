@@ -14,9 +14,9 @@ import {
 } from "../../components/philosophy/ui";
 import type { FaqEntry } from "../../components/philosophy/schema";
 
-const SEO_TITLE = "Cervical Spinal Stenosis Treatment | Dr. Rasouli";
+const SEO_TITLE = "Cervical Spinal Stenosis Treatment | Dr.\u00A0Rasouli";
 const DESCRIPTION =
-  "Neck stenosis can pinch nerves or the spinal cord. Learn symptoms, when non-surgical care works, and when surgery makes sense, from Dr. Jonathan Rasouli.";
+  "Neck stenosis can pinch nerves or the spinal cord. Learn symptoms, when non-surgical care works, and when surgery makes sense, from Dr.\u00A0Jonathan\u00A0Rasouli.";
 
 const FAQS: FaqEntry[] = [
   {

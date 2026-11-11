@@ -4,7 +4,7 @@ import SocialButtons from '../components/SocialButtons';
 import MediaCarousel from '../components/MediaCarousel';
 import SEO from '../components/SEO';
 import { Container, PageHeader, ButtonLink, Picture } from '../components/ui';
-import { APPOINTMENT_URL } from '../constants';
+import { APPOINTMENT_URL, CONTACT_INFO } from '../constants';
 
 const TIMELINE = [
   {
@@ -28,8 +28,8 @@ const About: React.FC = () => {
   return (
     <div className="bg-white">
       <SEO 
-        title={"About Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli | Board-Certified Spinal Neurosurgeon"}
-        description={"Learn about Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, a board-certified, fellowship-trained spinal neurosurgeon seeing patients in New Jersey and Staten Island. Read about his background and training."}
+        title={"About Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli | Training & Background"}
+        description={"Background and training of Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, a board-certified spinal neurosurgeon. Cleveland Clinic spine fellowship and Mount Sinai residency."}
         canonicalPath="/about"
         breadcrumbs={[
           { name: "Home", item: "/" },
@@ -97,8 +97,8 @@ const About: React.FC = () => {
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
               <ButtonLink href={APPOINTMENT_URL}>Request an Appointment</ButtonLink>
               <ButtonLink href="/credentials" variant="secondary">View Full Credentials</ButtonLink>
-              <a href="tel:2013993388" className="inline-flex items-center gap-2 font-semibold text-navy-800 hover:text-teal-700 sm:ml-2">
-                <Phone size={18} className="text-teal-700" /> (201) 399-3388
+              <a href={CONTACT_INFO.phoneTel} className="inline-flex items-center gap-2 font-semibold text-navy-800 hover:text-teal-700 sm:ml-2">
+                <Phone size={18} className="text-teal-700" /> {CONTACT_INFO.phone}
               </a>
             </div>
           </div>

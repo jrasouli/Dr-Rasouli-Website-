@@ -35,8 +35,8 @@ const Credentials: React.FC = () => {
   return (
     <div className="bg-white">
        <SEO 
-        title={"Credentials & CV | Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, Board-Certified Spinal Neurosurgeon"}
-        description={"Credentials of Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, board-certified spinal neurosurgeon: Cleveland Clinic complex spinal surgery fellowship, Mount Sinai neurosurgery residency, Albert Einstein College of Medicine, Castle Connolly Top Doctor 2023–2026."}
+        title={"Credentials & CV | Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, MD"}
+        description={"Credentials of Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli: Cleveland Clinic spine fellowship, Mount Sinai neurosurgery residency, and Castle Connolly Top Doctor."}
         canonicalPath="/credentials"
         breadcrumbs={[
           { name: "Home", item: "/" },

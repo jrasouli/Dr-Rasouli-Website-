@@ -124,8 +124,7 @@ const News: React.FC = () => {
           "datePublished": article.iso,
           "url": article.url,
           "about": {
-            "@type": "Person",
-            "name": "Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli"
+            "@id": "https://rasouli-md.com/#physician"
           }
         }
       }))
@@ -137,8 +136,8 @@ const News: React.FC = () => {
   return (
     <div className="bg-white">
       <SEO 
-        title={"In the News | Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, Board-Certified Spinal Neurosurgeon"}
-        description={"Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, a board-certified spinal neurosurgeon in New Jersey and Staten Island, featured in the New York Post, CNN, CBC Radio, Becker's Spine Review, and more. Read about his groundbreaking cases and expert insights on brain health and spine surgery."}
+        title={"In the News | Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, MD"}
+        description={"News featuring spinal neurosurgeon Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli: the New York Post, CNN, The Washington Post, CBC Radio, and Becker's Spine Review."}
         canonicalPath="/news"
         schema={newsSchema}
         breadcrumbs={[

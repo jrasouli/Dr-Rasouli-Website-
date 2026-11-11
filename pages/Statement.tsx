@@ -8,7 +8,7 @@ const Statement: React.FC = () => {
     <div className="bg-white">
       <SEO 
         title={"Personal Statement | Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli"}
-        description={"Learn about Dr.\u00A0Jonathan\u00A0Rasouli's patient-first philosophy and commitment to treating every patient with precision and compassion. Board-certified neurosurgeon serving New Jersey and Staten Island."}
+        description={"Personal statement from Dr.\u00A0Jonathan\u00A0Rasouli on patient-first spine care, conservative treatment first, and surgery only when it helps."}
         canonicalPath="/statement"
         breadcrumbs={[
           { name: "Home", item: "/" },
@@ -34,7 +34,7 @@ const Statement: React.FC = () => {
           <div className="md:col-span-5">
             <Picture
               name="dr-rasouli-hero"
-              alt="Dr.&nbsp;Jonathan&nbsp;J.&nbsp;Rasouli, MD"
+              alt={"Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, MD"}
               width={1000}
               height={1500}
               className="block"

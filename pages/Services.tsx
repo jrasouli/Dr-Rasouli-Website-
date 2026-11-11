@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { SERVICES } from '../constants';
+import { Link } from 'react-router-dom';
+import { SERVICES, APPOINTMENT_URL, CONTACT_INFO } from '../constants';
 import { ChevronDown, HeartHandshake, Phone } from 'lucide-react';
 import SEO from '../components/SEO';
 import { Container, PageHeader, ButtonLink } from '../components/ui';
-import { APPOINTMENT_URL } from '../constants';
 
 const Services: React.FC = () => {
   const [openId, setOpenId] = useState<string | null>('deformity');
@@ -53,7 +53,7 @@ const Services: React.FC = () => {
         "name": "How do I schedule a consultation with Dr.\u00A0Rasouli?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You can schedule a consultation by calling (201) 399-3388 or by visiting the NeuroSpine Plus website at neurospineplus.com/contact-us to book an appointment online."
+          "text": `You can schedule a consultation by calling ${CONTACT_INFO.phone} or by visiting the NeuroSpine Plus website at neurospineplus.com/contact-us to book an appointment online.`
         }
       }
     ]
@@ -62,8 +62,8 @@ const Services: React.FC = () => {
   return (
     <div className="bg-white">
       <SEO 
-        title={"Spine Surgery Services | Minimally Invasive, Endoscopic & Robotic | Dr.\u00A0Rasouli, NJ & Staten Island"}
-        description={"Dr.\u00A0Rasouli offers complex spinal deformity correction, minimally invasive and endoscopic spine surgery, robotic-assisted procedures, adult scoliosis treatment, and more in New Jersey and Staten Island."}
+        title={"Spine Surgery Services | Dr.\u00A0Rasouli, NJ & Staten Island"}
+        description={"Complex spinal deformity, minimally invasive and endoscopic surgery, and robotic-assisted procedures with Dr.\u00A0Rasouli in New Jersey and Staten Island."}
         canonicalPath="/services"
         schema={faqSchema}
         breadcrumbs={[
@@ -100,6 +100,16 @@ const Services: React.FC = () => {
                       <ChevronDown className={`shrink-0 text-slate-500 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
                     </button>
                     </h2>
+                    {service.links && service.links.length > 0 && (
+                      <p className={`px-5 md:px-6 pb-4 text-slate-700 ${isOpen ? 'bg-sand md:pl-[84px]' : ''}`}>
+                        {service.links.map((link, index) => (
+                          <React.Fragment key={link.href}>
+                            {index > 0 && <span className="text-slate-300" aria-hidden="true"> · </span>}
+                            <Link to={link.href} className="font-semibold text-teal-700 underline underline-offset-2 hover:text-navy-800">{link.label}</Link>
+                          </React.Fragment>
+                        ))}
+                      </p>
+                    )}
                     {isOpen && (
                       <div className="px-5 md:px-6 pb-7 pt-1 md:pl-[84px] bg-sand animate-fadeIn">
                         <p className="text-slate-700 text-lg leading-relaxed mb-5">{service.description}</p>
@@ -133,8 +143,8 @@ const Services: React.FC = () => {
               <h2 className="text-xl font-semibold mb-2">Schedule a consultation</h2>
               <p className="text-navy-100/85 mb-5">Appointments are available at five NeuroSpine Plus offices across New Jersey and Staten Island.</p>
               <ButtonLink href={APPOINTMENT_URL} className="w-full">Request an Appointment</ButtonLink>
-              <a href="tel:2013993388" className="mt-4 flex items-center justify-center gap-2 font-semibold text-white hover:text-teal-300">
-                <Phone size={18} className="text-teal-300" /> (201) 399-3388
+              <a href={CONTACT_INFO.phoneTel} className="mt-4 flex items-center justify-center gap-2 font-semibold text-white hover:text-teal-300">
+                <Phone size={18} className="text-teal-300" /> {CONTACT_INFO.phone}
               </a>
             </div>
           </aside>

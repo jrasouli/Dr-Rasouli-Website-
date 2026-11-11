@@ -2,224 +2,60 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Star, ChevronRight, CheckCircle2, MapPin, Phone, ExternalLink } from 'lucide-react';
 import SEO from '../components/SEO';
-import { SERVICES, TESTIMONIALS, OFFICE_LOCATIONS, APPOINTMENT_URL, CASTLE_CONNOLLY_URL, SOCIAL_LINKS } from '../constants';
+import { SERVICES, TESTIMONIALS, OFFICE_LOCATIONS, APPOINTMENT_URL, CASTLE_CONNOLLY_URL, CONDITION_PAGES, CONTACT_INFO } from '../constants';
 import MediaCarousel from '../components/MediaCarousel';
 import CredentialsBadges from '../components/CredentialsBadges';
 import SocialButtons from '../components/SocialButtons';
 import { Container, ButtonLink, Eyebrow, SectionHeading, Picture } from '../components/ui';
+import { faqLd, physicianLd, practiceLd, websiteLd, SITE_URL } from '../components/schema';
 
-const SITE_URL = 'https://rasouli-md.com';
+const HOME_DESCRIPTION = "Board-certified spine surgeon Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli treats complex and minimally invasive spine conditions in Paramus, NJ and Staten Island, New York.";
 
-const clinicLocations = OFFICE_LOCATIONS.map((loc) => ({
-  "@type": "MedicalClinic",
-  "name": `NeuroSpine Plus - ${loc.city}`,
-  ...(loc.url.includes('neurospineplus.com') ? { "url": loc.url } : {}),
-  "telephone": "+1-201-399-3388",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": loc.street,
-    "addressLocality": loc.locality,
-    "addressRegion": loc.state,
-    "postalCode": loc.postalCode,
-    "addressCountry": "US"
-  }
-}));
+const HOME_FAQS = [
+  {
+    question: "Where does Dr.\u00A0Rasouli see patients?",
+    answer: "Dr.\u00A0Rasouli practices with NeuroSpine Plus and sees patients at offices in Paramus, North Bergen, Jersey City, and Edison, New Jersey, and on Staten Island, New York. His hospital affiliations are Hudson Regional Hospital in Secaucus, NJ and Bayonne Medical Center in Bayonne, NJ.",
+  },
+  {
+    question: "Does Dr.\u00A0Rasouli perform minimally invasive or robotic spine surgery?",
+    answer: "Yes. Dr.\u00A0Rasouli specializes in robotic-assisted, minimally invasive, and complex spinal deformity surgery. Minimally invasive techniques, including endoscopic spine surgery, use smaller incisions for faster recovery, less pain, and reduced tissue damage.",
+  },
+  {
+    question: "How can I get a second opinion or schedule a consultation?",
+    answer: `Dr.\u00A0Rasouli welcomes second opinion consultations and believes informed patients make the best decisions about their care. Call ${CONTACT_INFO.phone} or request an appointment at neurospineplus.com/contact-us. Please bring your recent imaging to your appointment.`,
+  },
+];
+
+function renderFaqAnswer(text: string): React.ReactNode {
+  const phone = CONTACT_INFO.phone;
+  const site = 'neurospineplus.com/contact-us';
+  const pattern = new RegExp(`(${phone.replace(/[()]/g, '\\$&')}|${site.replace(/\./g, '\\.')})`, 'g');
+  const parts = text.split(pattern);
+  return parts.map((part, index) => {
+    if (part === phone) {
+      return <a key={index} href={CONTACT_INFO.phoneTel} className="font-semibold text-navy-800 hover:text-teal-700">{part}</a>;
+    }
+    if (part === site) {
+      return <a key={index} href={APPOINTMENT_URL} target="_blank" rel="noopener noreferrer" className="font-semibold text-teal-700 underline underline-offset-2 hover:text-navy-800">{part}</a>;
+    }
+    return <React.Fragment key={index}>{part}</React.Fragment>;
+  });
+}
 
 const Home: React.FC = () => {
-  const physicianSchema = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Physician",
-    "@id": `${SITE_URL}/#physician`,
-    "name": "Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, MD",
-    "image": `${SITE_URL}/images/dr-rasouli-headshot-2026.jpg`,
-    "description": "Board-certified, fellowship-trained spinal neurosurgeon specializing in complex spinal deformity, minimally invasive surgery, and robotic-assisted spine procedures.",
-    "url": SITE_URL,
-    "telephone": "+1-201-399-3388",
-    "medicalSpecialty": [
-      "https://schema.org/Neurology",
-      {
-        "@type": "MedicalSpecialty",
-        "name": "Spinal Neurosurgery"
-      },
-      {
-        "@type": "MedicalSpecialty", 
-        "name": "Complex Spinal Deformity Surgery"
-      }
-    ],
-    "knowsAbout": [
-      "Complex Spinal Deformity",
-      "Adult Scoliosis",
-      "Minimally Invasive Spine Surgery",
-      "Robotic-Assisted Spine Surgery",
-      "Spinal Tumors",
-      "Spinal Trauma",
-      "Cervical Spine Surgery",
-      "Lumbar Fusion",
-      "Artificial Disc Replacement",
-      "Neurocritical Care"
-    ],
-    "alumniOf": [
-      {
-        "@type": "EducationalOrganization",
-        "name": "Cleveland Clinic Foundation",
-        "description": "Complex Spinal Surgery Fellowship"
-      },
-      {
-        "@type": "EducationalOrganization",
-        "name": "The Mount Sinai Hospital",
-        "description": "Neurological Surgery Residency"
-      },
-      {
-        "@type": "EducationalOrganization",
-        "name": "Albert Einstein College of Medicine",
-        "description": "Doctor of Medicine (M.D.)"
-      }
-    ],
-    "hasCredential": [
-      {
-        "@type": "EducationalOccupationalCredential",
-        "credentialCategory": "Board Certification",
-        "name": "American Board of Neurological Surgery",
-        "dateCreated": "2023-05"
-      }
-    ],
-    "award": [
-      "Castle Connolly Top Doctor 2023",
-      "Castle Connolly Top Doctor 2024",
-      "Castle Connolly Top Doctor 2025",
-      "Castle Connolly Top Doctor 2026",
-      "Castle Connolly Rising Star 2023",
-      "Alpha Omega Alpha Honor Medical Society 2011"
-    ],
-    "workLocation": [
-      {
-        "@type": "Hospital",
-        "name": "Hudson Regional Hospital",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Secaucus",
-          "addressRegion": "NJ",
-          "addressCountry": "US"
-        }
-      },
-      {
-        "@type": "Hospital",
-        "name": "Bayonne Medical Center",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Bayonne",
-          "addressRegion": "NJ",
-          "addressCountry": "US"
-        }
-      }
-    ],
-    "affiliation": {
-      "@type": "MedicalOrganization",
-      "name": "NeuroSpine Plus",
-      "url": "https://neurospineplus.com"
-    },
-    "location": clinicLocations,
-    "sameAs": [
-      "https://www.youtube.com/c/virtualglobalspineconference",
-      "https://www.healthgrades.com/physicians/dr-jonathan-rasouli",
-      "https://www.doximity.com/pub/jonathan-rasouli-md",
-      SOCIAL_LINKS.instagram,
-      SOCIAL_LINKS.x,
-      SOCIAL_LINKS.linkedin,
-      "https://health.usnews.com/doctors/jonathan-rasouli-935230"
-    ]
-  });
-
-  const businessSchema = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
-    "@id": `${SITE_URL}/#practice`,
-    "name": "Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, MD - Spine Neurosurgery",
-    "description": "Board-certified spine neurosurgery practice specializing in complex spinal deformity, minimally invasive surgery, and robotic-assisted procedures.",
-    "url": SITE_URL,
-    "telephone": "+1-201-399-3388",
-    "priceRange": "$$$$",
-    "medicalSpecialty": "Neurosurgery",
-    "location": clinicLocations,
-    "availableService": [
-      {
-        "@type": "MedicalProcedure",
-        "name": "Complex Spinal Deformity Surgery"
-      },
-      {
-        "@type": "MedicalProcedure",
-        "name": "Minimally Invasive Spine Surgery"
-      },
-      {
-        "@type": "MedicalProcedure",
-        "name": "Robotic-Assisted Spine Surgery"
-      },
-      {
-        "@type": "MedicalProcedure",
-        "name": "Adult Scoliosis Correction"
-      },
-      {
-        "@type": "MedicalProcedure",
-        "name": "Lumbar Fusion"
-      },
-      {
-        "@type": "MedicalProcedure",
-        "name": "Cervical Spine Surgery"
-      },
-      {
-        "@type": "MedicalProcedure",
-        "name": "Artificial Disc Replacement"
-      },
-      {
-        "@type": "MedicalProcedure",
-        "name": "Spinal Tumor Surgery"
-      }
-    ],
-    "areaServed": [
-      {
-        "@type": "State",
-        "name": "New Jersey"
-      },
-      {
-        "@type": "State",
-        "name": "New York"
-      }
-    ],
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "40.7920",
-      "longitude": "-74.0650"
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "09:00",
-      "closes": "17:00"
-    },
-    "potentialAction": {
-      "@type": "ReserveAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://neurospineplus.com/contact-us/",
-        "actionPlatform": [
-          "http://schema.org/DesktopWebPlatform",
-          "http://schema.org/MobileWebPlatform"
-        ]
-      },
-      "result": {
-        "@type": "Reservation",
-        "name": "Book Appointment"
-      }
-    }
-  });
+  const physicianSchema = JSON.stringify(physicianLd());
+  const businessSchema = JSON.stringify(practiceLd());
+  const websiteSchema = JSON.stringify(websiteLd());
+  const faqSchema = JSON.stringify(faqLd(`${SITE_URL}/#faq`, HOME_FAQS));
 
   return (
     <div className="flex flex-col">
-      <SEO 
-        title={"Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, MD | Board-Certified Spinal Neurosurgeon | NJ & Staten Island"}
-        description={"Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli is a board-certified, fellowship-trained spinal neurosurgeon specializing in complex spinal deformity, minimally invasive surgery, and robotic-assisted procedures. Serving patients in New Jersey and Staten Island, NY. Call (201) 399-3388."}
+      <SEO
+        title={"Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, MD | Spine Surgeon, NJ & Staten Island"}
+        description={HOME_DESCRIPTION}
         canonicalPath="/"
-        schema={[physicianSchema, businessSchema]}
+        preloadImage="/images/dr-rasouli-navy-suit.avif"
+        schema={[physicianSchema, businessSchema, websiteSchema, faqSchema]}
       />
 
       {/* Hero */}
@@ -234,6 +70,7 @@ const Home: React.FC = () => {
                   name="dr-rasouli-navy-suit"
                   alt={"Dr.\u00A0Jonathan\u00A0J.\u00A0Rasouli, MD, in a navy suit"}
                   priority
+                  avif
                   width={992}
                   height={1502}
                   className="block"
@@ -252,8 +89,8 @@ const Home: React.FC = () => {
               </p>
               <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
                 <ButtonLink href={APPOINTMENT_URL} className="text-lg px-7">Request an Appointment</ButtonLink>
-                <a href="tel:2013993388" className="inline-flex items-center gap-2 text-lg font-semibold text-white hover:text-teal-300">
-                  <Phone size={20} className="text-teal-300" /> Call (201) 399-3388
+                <a href={CONTACT_INFO.phoneTel} className="inline-flex items-center gap-2 text-lg font-semibold text-white hover:text-teal-300">
+                  <Phone size={20} className="text-teal-300" /> Call {CONTACT_INFO.phone}
                 </a>
               </div>
 
@@ -355,6 +192,43 @@ const Home: React.FC = () => {
         </Container>
       </section>
 
+      <section className="py-16 md:py-24 bg-white" id="conditions" aria-labelledby="conditions-heading">
+        <Container>
+          <SectionHeading
+            eyebrow="Conditions"
+            title={<span id="conditions-heading">Conditions I treat</span>}
+            lead={<>Read how Dr.&nbsp;Rasouli approaches each condition on the <Link to="/philosophy" className="font-semibold text-teal-700 underline underline-offset-2 hover:text-navy-800">My Philosophy</Link> pages.</>}
+          />
+          <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {CONDITION_PAGES.map((item) => (
+              <li key={item.href}>
+                <Link
+                  to={item.href}
+                  className="group flex h-full items-center justify-between gap-4 rounded-xl border border-slate-200 bg-sand px-5 py-4 transition-colors hover:border-teal-700/40 hover:bg-white"
+                >
+                  <span className="font-serif text-lg font-semibold leading-snug text-navy-800 group-hover:text-teal-800">{item.label}</span>
+                  <ChevronRight className="shrink-0 text-teal-700" aria-hidden="true" />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
+
+      <section className="py-16 md:py-24 bg-sand" id="faq" aria-labelledby="home-faq-heading">
+        <Container narrow>
+          <SectionHeading eyebrow="Questions" title={<span id="home-faq-heading">Common questions</span>} />
+          <div className="mt-10 divide-y divide-slate-200 border-y border-slate-200">
+            {HOME_FAQS.map((item) => (
+              <div key={item.question} className="py-6">
+                <h3 className="text-xl font-semibold text-navy-800">{item.question}</h3>
+                <p className="mt-3 text-lg leading-relaxed text-slate-700">{renderFaqAnswer(item.answer)}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       <MediaCarousel />
 
       {/* Featured story */}
@@ -448,7 +322,7 @@ const Home: React.FC = () => {
           </div>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
             <ButtonLink href={APPOINTMENT_URL}>Request an Appointment</ButtonLink>
-            <p className="text-slate-700">All offices: <a href="tel:2013993388" className="font-semibold text-navy-800 hover:text-teal-700">(201) 399-3388</a></p>
+            <p className="text-slate-700">All offices: <a href={CONTACT_INFO.phoneTel} className="font-semibold text-navy-800 hover:text-teal-700">{CONTACT_INFO.phone}</a></p>
           </div>
         </Container>
       </section>
