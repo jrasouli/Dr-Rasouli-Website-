@@ -72,7 +72,7 @@ const CompressionFractures: React.FC = () => (
 
     <Section id="compression-nonsurgical" title="When is non-surgical care enough?">
       <p>
-        Many compression fractures are treated without a procedure. Pain often improves gradually over several weeks to a few months, though healing time varies from person to person, as the bone heals, though the vertebra may stay somewhat shorter. Care usually includes:
+        Many compression fractures are treated without a procedure. Pain often improves gradually over several weeks to a few months as the bone heals, though healing time varies from person to person and the vertebra may stay somewhat shorter. Care usually includes:
       </p>
       <BulletList
         items={[
