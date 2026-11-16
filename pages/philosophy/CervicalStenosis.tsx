@@ -91,7 +91,7 @@ const CervicalStenosis: React.FC = () => (
         ]}
       />
       <p>
-        I always let a patient's symptoms and clinical picture dictate care before findings on an MRI scan. "We treat the patient, not the picture".
+        I always let a patient's symptoms and clinical picture dictate care before findings on an MRI scan. "We treat the patient, not the picture."
       </p>
     </Section>
 

@@ -107,7 +107,7 @@ const HerniatedDisc: React.FC = () => (
         ]}
       />
       <p>
-        For lasting sciatica, surgery usually relieves leg pain faster. Over the long run, many surgical and non-surgical patients end up doing similarly well, so timing is often your choice. When sciatica persists, surgery often provides faster pain relief than continuing non-surgical treatment.
+        For lasting sciatica, surgery usually relieves leg pain faster. Over the long run, many surgical and non-surgical patients end up doing similarly well, so timing is often your choice.
       </p>
     </Section>
 

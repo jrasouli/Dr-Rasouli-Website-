@@ -72,7 +72,7 @@ const CompressionFractures: React.FC = () => (
 
     <Section id="compression-nonsurgical" title="When is non-surgical care enough?">
       <p>
-        Many compression fractures are treated without a procedure. Pain often settles over several weeks as the bone heals, though the vertebra may stay somewhat shorter. Care usually includes:
+        Many compression fractures are treated without a procedure. Pain often improves gradually over several weeks to a few months, though healing time varies from person to person, as the bone heals, though the vertebra may stay somewhat shorter. Care usually includes:
       </p>
       <BulletList
         items={[
@@ -101,7 +101,7 @@ const CompressionFractures: React.FC = () => (
 
     <Section id="how-augmentation-works" title="How does vertebral augmentation work?">
       <p>
-        Kyphoplasty is usually done through a small opening in the back, with X-ray guidance, while you are comfortable. A needle is placed into the fractured vertebra. A small balloon may be inflated inside the bone to make a space and, in some cases, to restore a little of the lost height. Bone cement is then placed into that space to stabilize the fracture. Many people go home the same day. The cement stabilizes that vertebra. It does not fuse the rest of the spine, and it does not treat osteoporosis by itself.
+        Kyphoplasty is typically done under sedation or general anesthesia, through a small opening in the back, with X-ray guidance. A needle is placed into the fractured vertebra. A small balloon may be inflated inside the bone to make a space and, in some cases, to restore a little of the lost height. Bone cement is then placed into that space to stabilize the fracture. Many people go home the same day. The cement stabilizes that vertebra. It does not fuse the rest of the spine, and it does not treat osteoporosis by itself.
       </p>
       <Figure
         name="vertebral-augmentation-before-during"
